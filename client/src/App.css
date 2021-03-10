@@ -1,0 +1,17 @@
+* {
+  background-color: #242582;
+}
+
+.App {
+  text-align: center;
+}
+
+.mainContainer {
+  background-color:  #242582;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.homeContainer {
+  align-items: center;
+}
