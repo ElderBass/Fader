@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+// import "./style.css";
 
-function NavTabs() {
+function Navbar() {
   // We'll go into the Hooks API later, for now, we are just using some code
   // from the react-router docs (https://reacttraining.com/react-router/web/api/Hooks/uselocation)
   // This allows the component to check the route any time the user uses a link to navigate.
@@ -10,21 +11,15 @@ function NavTabs() {
   //need to just make a style.css for this component
   const styles = {
     navbar: {
-        backgroundColor: "#242582"
+        backgroundColor: "#191919"
     },
     fader: {
-        color: "#F64C72",
+        color: "#C12A75",
         fontSize: "24px"
-    },
-    navLink: {
-        color: "rgb(255, 255, 255)",
-        fontSize: "18px"
-    },
-    signup: {
-        backgroundColor: "#F64C72",
+
     },
     login: {
-        backgroundColor: "#F64C72",
+        color: "#C12A75"
     }
   };
 
@@ -32,7 +27,7 @@ function NavTabs() {
     <nav className="navbar navbar-expand-lg navbar-dark" style={styles.navbar} >
       <div className="container-fluid">
         <Link style={styles.fader} className="navbar-brand" to="/">
-          Fader
+          fader
         </Link>
         <button
           className="navbar-toggler"
@@ -48,47 +43,9 @@ function NavTabs() {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                style={styles.navLink}
-                to="/"
-              >
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                to="/drumpad"
-                style={styles.navLink}
-              >
-                Enter Studio
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                style={styles.navLink}
-                to="/artists"
-                id="browseAll"
-              >
-                Browse Artists
-              </Link>
-            </li>
+
           </ul>
           <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <button
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#signUpModal"
-                className="btn btn-default"
-                style={styles.signup}
-              >
-                Signup
-              </button>
-            </li>
             <li className="nav-item">
               <button
                 className="btn btn-default"
@@ -113,4 +70,4 @@ function NavTabs() {
   );
 }
 
-export default NavTabs;
+export default Navbar;
