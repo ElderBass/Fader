@@ -1,12 +1,25 @@
+const express = require("express");
+const app = express();
 const router = require("express").Router();
+//const verifySignup = require("../../middleware/verifySignup");
+const controller = require("../../controllers/authController");
 const artistController = require("../../controllers/artistController");
 
-router.route("/").get(artistController.findAll);
+app.use(function(req, res, next) {
+  res.header(
+    "Access-Control-Allow-Headers",
+    "x-access-token, Origin, Content-Type, Accept"
+  );
+  next();
+});
 
-router.route("/signup").post(artistController.addUser);
+app.route("/").get(artistController.findAll);
 
+app.route("/signup").post(artistController.addUser);
+
+app.route("/login").post(controller.signin)
 
 //.put(booksController.update)
 //   .delete(booksController.remove);
 
-module.exports = router;
+module.exports = app;

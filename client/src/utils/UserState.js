@@ -1,6 +1,6 @@
 import React, { useContext, createContext, useReducer } from "react";
 // Don't forget to import all of your actions!
-import { ADD_USER } from "./action.js";
+import { ADD_USER, LOGIN_USER } from "./action.js";
 
 const UserContext = createContext();
 const { Provider } = UserContext;
@@ -12,10 +12,15 @@ const reducer = (state, action) => {
     return {
       ...state,
       user: action.user,
-      userToken: action.user._id,
-      isLoggedIn: true,
     }
 
+  case LOGIN_USER:
+    return {
+      ...state,
+      user: action.user,
+      userToken: action.user_id,
+      isLoggedIn: true,
+    }
   default:
     return state;
   }

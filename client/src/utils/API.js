@@ -9,8 +9,8 @@ export default {
     return axios.post("/api/artists/signup", userData);
   },
   // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
+  login: function(data) {
+    return axios.post("/api/artists/login" + data);
   },
   // Saves a book to the database
   saveBook: function(bookData) {

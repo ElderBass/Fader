@@ -1,6 +1,32 @@
 import React from "react";
+import { LOGIN_USER } from "../../utils/action";
+import API from "../../utils/API";
 
-function LoginForm() {
+import { useUserContext } from "../../utils/UserState";
+
+const LoginForm = (props) => {
+
+  const [ state, dispatch ] = useUserContext();
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const user = {
+      email: e.target.email.value,
+      password: e.target.password.value,
+    }
+
+    API.login(user)
+      .then(result => {
+        dispatch({
+          type: LOGIN_USER,
+          user: result.data
+        })
+      })
+      .catch(err => console.log(err));
+      console.log("user logged in....I think?");
+      console.log(state)
+  }
+
   return (
     <div
       className="modal fade"
@@ -23,15 +49,15 @@ function LoginForm() {
             ></button>
           </div>
           <div className="modal-body">
-            <form className="login needs-validation" noValidate>
+            <form className="login needs-validation" noValidate onSubmit={handleSignIn}>
               <div className="form-group">
-                <label htmlFor="login-email">Email address</label>
+                <label htmlFor="email">Email address</label>
                 <input
                   type="email"
                   className="form-control"
                   id="login-email"
                   placeholder="Email"
-                  name="login-email"
+                  name="email"
                   required
                 ></input>
                 <div className="invalid-feedback">
@@ -39,12 +65,12 @@ function LoginForm() {
                 </div>
               </div>
               <div className="form-group">
-                <label htmlFor="login-password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   className="form-control"
                   id="login-password"
-                  name="login-password"
+                  name="password"
                   placeholder="Password"
                   required
                 ></input>
