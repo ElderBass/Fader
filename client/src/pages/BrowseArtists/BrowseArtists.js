@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
 
-//import SearchForm from "../../components/Search/SearchForm";
+
 import SearchResults from "../../components/Search/SearchResults";
-//import SearchContext from "../../utils/searchContext";
 import API from "../../utils/API";
 
 import "./style.css";
 
 const BrowseArtists = (props) => {
-  //set up a state here that has search query
+  
   const [searchState, setSearchState] = useState({
     search: "",
     results: [],
     filter: "",
-    placeholder: "Search for Artists",
+    placeholder: "Choose a Filter to Optimize Your Search",
   });
 
-  //could potentially do a switch statement here by filter
   useEffect(() => {
     if (searchState.search !== "") {
-        return;
+      return;
     } else {
       getAllArtists();
     }
@@ -28,7 +26,6 @@ const BrowseArtists = (props) => {
   const getAllArtists = () => {
     API.getAllArtists()
       .then((results) => {
-        console.log(results);
         setSearchState({
           ...searchState,
           results: results.data,
@@ -40,8 +37,6 @@ const BrowseArtists = (props) => {
   const handleFilterChange = (e) => {
     e.preventDefault();
     let filter = e.target.value;
-    console.log("value in filter change = ", e.target.value);
-
     switch (filter) {
       case "Genre":
         setSearchState({
@@ -49,7 +44,8 @@ const BrowseArtists = (props) => {
           filter: filter,
           placeholder: "Start Typing a Genre to Filter Results",
           results: searchState.results.sort((a, b) =>
-            a.genre.localeCompare(b.genre)),
+            a.genre.localeCompare(b.genre)
+          ),
         });
         break;
       case "City":
@@ -58,7 +54,28 @@ const BrowseArtists = (props) => {
           filter: filter,
           placeholder: "Start Typing a City to Filter Results",
           results: searchState.results.sort((a, b) =>
-            a.city.localeCompare(b.city)),
+            a.city.localeCompare(b.city)
+          ),
+        });
+        break;
+      case "Stage Name":
+        setSearchState({
+          ...searchState,
+          filter: filter,
+          placeholder: "Start Typing a Stage Name to Filter Results",
+          results: searchState.results.sort((a, b) =>
+            a.stage_name.localeCompare(b.stage_name)
+          ),
+        });
+        break;
+      case "Last Name":
+        setSearchState({
+          ...searchState,
+          filter: filter,
+          placeholder: "Start Typing a Stage Name to Filter Results",
+          results: searchState.results.sort((a, b) =>
+            a.last_name.localeCompare(b.last_name)
+          ),
         });
         break;
     }
@@ -75,7 +92,7 @@ const BrowseArtists = (props) => {
           res.genre.toLowerCase().includes(query.toLowerCase())
         );
         setSearchState({
-            ...searchState,
+          ...searchState,
           results: filtered,
           search: query,
         });
@@ -85,7 +102,27 @@ const BrowseArtists = (props) => {
           res.city.toLowerCase().includes(query.toLowerCase())
         );
         setSearchState({
-            ...searchState,
+          ...searchState,
+          results: filtered,
+          search: query,
+        });
+        break;
+      case "Stage Name":
+        filtered = searchState.results.filter((res) =>
+          res.stage_name.toLowerCase().includes(query.toLowerCase())
+        );
+        setSearchState({
+          ...searchState,
+          results: filtered,
+          search: query,
+        });
+        break;
+      case "Last Name":
+        filtered = searchState.results.filter((res) =>
+          res.last_name.toLowerCase().includes(query.toLowerCase())
+        );
+        setSearchState({
+          ...searchState,
           results: filtered,
           search: query,
         });
@@ -94,25 +131,14 @@ const BrowseArtists = (props) => {
   };
 
   const handleResetSearch = (e) => {
-      e.preventDefault();
-      setSearchState({
-          ...searchState,
-          search: "",
-      })
-  }
-
-
-  const handleFormSubmit = (e) => {
     e.preventDefault();
-    //let filter = e.target.filter.value;
-    let search = e.target.search.value;
-    console.log("search inside form submit = ", search);
     setSearchState({
       ...searchState,
-      search: search,
-      searched: true,
+      search: "",
+      filter: "",
     });
   };
+
 
   return (
     <div>
@@ -129,8 +155,9 @@ const BrowseArtists = (props) => {
         <option value="Genre">Genre</option>
         <option value="City">City</option>
         <option value="Stage Name">Stage Name</option>
+        <option value="Last Name">Last Name</option>
       </select>
-      <form className="input-group mb-3 searchForm" onSubmit={handleFormSubmit}>
+      <form className="input-group mb-3 searchForm">
         <input
           type="text"
           name="search"
@@ -141,10 +168,11 @@ const BrowseArtists = (props) => {
           value={searchState.search}
         ></input>
         <button
-        type="submit"
-        className="btn btn-primary" 
-        id="searchBtn"
-        onClick={handleResetSearch}>
+          type="submit"
+          className="btn btn-primary"
+          id="searchBtn"
+          onClick={handleResetSearch}
+        >
           Reset Search
         </button>
       </form>
@@ -154,11 +182,3 @@ const BrowseArtists = (props) => {
 };
 
 export default BrowseArtists;
-
-{
-  /* <SearchForm
-handleFormSubmit={() => handleFormSubmit}
-handleFilterChange={() => handleFilterChange}
-handleInputChange={() => handleInputChange}
-/> */
-}
