@@ -34,3 +34,14 @@ function repeat(time) {
     }
     index++;
 }
+
+if (Tone.context.state !== 'running') {
+    Tone.context.resume();
+}
+
+document.documentElement.addEventListener(
+    "mousedown", function(){
+      mouse_IsDown = true;
+      if (Tone.context.state !== 'running') {
+      Tone.context.resume();
+    }})
