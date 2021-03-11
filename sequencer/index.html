@@ -49,8 +49,11 @@
     </div>
 
     <form>
-        <input id="bpmValue" type="range" name="amountRange" min="1" max="250" value="120" oninput="this.form.amountInput.value=this.value"/>
-        <input type="number" name="amountInput" min="1" max="250" value="120" oninput="this.form.amountRange.value=this.value"/>
+        <button id="startBtn" type="button">start</button>
+        <button id="stopBtn" type="button">stop</button>
+        <div>BPM <input id="bpm" name="slider" type="range" min="1" max="250" step="1" value="120" oninput="this.form.amountInput.value=this.value"></input></div>
+        <input type="number" id="bpmValue" name="amountInput" min="1" max="250" value="120"
+            oninput="this.form.slider.value=this.value" />
     </form>
     <script src="./index.js"></script>
 </body>

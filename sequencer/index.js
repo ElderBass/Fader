@@ -4,7 +4,6 @@ const synths = [
     new Tone.Synth(),
     new Tone.Synth(),
     new Tone.Synth()
-
 ];
 
 synths[0].oscillator.type = 'triangle';
@@ -20,21 +19,15 @@ const $rows = document.body.querySelectorAll('div > div')
 notes = ['G5', 'E4', 'C3'];
 let index = 0;
 
-let bpm = document.getElementById("bpmValue").value;
-console.log(bpm);
-
-Tone.Transport.bpm.value = bpm;
+Tone.Transport.bpm.value = 120;
 Tone.Transport.scheduleRepeat(repeat, '4n')
 Tone.Transport.start();
 
-// let bpm = Tone.Time(0.5).toFrequency();
 
 function repeat(time) {
-    // console.log("bpm is " + bpm);
     let step = index % 8;
     console.log(time);
     for (let i = 0; i < $rows.length; i++) {
-        // console.log(time);
         let synth = synths[i],
             note = notes[i],
             $row = $rows[i],
@@ -48,23 +41,20 @@ if (Tone.context.state !== 'running') {
     Tone.context.resume();
 }
 
-document.documentElement.addEventListener(
-    "mousedown", function () {
-        mouse_IsDown = true;
+document.getElementById("startBtn").addEventListener(
+    "click", function () {
         if (Tone.context.state !== 'running') {
             Tone.context.resume();
         }
 })
 
-// var slider = document.getElementById("range");
-// var output = document.getElementById("value");
-// var outputVarNo = document.getElementById("outputVar");
+document.getElementById("stopBtn").addEventListener(
+    "click", function () {
+        Tone.Transport.stop();
+    }
+)
 
-// let update = () => output.innerHTML = slider.value;
+document.getElementById('bpm').addEventListener('input', e => {
+    Tone.Transport.bpm.rampTo(+e.target.value, 0.1);
 
-// slider.addEventListener('input', update);
-// update();
-
-function updateTextInput(val) {
-    document.getElementById('textInput').value=val; 
-  }
+})
