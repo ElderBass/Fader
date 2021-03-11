@@ -4,7 +4,7 @@ const synths = [
     new Tone.Synth(),
     new Tone.Synth(),
     new Tone.Synth()
-    
+
 ];
 
 synths[0].oscillator.type = 'triangle';
@@ -19,13 +19,18 @@ synths.forEach(synth => synth.connect(gain));
 const $rows = document.body.querySelectorAll('div > div')
     notes = ['G5', 'E4', 'C3'];
 let index = 0;
-
-Tone.Transport.scheduleRepeat(repeat, '8n');
+Tone.Transport.bpm.value = 500;
+Tone.Transport.scheduleRepeat(repeat, '4n')
 Tone.Transport.start();
 
+// let bpm = Tone.Time(0.5).toFrequency();
+
 function repeat(time) {
+    // console.log("bpm is " + bpm);
     let step = index % 8;
+    console.log(time);
     for (let i = 0; i < $rows.length; i++){
+        // console.log(time);
         let synth = synths[i],
             note = notes[i],
             $row = $rows[i],
