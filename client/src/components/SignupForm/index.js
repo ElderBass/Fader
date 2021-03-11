@@ -11,62 +11,62 @@ function SignupForm() {
     <div
       className="modal fade"
       id="signUpModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="mixes"
       aria-hidden="true"
     >
       <div className="modal-dialog">
-        <div claclassNamess="modal-content">
+        <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="mixes">
               Sign Up
             </h5>
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
           <div className="modal-body">
-            <form className="row g-3 needs-validation" id="signup" novalidate>
+            <form className="row g-3 needs-validation" id="signup"noValidate>
               <div className="col-md-6">
-                <label for="email-input">Email address*</label>
+                <label htmlFor="email-input">Email address*</label>
                 <input
                   type="email"
                   className="form-control"
                   id="email-input"
-                  name="email"
+                  name="email-input"
                   placeholder="Email"
                   required
                 ></input>
-                <div class="invalid-feedback">
+                <div className="invalid-feedback">
                   You must enter a valid email address.
                 </div>
               </div>
               <div className="col-md-6">
-                <label for="password-input" required>
+                <label htmlFor="password-input" required>
                   Password*
                 </label>
                 <input
                   type="password"
                   className="form-control"
                   id="password-input"
-                  name="password"
+                  name="password-input"
                   placeholder="Password"
                   required
                 ></input>
-                <div class="invalid-feedback">
+                <div className="invalid-feedback">
                   You must enter a valid password. Minimum 8 characters.
                 </div>
               </div>
               <div className="col-md-6">
-                <label for="first-name-input">First Name*</label>
+                <label htmlFor="first-name-input">First Name*</label>
                 <input
                   type="text"
                   className="form-control"
                   id="first-name-input"
-                  name="first_name"
+                  name="first-name-input"
                   placeholder="First Name"
                   required
                 ></input>
@@ -75,12 +75,12 @@ function SignupForm() {
                 </div>
               </div>
               <div className="col-md-6">
-                <label for="last-name-input">Last Name*</label>
+                <label htmlFor="last-name-input">Last Name*</label>
                 <input
                   type="text"
                   className="form-control"
                   id="last-name-input"
-                  name="last_name"
+                  name="last-name-input"
                   placeholder="Last Name"
                   required
                 ></input>
@@ -89,12 +89,12 @@ function SignupForm() {
                 </div>
               </div>
               <div className="col-md-6">
-                <label for="stage-name-input">Stage Name*</label>
+                <label htmlFor="stage-name-input">Stage Name*</label>
                 <input
                   type="text"
                   className="form-control"
                   id="stage-name-input"
-                  name="stage_name"
+                  name="stage-name-input"
                   placeholder="Stage Name"
                   required
                 ></input>
@@ -102,11 +102,12 @@ function SignupForm() {
                   You must enter your stage/artist name.
                 </div>
               </div>
-              <div claclassNames="col-md-6">
-                <label for="genre-input">Genre*</label>
+              <div className="col-md-6">
+                <label htmlFor="genre-input">Genre*</label>
                 <select
                   className="form-select"
                   id="genre-input"
+                  name="genre-input"
                   aria-label="Select a Genre"
                   required
                 >
@@ -130,12 +131,12 @@ function SignupForm() {
                 <div className="invalid-feedback">You must select a genre.</div>
               </div>
               <div className="form-group col-md-12">
-                <label for="city-input">City*</label>
+                <label htmlFor="city-input">City*</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="city-input"
-                  name="city"
+                  name="city-input"
                   placeholder="City"
                   required
                 ></input>
@@ -146,7 +147,7 @@ function SignupForm() {
               <div
                 style={styles.alert}
                 id="alert"
-                class="alert alert-danger"
+                className="alert alert-danger"
                 role="alert"
               >
                 <span
@@ -156,7 +157,7 @@ function SignupForm() {
                 <span className="sr-only">Error:</span>{" "}
                 <span className="msg"></span>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
                   className="btn btn-secondary"
