@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 
-//import SearchContext from "../../../utils/searchContext";
+
 import ArtistCard from "./ArtistCard";
 import ResultsWrapper from "../SearchResults/ResultsWrapper";
 
 const SearchResults = (props) => {
-
-    //const { results } = useContext(SearchContext);
 
   return (
     <ResultsWrapper>
