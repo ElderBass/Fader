@@ -1,11 +1,44 @@
 import React from "react";
+import { useUserContext } from "../../utils/UserState";
+import API from "../../utils/API";
+import { ADD_USER } from "../../utils/action";
 
-function SignupForm() {
+const SignupForm = (props) => {
+
+  const [state, dispatch] = useUserContext();
 
     const styles = {
         alert: {
             display: "none",
+        },
+        modal: {
+          backgroundColor: "white",
         }
+    };
+
+    const handleFormSubmit = (e) => {
+      e.preventDefault();
+
+      const user = {
+        email: e.target.email.value,
+        password: e.target.password.value,
+        firstName: e.target.firstName.value,
+        lastName: e.target.lastName.value,
+        stageName: e.target.stageName.value,
+        genre: e.target.genre.value,
+        city: e.target.city.value
+      }
+      console.log(user)
+      API.addUser(user)
+        .then(result => {
+          console.log("result inside add user front end = ", result.data);
+          dispatch({
+            type: ADD_USER,
+            user: result.data
+          })
+        })
+        .catch(err => console.log(err));
+
     }
   return (
     <div
@@ -14,6 +47,7 @@ function SignupForm() {
       tabIndex="-1"
       aria-labelledby="mixes"
       aria-hidden="true"
+      style={styles.modal}
     >
       <div className="modal-dialog">
         <div className="modal-content">
@@ -29,14 +63,14 @@ function SignupForm() {
             ></button>
           </div>
           <div className="modal-body">
-            <form className="row g-3 needs-validation" id="signup"noValidate>
+            <form className="row g-3 needs-validation" id="signup"noValidate onSubmit={handleFormSubmit}>
               <div className="col-md-6">
-                <label htmlFor="email-input">Email address*</label>
+                <label htmlFor="email">Email address*</label>
                 <input
                   type="email"
                   className="form-control"
                   id="email-input"
-                  name="email-input"
+                  name="email"
                   placeholder="Email"
                   required
                 ></input>
@@ -45,14 +79,14 @@ function SignupForm() {
                 </div>
               </div>
               <div className="col-md-6">
-                <label htmlFor="password-input" required>
+                <label htmlFor="password" required>
                   Password*
                 </label>
                 <input
                   type="password"
                   className="form-control"
                   id="password-input"
-                  name="password-input"
+                  name="password"
                   placeholder="Password"
                   required
                 ></input>
@@ -61,12 +95,12 @@ function SignupForm() {
                 </div>
               </div>
               <div className="col-md-6">
-                <label htmlFor="first-name-input">First Name*</label>
+                <label htmlFor="firstName">First Name*</label>
                 <input
                   type="text"
                   className="form-control"
                   id="first-name-input"
-                  name="first-name-input"
+                  name="firstName"
                   placeholder="First Name"
                   required
                 ></input>
@@ -75,12 +109,12 @@ function SignupForm() {
                 </div>
               </div>
               <div className="col-md-6">
-                <label htmlFor="last-name-input">Last Name*</label>
+                <label htmlFor="lastName">Last Name*</label>
                 <input
                   type="text"
                   className="form-control"
                   id="last-name-input"
-                  name="last-name-input"
+                  name="lastName"
                   placeholder="Last Name"
                   required
                 ></input>
@@ -89,12 +123,12 @@ function SignupForm() {
                 </div>
               </div>
               <div className="col-md-6">
-                <label htmlFor="stage-name-input">Stage Name*</label>
+                <label htmlFor="stageName">Stage Name*</label>
                 <input
                   type="text"
                   className="form-control"
                   id="stage-name-input"
-                  name="stage-name-input"
+                  name="stageName"
                   placeholder="Stage Name"
                   required
                 ></input>
@@ -103,11 +137,11 @@ function SignupForm() {
                 </div>
               </div>
               <div className="col-md-6">
-                <label htmlFor="genre-input">Genre*</label>
+                <label htmlFor="genre">Genre*</label>
                 <select
                   className="form-select"
                   id="genre-input"
-                  name="genre-input"
+                  name="genre"
                   aria-label="Select a Genre"
                   required
                 >
@@ -131,12 +165,12 @@ function SignupForm() {
                 <div className="invalid-feedback">You must select a genre.</div>
               </div>
               <div className="form-group col-md-12">
-                <label htmlFor="city-input">City*</label>
+                <label htmlFor="city">City*</label>
                 <input
                   type="text"
                   className="form-control"
                   id="city-input"
-                  name="city-input"
+                  name="city"
                   placeholder="City"
                   required
                 ></input>

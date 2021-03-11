@@ -5,12 +5,8 @@ export default {
   getAllArtists: function() {
     return axios.get("/api/artists");
   },
-  // Gets the book with the given id
-  getArtistsGenre: function(genre) {
-    return axios.get("/api/artists/" + genre);
-  },
-  getArtistsCity: function(city) {
-    return axios.get("/api/artists/" + city);
+  addUser: function(userData) {
+    return axios.post("/api/artists/signup", userData);
   },
   // Deletes the book with the given id
   deleteBook: function(id) {

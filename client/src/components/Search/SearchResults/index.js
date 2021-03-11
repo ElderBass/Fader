@@ -13,9 +13,9 @@ const SearchResults = (props) => {
           <ArtistCard
             key={artist._id}
             image={artist.image}
-            stageName={artist.stage_name}
-            firstName={artist.first_name}
-            lastName={artist.last_name}
+            stageName={artist.stageName}
+            firstName={artist.firstName}
+            lastName={artist.lastName}
             genre={artist.genre}
             city={artist.city}
           />
