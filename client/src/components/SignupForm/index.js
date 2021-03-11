@@ -1,37 +1,71 @@
 import React from "react";
+import { useUserContext } from "../../utils/UserState";
+import API from "../../utils/API";
+import { ADD_USER } from "../../utils/action";
 
-function SignupForm() {
+const SignupForm = (props) => {
+
+  const [state, dispatch] = useUserContext();
 
     const styles = {
         alert: {
             display: "none",
+        },
+        modal: {
+          backgroundColor: "white",
         }
+    };
+
+    const handleFormSubmit = (e) => {
+      e.preventDefault();
+
+      const user = {
+        email: e.target.email.value,
+        password: e.target.password.value,
+        firstName: e.target.firstName.value,
+        lastName: e.target.lastName.value,
+        stageName: e.target.stageName.value,
+        genre: e.target.genre.value,
+        city: e.target.city.value
+      }
+      console.log(user)
+      API.addUser(user)
+        .then(result => {
+          console.log("result inside add user front end = ", result.data);
+          dispatch({
+            type: ADD_USER,
+            user: result.data
+          })
+        })
+        .catch(err => console.log(err));
+
     }
   return (
     <div
       className="modal fade"
       id="signUpModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="mixes"
       aria-hidden="true"
+      style={styles.modal}
     >
       <div className="modal-dialog">
-        <div claclassNamess="modal-content">
+        <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="mixes">
               Sign Up
             </h5>
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
           <div className="modal-body">
-            <form className="row g-3 needs-validation" id="signup" novalidate>
+            <form className="row g-3 needs-validation" id="signup"noValidate onSubmit={handleFormSubmit}>
               <div className="col-md-6">
-                <label for="email-input">Email address*</label>
+                <label htmlFor="email">Email address*</label>
                 <input
                   type="email"
                   className="form-control"
@@ -40,12 +74,12 @@ function SignupForm() {
                   placeholder="Email"
                   required
                 ></input>
-                <div class="invalid-feedback">
+                <div className="invalid-feedback">
                   You must enter a valid email address.
                 </div>
               </div>
               <div className="col-md-6">
-                <label for="password-input" required>
+                <label htmlFor="password" required>
                   Password*
                 </label>
                 <input
@@ -56,17 +90,17 @@ function SignupForm() {
                   placeholder="Password"
                   required
                 ></input>
-                <div class="invalid-feedback">
+                <div className="invalid-feedback">
                   You must enter a valid password. Minimum 8 characters.
                 </div>
               </div>
               <div className="col-md-6">
-                <label for="first-name-input">First Name*</label>
+                <label htmlFor="firstName">First Name*</label>
                 <input
                   type="text"
                   className="form-control"
                   id="first-name-input"
-                  name="first_name"
+                  name="firstName"
                   placeholder="First Name"
                   required
                 ></input>
@@ -75,12 +109,12 @@ function SignupForm() {
                 </div>
               </div>
               <div className="col-md-6">
-                <label for="last-name-input">Last Name*</label>
+                <label htmlFor="lastName">Last Name*</label>
                 <input
                   type="text"
                   className="form-control"
                   id="last-name-input"
-                  name="last_name"
+                  name="lastName"
                   placeholder="Last Name"
                   required
                 ></input>
@@ -89,12 +123,12 @@ function SignupForm() {
                 </div>
               </div>
               <div className="col-md-6">
-                <label for="stage-name-input">Stage Name*</label>
+                <label htmlFor="stageName">Stage Name*</label>
                 <input
                   type="text"
                   className="form-control"
                   id="stage-name-input"
-                  name="stage_name"
+                  name="stageName"
                   placeholder="Stage Name"
                   required
                 ></input>
@@ -102,11 +136,12 @@ function SignupForm() {
                   You must enter your stage/artist name.
                 </div>
               </div>
-              <div claclassNames="col-md-6">
-                <label for="genre-input">Genre*</label>
+              <div className="col-md-6">
+                <label htmlFor="genre">Genre*</label>
                 <select
                   className="form-select"
                   id="genre-input"
+                  name="genre"
                   aria-label="Select a Genre"
                   required
                 >
@@ -130,10 +165,10 @@ function SignupForm() {
                 <div className="invalid-feedback">You must select a genre.</div>
               </div>
               <div className="form-group col-md-12">
-                <label for="city-input">City*</label>
+                <label htmlFor="city">City*</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="city-input"
                   name="city"
                   placeholder="City"
@@ -146,7 +181,7 @@ function SignupForm() {
               <div
                 style={styles.alert}
                 id="alert"
-                class="alert alert-danger"
+                className="alert alert-danger"
                 role="alert"
               >
                 <span
@@ -156,7 +191,7 @@ function SignupForm() {
                 <span className="sr-only">Error:</span>{" "}
                 <span className="msg"></span>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
                   className="btn btn-secondary"

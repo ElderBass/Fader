@@ -5,7 +5,7 @@ function LoginForm() {
     <div
       className="modal fade"
       id="loginModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="login"
       aria-hidden="true"
     >
@@ -23,14 +23,15 @@ function LoginForm() {
             ></button>
           </div>
           <div className="modal-body">
-            <form className="login needs-validation" novalidate>
+            <form className="login needs-validation" noValidate>
               <div className="form-group">
-                <label for="login-email">Email address</label>
+                <label htmlFor="login-email">Email address</label>
                 <input
                   type="email"
                   className="form-control"
                   id="login-email"
                   placeholder="Email"
+                  name="login-email"
                   required
                 ></input>
                 <div className="invalid-feedback">
@@ -38,11 +39,12 @@ function LoginForm() {
                 </div>
               </div>
               <div className="form-group">
-                <label for="login-password">Password</label>
+                <label htmlFor="login-password">Password</label>
                 <input
                   type="password"
                   className="form-control"
                   id="login-password"
+                  name="login-password"
                   placeholder="Password"
                   required
                 ></input>
@@ -53,7 +55,7 @@ function LoginForm() {
               <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Close

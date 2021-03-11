@@ -3,15 +3,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ArtistSchema = new Schema({
-    first_name: {
+    firstName: {
         type: String,
         required: true
     },
-    last_name: {
+    lastName: {
         type: String,
         required: true,
     },
-    stage_name: {
+    stageName: {
         type: String,
         required: true,
     },
