@@ -17,9 +17,13 @@ gain.toMaster();
 synths.forEach(synth => synth.connect(gain));
 
 const $rows = document.body.querySelectorAll('div > div')
-    notes = ['G5', 'E4', 'C3'];
+notes = ['G5', 'E4', 'C3'];
 let index = 0;
-Tone.Transport.bpm.value = 500;
+
+let bpm = document.getElementById("bpmValue").value;
+console.log(bpm);
+
+Tone.Transport.bpm.value = bpm;
 Tone.Transport.scheduleRepeat(repeat, '4n')
 Tone.Transport.start();
 
@@ -29,12 +33,12 @@ function repeat(time) {
     // console.log("bpm is " + bpm);
     let step = index % 8;
     console.log(time);
-    for (let i = 0; i < $rows.length; i++){
+    for (let i = 0; i < $rows.length; i++) {
         // console.log(time);
         let synth = synths[i],
             note = notes[i],
             $row = $rows[i],
-            $input = $row.querySelector(`input:nth-child(${step +1 })`);
+            $input = $row.querySelector(`input:nth-child(${step + 1})`);
         if ($input.checked) synth.triggerAttackRelease(note, '8n', time);
     }
     index++;
@@ -45,8 +49,22 @@ if (Tone.context.state !== 'running') {
 }
 
 document.documentElement.addEventListener(
-    "mousedown", function(){
-      mouse_IsDown = true;
-      if (Tone.context.state !== 'running') {
-      Tone.context.resume();
-    }})
+    "mousedown", function () {
+        mouse_IsDown = true;
+        if (Tone.context.state !== 'running') {
+            Tone.context.resume();
+        }
+})
+
+// var slider = document.getElementById("range");
+// var output = document.getElementById("value");
+// var outputVarNo = document.getElementById("outputVar");
+
+// let update = () => output.innerHTML = slider.value;
+
+// slider.addEventListener('input', update);
+// update();
+
+function updateTextInput(val) {
+    document.getElementById('textInput').value=val; 
+  }

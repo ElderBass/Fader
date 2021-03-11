@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.12.63/Tone.js"></script>
- <link rel="stylesheet" href="./style.css">
-</head> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.12.63/Tone.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
 <body>
-    <div> 
+    <div>
         <div>
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
         </div>
     </div>
-    <div> 
+    <div>
         <div>
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
         </div>
     </div>
-    <div> 
+    <div>
         <div>
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
-        <input type = "checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
         </div>
     </div>
+
+    <form>
+        <input id="bpmValue" type="range" name="amountRange" min="1" max="250" value="120" oninput="this.form.amountInput.value=this.value"/>
+        <input type="number" name="amountInput" min="1" max="250" value="120" oninput="this.form.amountRange.value=this.value"/>
+    </form>
     <script src="./index.js"></script>
 </body>
+
 </html>
