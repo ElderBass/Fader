@@ -1,14 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-// const elderbass = require("../assets/images/elderbass.png");
-// const dirty = require("../assets/images/dirtymckenzie.png");
-// const slimer = require("../assets/images/slimer.png");
-// const halfspoon = require("../assets/images/halfspoon.png");
-// const record = require("../assets/images/record.png");
-
-
-// This file empties the Books collection and inserts the books below
 
 mongoose.connect(
   process.env.MONGODB_URI ||
@@ -17,9 +9,9 @@ mongoose.connect(
 
 const artistSeed = [
   {
-    stage_name: "Elder Bass",
-    first_name: "Seth",
-    last_name: "Zygarlicke",
+    stageName: "Elder Bass",
+    firstName: "Seth",
+    lastName: "Zygarlicke",
     image: "https://quilava-project2.herokuapp.com/assets/elderbass.png",
     genre: "Deep House",
     city: "Minneapolis",
@@ -27,9 +19,9 @@ const artistSeed = [
     password: "root19",
   },
   {
-    stage_name: "Dirty McKenzie",
-    first_name: "Dory",
-    last_name: "Kahale",
+    stageName: "Dirty McKenzie",
+    firstName: "Dory",
+    lastName: "Kahale",
     image: "https://quilava-project2.herokuapp.com/assets/dirtymckenzie.png",
     genre: "Roller Disco",
     city: "Richfield",
@@ -37,9 +29,9 @@ const artistSeed = [
     password: "root2",
   },
   {
-    stage_name: "Slimer",
-    first_name: "Jack",
-    last_name: "Battle",
+    stageName: "Slimer",
+    firstName: "Jack",
+    lastName: "Battle",
     image: "https://quilava-project2.herokuapp.com/assets/slimer.png",
     genre: "Psychedelic Rock",
     city: "Minneapolis",
@@ -47,9 +39,9 @@ const artistSeed = [
     password: "root3",
   },
   {
-    stage_name: "Half Spoon",
-    first_name: "Carson",
-    last_name: "Scholberg",
+    stageName: "Half Spoon",
+    firstName: "Carson",
+    lastName: "Scholberg",
     image: "https://quilava-project2.herokuapp.com/assets/halfspoon.png",
     genre: "Drum and Bass",
     city: "Minneapolis",
@@ -57,9 +49,9 @@ const artistSeed = [
     password: "root4",
   },
   {
-    stage_name: "Heyer Hat",
-    first_name: "Will",
-    last_name: "Heyer",
+    stageName: "Heyer Hat",
+    firstName: "Will",
+    lastName: "Heyer",
     image: "https://media.npr.org/assets/img/2020/02/12/1901_matt-sav_kevin-parker_1-1-5706c0e5ae33d1636ad25566656fd99b15158307-s800-c85.jpg",
     genre: "Indie Rock",
     city: "Minneapolis",

@@ -8,14 +8,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findByGenre: function(req, res) {
-    console.log("HEEEEEYYYYYYYYY")
-    console.log("req.params in findByGenre = ", req.params)
+  addUser: function ({body}, res) {
+    console.log("req.body inside addUser route = ", body);
     db.Artist
-      .find({genre: req.params.genre})
-      .then(response => {
-        console.log("response in find by genre = ", response)
-        res.json(response)
+      .create(body)
+      .then(result => {
+        console.log("result in addUser = ", result)
+        res.json(result);
       })
       .catch(err => res.status(422).json(err));
   }

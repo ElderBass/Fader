@@ -1,4 +1,9 @@
 console.clear();
+console.log("hello");
+document.documentElement.addEventListener('mousedown', () => {
+    if (Tone.context.state !== 'running') Tone.context.resume();
+});
+
 
 const synths = [
     new Tone.Synth(),
@@ -15,19 +20,18 @@ gain.toMaster();
 
 synths.forEach(synth => synth.connect(gain));
 
-const $rows = document.body.querySelectorAll('div > div')
-notes = ['G5', 'E4', 'C3'];
+const $rows = document.body.querySelectorAll('div > div'),
+    notes = ['G5', 'E4', 'C3'];
 let index = 0;
 
-Tone.Transport.bpm.value = 120;
-Tone.Transport.scheduleRepeat(repeat, '4n')
+Tone.Transport.scheduleRepeat(repeat, '8n');
 Tone.Transport.start();
-
 
 function repeat(time) {
     let step = index % 8;
-    console.log(time);
     for (let i = 0; i < $rows.length; i++) {
+        console.log("cool console log");
+        console.log(time);
         let synth = synths[i],
             note = notes[i],
             $row = $rows[i],
@@ -35,26 +39,4 @@ function repeat(time) {
         if ($input.checked) synth.triggerAttackRelease(note, '8n', time);
     }
     index++;
-}
-
-if (Tone.context.state !== 'running') {
-    Tone.context.resume();
-}
-
-document.getElementById("startBtn").addEventListener(
-    "click", function () {
-        if (Tone.context.state !== 'running') {
-            Tone.context.resume();
-        }
-})
-
-document.getElementById("stopBtn").addEventListener(
-    "click", function () {
-        Tone.Transport.stop();
-    }
-)
-
-document.getElementById('bpm').addEventListener('input', e => {
-    Tone.Transport.bpm.rampTo(+e.target.value, 0.1);
-
-})
+};
