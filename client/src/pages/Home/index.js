@@ -9,7 +9,7 @@ const Home = (props) => {
 
   useEffect(() => {
     console.log(state.user)
-  })
+  }, []);
 
   return (
     <div>

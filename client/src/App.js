@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import SignupForm from "./components/SignupForm";
-import LoginForm from "./components/LoginForm";
+import Login from "./pages/Login";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Browse from "./pages/BrowseArtists/BrowseArtists";
@@ -16,15 +16,15 @@ function App() {
       <Router>
         <UserProvider>
           <Navbar />
-          <SignupForm />
-          <LoginForm />
-          
+
+
           <div className="mainContainer">
-          <Home/>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/signup" component={SignupForm} />
+            <Route exact path="/login" component={Login} />
             <Route path="/artists" component={Browse} />
             {/* <Route exact path="/drumpad" component={Drumpad} />
-        <Route exact path="/profile" component={UserProfile} />
-        <Route path="/artists" component={AllArtists} /> */}
+        <Route exact path="/profile" component={UserProfile} /> */}
           </div>
           <Footer />
         </UserProvider>

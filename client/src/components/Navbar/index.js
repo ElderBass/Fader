@@ -34,9 +34,11 @@ function NavTabs() {
                 </a>
               </>
             ) : (
-              <a data-bs-toggle="modal" data-bs-target="#loginModal">
+              <Link to="/login"
+              //data-bs-toggle="modal" data-bs-target="#loginModal"
+              >
                 LOG IN{" "}
-              </a>
+              </Link>
             )}
           </Navbar.Text>
         </Navbar.Collapse>

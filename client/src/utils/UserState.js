@@ -12,6 +12,7 @@ const reducer = (state, action) => {
     return {
       ...state,
       user: action.user,
+      isSignedUp: true,
     }
 
   case LOGIN_USER:
@@ -31,7 +32,8 @@ const UserProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
     user: {},
     userToken: "", //can I just set this to mongo _id somehow?
-    isLoggedIn: false
+    isLoggedIn: false,
+    isSignedUp: false,
   });
 
   return <Provider value={[state, dispatch]} {...props}/>;
