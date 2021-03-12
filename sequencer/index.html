@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.12.63/Tone.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div>
+        <div>
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+        </div>
+    </div>
+    <div>
+        <div>
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+        </div>
+    </div>
+    <div>
+        <div>
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+        </div>
+    </div>
+
+    <form>
+        <button id="startBtn" type="button">start</button>
+        <button id="stopBtn" type="button">stop</button>
+        <div>BPM <input id="bpm" name="slider" type="range" min="1" max="250" step="1" value="120" oninput="this.form.amountInput.value=this.value"></input></div>
+        <input type="number" id="bpmValue" name="amountInput" min="1" max="250" value="120"
+            oninput="this.form.slider.value=this.value" />
+    </form>
+    <script src="./index.js"></script>
+</body>
+
+</html>
