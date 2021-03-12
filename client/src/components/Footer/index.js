@@ -8,7 +8,7 @@ function Footer() {
     return(
     <footer className="footer" id="quilavaFooter">
 
-        <Link to="/">Home</Link>
+
         <p>Fader&#174; 2021</p>
     </footer>
     )
