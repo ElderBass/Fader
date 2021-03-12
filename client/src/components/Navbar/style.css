@@ -3,8 +3,13 @@
 }
 .fader {
     color: #C12A75;
-    fontSize: 24px;
+    font-size: 24px;
 }
 .login {
     color: #C12A75;
+}
+#navButtons {
+    color: #C12A75;
+    font-family: 'Avenir-Heavy';
+    src: local('Avenir-Heavy'), url(/src/assets/fonts/Avenir.ttc) format('ttc');
 }

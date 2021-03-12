@@ -26,10 +26,7 @@
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
-<<<<<<< HEAD
-    "react-bootstrap": "^1.5.2"
-=======
+    "react-bootstrap": "^1.5.2",
     "okta": "^1.0.0"
->>>>>>> c2465c703b3775a1a2140ea5516e75ca6ad1ba31
   }
 }
