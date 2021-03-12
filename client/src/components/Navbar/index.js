@@ -1,36 +1,55 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar } from 'react-bootstrap';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Navbar } from "react-bootstrap";
+import logo from "../../assets/images/faderLogo.png";
+import { useUserContext } from "../../utils/UserState";
 import "./style.css";
 
 function NavTabs() {
+  const [state, dispatch] = useUserContext();
 
-  return(
-    <div className='NavTabs'>
- <Navbar>
-    <Navbar.Brand>
-      <img
-        src='src/assets/images/faderLogo.png'
-        className='d-inline-block align-top'
-      />
-    </Navbar.Brand>
-    <Navbar.Collapse className="justify-content-end">
-    <Navbar.Text id="navButtons">
-      LOG IN <a href="#login"></a>
-    </Navbar.Text>
-  </Navbar.Collapse>
-  </Navbar>
+  return (
+    <div className="NavTabs">
+      <Navbar>
+        <Navbar.Brand>
+          <img
+            src={logo}
+            style={{ height: "50px", width: "89px" }}
+            className="d-inline-block align-top"
+          />
+        </Navbar.Brand>
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text id="navButtons">
+            {state.isLoggedIn ? (
+              <>
+                <p style={{ color: "#7D7D7D" }}>
+                  Welcome,{" "}
+                  <span style={{ color: "#1EB100" }}>
+                    {state.user.stageName}
+                  </span>
+                </p>
+                <Link to="/logout">
+                  LOG OUT{" "}
+                </Link>
+              </>
+            ) : (
+              <Link to="/login"
+              //data-bs-toggle="modal" data-bs-target="#loginModal"
+              >
+                LOG IN{" "}
+              </Link>
+            )}
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Navbar>
     </div>
-
   );
-
-
 
   // We'll go into the Hooks API later, for now, we are just using some code
   // from the react-router docs (https://reacttraining.com/react-router/web/api/Hooks/uselocation)
   // This allows the component to check the route any time the user uses a link to navigate.
- // const location = useLocation();
+  // const location = useLocation();
 
   //need to just make a style.css for this component
   // const styles = {

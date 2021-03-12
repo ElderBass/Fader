@@ -24,8 +24,10 @@ const BrowseArtists = (props) => {
   }, [searchState.search]);
 
   const getAllArtists = () => {
+    console.log("inside all artists")
     API.getAllArtists()
       .then((results) => {
+        console.log("results inside get all =", results.data)
         setSearchState({
           ...searchState,
           results: results.data,

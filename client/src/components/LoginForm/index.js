@@ -1,75 +1,61 @@
 import React from "react";
 
-function LoginForm() {
+
+const LoginForm = (props) => {
+
+
   return (
-    <div
-      className="modal fade"
-      id="loginModal"
-      tabIndex="-1"
-      aria-labelledby="login"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="login">
+    <div className="container loginContainer">
+      <div className="row">
+        <h5 className="loginHeader" id="login">
+          Login
+        </h5>
+        <hr />
+      </div>
+      <div className="row">
+        <form
+          className="login needs-validation"
+          noValidate
+          onSubmit={props.handleSignIn}
+        >
+          <div className="form-group">
+            <label htmlFor="email">Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              id="login-email"
+              placeholder="Email"
+              name="email"
+              required
+            ></input>
+            <div className="invalid-feedback">
+              Please enter your email for your Quilava account.
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="login-password"
+              name="password"
+              placeholder="Password"
+              required
+            ></input>
+            <div className="invalid-feedback">
+              Please enter your password for your Quilava account.
+            </div>
+          </div>
+          <hr />
+          <div className="row loginFooter">
+            <button type="submit" id="loginBtn" className="btn btn-default">
               Login
-            </h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            </button>
           </div>
-          <div className="modal-body">
-            <form className="login needs-validation" noValidate>
-              <div className="form-group">
-                <label htmlFor="login-email">Email address</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="login-email"
-                  placeholder="Email"
-                  name="login-email"
-                  required
-                ></input>
-                <div className="invalid-feedback">
-                  Please enter your email for your Quilava account.
-                </div>
-              </div>
-              <div className="form-group">
-                <label htmlFor="login-password">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="login-password"
-                  name="login-password"
-                  placeholder="Password"
-                  required
-                ></input>
-                <div className="invalid-feedback">
-                  Please enter your password for your Quilava account.
-                </div>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="submit" id="loginBtn" className="btn btn-default">
-                  Login
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   );
-}
+};
 
 export default LoginForm;
