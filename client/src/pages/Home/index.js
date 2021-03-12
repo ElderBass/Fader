@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 
 import { useUserContext } from "../../utils/UserState";
 import Profile from "../Profile/Profile";
+import LandingModules from "../../components/LandingModules";
 
 const Home = (props) => {
 
@@ -18,7 +19,7 @@ const Home = (props) => {
       ) : (
         <div className="homeContainer">
           {/* really we'll want the landing component to appear here */}
-          <h2>Hello World</h2>
+          <LandingModules />
         </div>
       )}
     </div>
