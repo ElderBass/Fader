@@ -10,7 +10,6 @@ import Browse from "./pages/BrowseArtists/BrowseArtists";
 import { UserProvider } from "./utils/UserState";
 
 import "./App.css";
-import LandingModules from "./components/LandingModules";
 
 function App() {
   return (
