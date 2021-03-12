@@ -1,0 +1,59 @@
+.containerCustom {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.gridRow {
+  order: 0;
+  margin: 1rem;
+  background-color: #3A3A3A;
+  border-radius: 2rem;
+  border-style: solid;
+  border-width: thick;
+  border-color: #F7BA00;
+}
+
+.gridRow:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .5);
+}
+
+.gridRow:active{
+  transform: translateY(-1px);
+  box-shadow: 0 3.3px 6.67px rgba(0, 0, 0, .7)
+}
+
+.landingBtn {
+  border-radius: 2rem;
+  padding: 2rem;
+  background-color: #3A3A3A;
+}
+
+.btnText {
+  color: #FFE187;
+  background-color: #3A3A3A;
+}
+
+.btnText {
+  margin: 1rem;
+  text-align: center;
+  background-color: #3A3A3A;
+}
+
+/* .logSignBtn {
+  grid-area:logSignBtn;
+}
+
+.profileBtn {
+  grid-area: profileBtn;
+}
+
+.placeholderBtn {
+  grid-area: placeholderBtn;
+} */
+
+.landingImg {
+  height: 14rem;
+  margin: 1rem;
+  padding: 1rem;
+}
