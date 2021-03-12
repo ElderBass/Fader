@@ -1,0 +1,27 @@
+.signupHeader {
+    color: #C12A75;
+}
+
+.pageBreak {
+    border-top: 0.15rem solid #C12A75;
+}
+
+#bottomBtns {
+    display: flex;
+}
+
+.btn-secondary {
+    background-color: #C12A75;
+    width: 8rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#signupBtn {
+    border-style: solid;
+    border-color: #C87EA3;
+}
+
+#closeBtn {
+    background-color: #3A3A3A;
+}

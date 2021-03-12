@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 const LandingModules = (props) => {
+  console.log(props.history);
   const clickHandler = () => {
     console.log("button clicked!");
   };

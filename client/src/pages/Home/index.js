@@ -4,8 +4,8 @@ import { useUserContext } from "../../utils/UserState";
 import Profile from "../Profile/Profile";
 import LandingModules from "../../components/LandingModules";
 
-const Home = (props) => {
-
+const Home = (props, {history}) => {
+console.log(props.history);
   const [state, dispatch] = useUserContext();
 
   useEffect(() => {

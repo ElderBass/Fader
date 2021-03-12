@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
 
 import "./style.css";
 
 const SignupForm = (props) => {
-
+  const clickHandler = () => {
+    window.location.assign("/")
+  };
 
   return (
     <div className="container signupContainer">
@@ -12,7 +14,7 @@ const SignupForm = (props) => {
         <h4 className="signupHeader" id="signup">
           Your Studio Awaits...
         </h4>
-        <hr />
+        <hr className="pageBreak"></hr>
       </div>
       <div className="row">
         <form
@@ -146,14 +148,14 @@ const SignupForm = (props) => {
             <span className="sr-only">Error:</span>{" "}
             <span className="msg"></span>
           </div>
-          <div className="row">
-            <Link to="/">
-              <button type="button" className="btn btn-secondary">
-                Close
-              </button>
-            </Link>
-            <button type="submit" id="signupBtn" className="btn btn-default">
-              Sign Up
+          <hr className="pageBreak"></hr>
+          <div className="row" id="bottomBtns">
+            <button type="submit" className="btn btn-secondary" id="signupBtn">
+                Sign Up
+            </button>
+            <button type="button" className="btn btn-secondary" id="closeBtn" onClick={clickHandler}>
+              {/* <Redirect to="/">Cancel</Redirect> */}
+              Cancel
             </button>
           </div>
         </form>
