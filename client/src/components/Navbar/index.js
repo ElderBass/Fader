@@ -29,9 +29,9 @@ function NavTabs() {
                     {state.user.stageName}
                   </span>
                 </p>
-                <a data-bs-toggle="modal" data-bs-target="#logoutModal">
+                <Link to="/logout">
                   LOG OUT{" "}
-                </a>
+                </Link>
               </>
             ) : (
               <Link to="/login"

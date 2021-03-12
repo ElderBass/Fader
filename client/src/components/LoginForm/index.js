@@ -1,28 +1,8 @@
 import React from "react";
 
-//import { useUserContext } from "../../utils/UserState";
 
 const LoginForm = (props) => {
-  // const [state, dispatch] = useUserContext();
 
-  // const handleSignIn = (e) => {
-  //   e.preventDefault();
-  //   const user = {
-  //     email: e.target.email.value,
-  //     password: e.target.password.value,
-  //   };
-  //   console.log("user in login =", user);
-  //   API.login(user)
-  //     .then((result) => {
-  //       console.log("result in login = ", result.data);
-  //       dispatch({
-  //         type: LOGIN_USER,
-  //         user: result.data,
-  //       });
-  //       //window.location.href = "/";
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
 
   return (
     <div className="container loginContainer">
