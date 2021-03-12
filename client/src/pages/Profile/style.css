@@ -1,0 +1,17 @@
+.profile {
+    text-align: center;
+    border: solid 3px #F7BA00;
+    border-radius: 5px;
+    background-color: #3A3A3A;
+    padding: 15px;
+}
+
+.stage {
+    color: #F7BA00;
+    background-color: #3A3A3A;
+}
+
+.info {
+    color: #F7BA00;
+    background-color: #3A3A3A;
+}

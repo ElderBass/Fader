@@ -18,8 +18,9 @@ function App() {
           <Navbar />
           <SignupForm />
           <LoginForm />
+          
           <div className="mainContainer">
-            <Route exact path="/" component={Home} />
+          <Home/>
             <Route path="/artists" component={Browse} />
             {/* <Route exact path="/drumpad" component={Drumpad} />
         <Route exact path="/profile" component={UserProfile} />

@@ -60,6 +60,11 @@ module.exports = {
         
         res.json({
           id: user._id,
+          stageName: user.stageName,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          genre: user.genre,
+          city: user.city,
           email: user.email,
           accessToken: token
         });

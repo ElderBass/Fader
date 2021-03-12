@@ -3,9 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar } from "react-bootstrap";
 import logo from "../../assets/images/faderLogo.png";
+import { useUserContext } from "../../utils/UserState";
 import "./style.css";
 
 function NavTabs() {
+  const [state, dispatch] = useUserContext();
+
   return (
     <div className="NavTabs">
       <Navbar>
@@ -18,12 +21,23 @@ function NavTabs() {
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text id="navButtons">
-            <a
-              data-bs-toggle="modal"
-              data-bs-target="#loginModal"
-            >
-              LOG IN{" "}
-            </a>
+            {state.isLoggedIn ? (
+              <>
+                <p style={{ color: "#7D7D7D" }}>
+                  Welcome,{" "}
+                  <span style={{ color: "#1EB100" }}>
+                    {state.user.stageName}
+                  </span>
+                </p>
+                <a data-bs-toggle="modal" data-bs-target="#logoutModal">
+                  LOG OUT{" "}
+                </a>
+              </>
+            ) : (
+              <a data-bs-toggle="modal" data-bs-target="#loginModal">
+                LOG IN{" "}
+              </a>
+            )}
           </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
