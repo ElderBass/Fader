@@ -3,8 +3,7 @@ const keys = new Tone.Players({
         0: "909hat.wav",
         1: "909clap.wav",
         2: "909kick.wav",
-        3: "909snare.wav",
-        4: "909kick.wav"
+        3: "909snare.wav"
     },
     fadeOut: "64n",
     baseUrl: "https://slimeforest.github.io/drums-sounds/audio/909/"
