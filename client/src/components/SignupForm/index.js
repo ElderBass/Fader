@@ -2,6 +2,7 @@ import React from "react";
 import { useUserContext } from "../../utils/UserState";
 import API from "../../utils/API";
 import { ADD_USER } from "../../utils/action";
+import LoginForm from "../LoginForm";
 
 const SignupForm = (props) => {
 
@@ -31,7 +32,6 @@ const SignupForm = (props) => {
       console.log(user)
       API.addUser(user)
         .then(result => {
-          console.log("result inside add user front end = ", result.data);
           dispatch({
             type: ADD_USER,
             user: result.data
@@ -40,8 +40,8 @@ const SignupForm = (props) => {
         .catch(err => console.log(err));
 
     }
-  return (
-    <div
+  return ( <>
+    {state.isSignedUp ? ( <div
       className="modal fade"
       id="signUpModal"
       tabIndex="-1"
@@ -52,7 +52,7 @@ const SignupForm = (props) => {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title" id="mixes">
+            <h5 className="modal-title">
               Sign Up
             </h5>
             <button
@@ -204,7 +204,7 @@ const SignupForm = (props) => {
                   id="signupBtn"
                   className="btn btn-default"
                 >
-                  Sign Up
+                 <a href="/">Sign Up</a> 
                 </button>
               </div>
             </form>
@@ -212,6 +212,9 @@ const SignupForm = (props) => {
         </div>
       </div>
     </div>
+    ) : (<LoginForm/>)
+    }
+    </>
   );
 }
 
