@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import SignupForm from "./components/SignupForm";
+import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import Footer from "./components/Footer";
@@ -21,7 +21,7 @@ function App() {
 
           <div className="mainContainer">
             <Route exact path="/" component={Home} />
-            <Route exact path="/signup" component={SignupForm} />
+            <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout}/>
             <Route path="/artists" component={Browse} />
