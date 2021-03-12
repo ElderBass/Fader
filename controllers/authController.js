@@ -6,7 +6,8 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 
-exports.signin = (req, res) => {
+const signin = (req, res) => {
+  console.log("inside signin function");
   db.Artist.findOne({
     email: req.body.email
   })
@@ -19,7 +20,7 @@ exports.signin = (req, res) => {
       if (!user) {
         return res.status(404).send({ message: "User Not found." });
       }
-
+      console.log("user inside sigin function = ", user);
       let passwordIsValid = bcrypt.compareSync(
         req.body.password,
         user.password
@@ -44,3 +45,8 @@ exports.signin = (req, res) => {
       });
     });
 };
+
+const validateSignin = {
+  signin
+}
+module.exports = validateSignin;

@@ -14,17 +14,17 @@ const LoginForm = (props) => {
       email: e.target.email.value,
       password: e.target.password.value,
     }
-
+    console.log("user in login =", user)
     API.login(user)
       .then(result => {
+        
         dispatch({
           type: LOGIN_USER,
           user: result.data
         })
       })
       .catch(err => console.log(err));
-      console.log("user logged in....I think?");
-      console.log(state)
+
   }
 
   return (
