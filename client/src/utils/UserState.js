@@ -1,6 +1,6 @@
 import React, { useContext, createContext, useReducer } from "react";
 // Don't forget to import all of your actions!
-import { ADD_USER, ADD_CONNECTION, LOGIN_USER, LOGOUT_USER, GET_ARTIST } from "./action.js";
+import { ADD_USER, ADD_CONNECTION, LOGIN_USER, UPDATE_USER, LOGOUT_USER, GET_ARTIST } from "./action.js";
 
 const UserContext = createContext();
 const { Provider } = UserContext;
@@ -13,6 +13,12 @@ const reducer = (state, action) => {
       ...state,
       user: action.user,
       isSignedUp: true,
+    }
+  case UPDATE_USER:
+    return {
+      ...state,
+      user: action.user,
+      hasConnections: true,
     }
     case GET_ARTIST:
     return {

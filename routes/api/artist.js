@@ -17,7 +17,7 @@ app.route("/signup").post(artistController.addUser);
 
 app.route("/addconnection").put(artistController.addConnection);
 
-app.route("/:id").get(artistController.getArtistProfile);
+app.route("/:id").get(artistController.getOneArtist);
 
 app.route("/login").post(artistController.signin);
 

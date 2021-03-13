@@ -24,7 +24,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout}/>
             <Route path="/artists" component={Browse} />
-            <Route path="/artistprofile" component={ArtistProfile}
+            <Route path="/artistprofile/:id" component={ArtistProfile}
               />
             {/* <Route exact path="/drumpad" component={Drumpad} />
         <Route exact path="/profile" component={UserProfile} /> */}

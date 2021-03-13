@@ -42,10 +42,9 @@ const ArtistSchema = new Schema({
       type: String,
       required: true
     },
-    connections: {
-      type: Array,
-      defaultValue: []
-    }
+    connections: Array,
+    messages: Array,
+    about: String,
 
 });
 

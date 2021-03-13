@@ -72,9 +72,10 @@ module.exports = {
         });
       });
   },
-  getArtistProfile: function (req, res) {
+
+  getOneArtist: function (req, res) {
     console.log("req params in get artist profile =", req.params.id)
-    db.Artist.findOne({
+    db.Artist.findById({
       _id: req.params.id
     })
     .then(result => {
@@ -83,10 +84,11 @@ module.exports = {
     })
     .catch(err => res.status(422).json(err));
   },
+  
   addConnection: function(req, res) {
-    //this is getting an array of everyone
+   
     //req.body.target = an array of everyone
-    console.log("req.header if it exists = ", req.header)
+    // console.log("req.header if it exists = ", req.header)
     console.log("req id inside add connection backend = ", req.body);
     db.Artist.findOneAndUpdate({ _id: req.body.user }, { $push: { connections: req.body.target } } )
     .then(result => {

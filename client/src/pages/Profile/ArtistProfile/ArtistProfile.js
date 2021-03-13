@@ -16,10 +16,18 @@ const ArtistProfile = (props) => {
     genre: "",
     city: "",
     email: "",
+    message: [],
+    connections: [],
   });
 
   useEffect(() => {
-    API.getOneArtist(state.targetId)
+    console.log("props match inside useEffect Artist Profile =", props.match.params.id)
+
+    let body = {
+      id: props.match.params.id
+    }
+    console.log("body in artist profile =", body);
+    API.getOneArtist(props.match.params.id)
       .then((user) => {
         console.log("result in useEffect of ArtistProfile =", user.data);
         setState({
@@ -30,6 +38,8 @@ const ArtistProfile = (props) => {
           genre: user.data.genre,
           city: user.data.city,
           email: user.data.email,
+          connections: user.data.connections,
+          messages: user.data.messages,
         });
       })
       .catch((err) => console.log(err));
@@ -39,12 +49,30 @@ const ArtistProfile = (props) => {
     <div className="container profile">
       <div className="row">
         <div className="col-md-4 col-lg-4 col-sm-12 ">
-          <div className="container">
-            <div className="row connections">
-              <h4>Connections</h4>
+          <div className="container connections">
+          <div className="row ">
+              <h5>Connections</h5>
             </div>
             <div className="row">
-              <div>(Show All connections here)</div>
+              {(artist.connections.length > 0) ? (
+                artist.connections.map((con) => {
+                  return(
+                  <Link to="/artistprofile">
+                    <img
+                      alt={`${con.stageName}`}
+                      src={con.image}
+                      width="40"
+                      height="40"
+                    />
+                  </Link>
+                  );
+                })
+              ) : (
+                <div className="container noConnections">
+                  <h5>Quiet crowd...</h5>
+                  <h6>This artist has no connections.</h6>
+                </div>
+              )}
             </div>
             <br />
           </div>
@@ -61,9 +89,16 @@ const ArtistProfile = (props) => {
           </div>
         </div>
         <div className="col-md-4 col-lg-4 col-sm-12">
-          <div className="container">
-            <h4>Messages</h4>
-            <div>(Messages go here or something)</div>
+        <div className="container connections">
+            <div className="row">
+              <h5>Messages</h5>
+            </div>
+            <div className="row">
+              <div>
+                <h5>This thing on?</h5>
+                <h6>This artist has no messages.</h6>
+              </div>
+            </div>
           </div>
         </div>
       </div>

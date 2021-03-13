@@ -7,7 +7,7 @@ export default {
   },
   //can't get this to work and not sure why
   getOneArtist: function (id) {
-    return axios.get("/api/artists/", id);
+    return axios.get("/api/artists/" + id);
   },
   addUser: function (userData) {
     return axios.post("/api/artists/signup", userData);

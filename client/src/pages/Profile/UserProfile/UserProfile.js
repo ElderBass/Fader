@@ -10,9 +10,9 @@ const UserProfile = (props) => {
   //need a post route for bio/description information
   //need get route for any messages associated with this muhfug
   //need get route for retrieving any "connections" user has
-useEffect(() => {
-  console.log("state.user in user profile = ", state.user)
-})
+  useEffect(() => {
+    console.log("state.user in user profile = ", state.user);
+  });
   return (
     <div className="container profile">
       <div className="row">
@@ -22,13 +22,17 @@ useEffect(() => {
               <h5>Connections</h5>
             </div>
             <div className="row">
-              {state.hasConnections ? (
+              {(state.user.connections.length > 0) ? (
                 state.user.connections.map((con) => {
-                  return (
-                    <Link to="/artistprofile">
-                      <p>{con.stageName}</p>
-                      <img alt={`${con.stageName}`} src={con.image} width="20" height="20" />
-                    </Link>
+                  return(
+                  <Link to="/artistprofile">
+                    <img
+                      alt={`${con.stageName}`}
+                      src={con.image}
+                      width="40"
+                      height="40"
+                    />
+                  </Link>
                   );
                 })
               ) : (
