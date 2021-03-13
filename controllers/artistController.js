@@ -69,5 +69,16 @@ module.exports = {
           accessToken: token
         });
       });
+  },
+  getArtistProfile: function (req, res) {
+    console.log("req params in get artist profile =", req.params.id)
+    db.Artist.findOne({
+      _id: req.params.id
+    })
+    .then(result => {
+      console.log("result in get artist profile backend = ", result);
+      res.json(result);
+    })
+    .catch(err => res.status(422).json(err));
   }
 }

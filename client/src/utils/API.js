@@ -5,6 +5,9 @@ export default {
   getAllArtists: function() {
     return axios.get("/api/artists");
   },
+  getOneArtist: function(id) {
+    return axios.get("/api/artists/", id);
+  },
   addUser: function(userData) {
     return axios.post("/api/artists/signup", userData);
   },

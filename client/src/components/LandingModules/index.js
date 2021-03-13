@@ -24,17 +24,17 @@ const LandingModules = (props) => {
           <p className="btnText">Log in or signup here!</p>
         </div>
       </Link>
-      <div className="gridRow">
-        <a href="google.com" className="landingBtn" id="browseBtn">
+      <Link to="/artists">
+        <div className="gridRow">
           <img
             className="landingImg"
             src={profileIcon}
             alt="browse artists modal"
             onClick={clickHandler}
           />
-        </a>
-        <p className="btnText">Browse artists here!</p>
-      </div>
+          <p className="btnText">Browse artists here!</p>
+        </div>
+      </Link>
       <div className="gridRow">
         <a href="google.com" className="landingBtn" id="placeholderBtn">
           <img

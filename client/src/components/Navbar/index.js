@@ -12,13 +12,15 @@ function NavTabs() {
   return (
     <div className="NavTabs">
       <Navbar>
-        <Navbar.Brand>
-          <img
-            src={logo}
-            style={{ height: "50px", width: "89px" }}
-            className="d-inline-block align-top"
-          />
-        </Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand>
+            <img
+              src={logo}
+              style={{ height: "50px", width: "89px" }}
+              className="d-inline-block align-top"
+            />
+          </Navbar.Brand>
+        </Link>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text id="navButtons">
             {state.isLoggedIn ? (
@@ -29,13 +31,12 @@ function NavTabs() {
                     {state.user.stageName}
                   </span>
                 </p>
-                <Link to="/logout">
-                  LOG OUT{" "}
-                </Link>
+                <Link to="/logout">LOG OUT </Link>
               </>
             ) : (
-              <Link to="/login"
-              //data-bs-toggle="modal" data-bs-target="#loginModal"
+              <Link
+                to="/login"
+                //data-bs-toggle="modal" data-bs-target="#loginModal"
               >
                 LOG IN{" "}
               </Link>

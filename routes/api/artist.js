@@ -1,8 +1,6 @@
 const express = require("express");
 const app = express();
-//const router = require("express").Router();
-//const verifySignup = require("../../middleware/verifySignup");
-//const controller = require("../../controllers/authController");
+
 const artistController = require("../../controllers/artistController");
 
 app.use(function(req, res, next) {
@@ -17,7 +15,9 @@ app.route("/").get(artistController.findAll);
 
 app.route("/signup").post(artistController.addUser);
 
-app.route("/login").post(artistController.signin)
+app.route("/:id").get(artistController.getArtistProfile);
+
+app.route("/login").post(artistController.signin);
 
 //.put(booksController.update)
 //   .delete(booksController.remove);
