@@ -19,4 +19,7 @@ export default {
   addConnection: function (data) {
     return axios.put("/api/artists/addconnection", data);
   },
+  leaveMessage: function(data) {
+    return axios.put("/api/artists/message", data);
+  }
 };

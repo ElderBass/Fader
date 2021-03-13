@@ -7,9 +7,6 @@ import "./style.css";
 const UserProfile = (props) => {
   const [state, dispatch] = useUserContext();
 
-  //need a post route for bio/description information
-  //need get route for any messages associated with this muhfug
-  //need get route for retrieving any "connections" user has
   useEffect(() => {
     console.log("state.user in user profile = ", state.user);
   });

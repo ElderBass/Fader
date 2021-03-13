@@ -84,10 +84,8 @@ module.exports = {
     })
     .catch(err => res.status(422).json(err));
   },
-  
+
   addConnection: function(req, res) {
-   
-    //req.body.target = an array of everyone
     // console.log("req.header if it exists = ", req.header)
     console.log("req id inside add connection backend = ", req.body);
     db.Artist.findOneAndUpdate({ _id: req.body.user }, { $push: { connections: req.body.target } } )
@@ -95,5 +93,14 @@ module.exports = {
       console.log("result inside add connection", result)
       res.json(result);
     })
+  },
+  leaveMessage: function(req, res) {
+    console.log("req body inside leaveMessage = ", req.body);
+    db.Artist.findOneAndUpdate({ _id: req.body.artistId }, { $push: { messages: req.body.message } } )
+    .then(result => {
+      console.log("result inside leave message", result)
+      res.json(result);
+    })
+
   }
 }
