@@ -68,6 +68,8 @@ module.exports = {
           email: user.email,
           image: user.image,
           connections: user.connections,
+          messages: user.messages,
+          about: user.about,
           accessToken: token
         });
       });
