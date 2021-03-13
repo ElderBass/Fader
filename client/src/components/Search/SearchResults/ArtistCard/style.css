@@ -7,6 +7,7 @@
     width: 325px;
     box-shadow: 0 3px 6px #F64C72, 0 3px 6px #F64C72;
     text-align: left;
+    cursor: pointer;
   }
   
   .card > .img-container {
@@ -31,5 +32,16 @@
   
   .card > .content > ul > li {
     margin-top: 18px;
+  }
+  
+  .Artist:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .5);
+    cursor: pointer;
+  }
+  
+  .Artist:active{
+    transform: translateY(-1px);
+    box-shadow: 0 3.3px 6.67px rgba(0, 0, 0, .7)
   }
   
