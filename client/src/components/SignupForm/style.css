@@ -6,10 +6,16 @@
     border-top: 0.15rem solid #C12A75;
 }
 
+.inputLabel {
+    color: #C12A75;
+}
+
+/* Div holding submit & close buttons */
 #bottomBtns {
     display: flex;
 }
 
+/* Submit button */
 .btn-secondary {
     background-color: #C12A75;
     width: 8rem;

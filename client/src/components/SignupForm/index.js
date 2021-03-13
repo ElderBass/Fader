@@ -24,7 +24,7 @@ const SignupForm = (props) => {
           onSubmit={props.signup}
         >
           <div className="col-md-6">
-            <label htmlFor="email">Email address*</label>
+            <label htmlFor="email" className="inputLabel">Email address*</label>
             <input
               type="email"
               className="form-control"
@@ -38,7 +38,7 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="password" required>
+            <label htmlFor="password" required className="inputLabel">
               Password*
             </label>
             <input
@@ -54,7 +54,7 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="firstName">First Name*</label>
+            <label htmlFor="firstName" className="inputLabel">First Name*</label>
             <input
               type="text"
               className="form-control"
@@ -68,7 +68,7 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="lastName">Last Name*</label>
+            <label htmlFor="lastName" className="inputLabel">Last Name*</label>
             <input
               type="text"
               className="form-control"
@@ -82,7 +82,7 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="stageName">Stage Name*</label>
+            <label htmlFor="stageName" className="inputLabel">Stage Name*</label>
             <input
               type="text"
               className="form-control"
@@ -96,7 +96,7 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="genre">Genre*</label>
+            <label htmlFor="genre" className="inputLabel">Genre*</label>
             <select
               className="form-select"
               id="genre-input"
@@ -124,7 +124,7 @@ const SignupForm = (props) => {
             <div className="invalid-feedback">You must select a genre.</div>
           </div>
           <div className="form-group col-md-12">
-            <label htmlFor="city">City*</label>
+            <label htmlFor="city" className="inputLabel">City*</label>
             <input
               type="text"
               className="form-control"
