@@ -1,6 +1,6 @@
 import React, { useContext, createContext, useReducer } from "react";
 // Don't forget to import all of your actions!
-import { ADD_USER, LOGIN_USER, LOGOUT_USER, GET_ARTIST } from "./action.js";
+import { ADD_USER, ADD_CONNECTION, LOGIN_USER, LOGOUT_USER, GET_ARTIST } from "./action.js";
 
 const UserContext = createContext();
 const { Provider } = UserContext;
@@ -19,6 +19,11 @@ const reducer = (state, action) => {
       ...state,
       targetId: action.id
     }
+    case ADD_CONNECTION:
+      return {
+        ...state,
+        hasConnections: true,
+      }
 
   case LOGIN_USER:
     console.log("action.user in global state =",action.user);
@@ -48,6 +53,7 @@ const UserProvider = ({ value = [], ...props }) => {
     isLoggedIn: false,
     isSignedUp: false,
     targetId: "",
+    hasConnections: false,
   });
 
   return <Provider value={[state, dispatch]} {...props}/>;

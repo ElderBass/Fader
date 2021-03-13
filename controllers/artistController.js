@@ -66,6 +66,8 @@ module.exports = {
           genre: user.genre,
           city: user.city,
           email: user.email,
+          image: user.image,
+          connections: user.connections,
           accessToken: token
         });
       });
@@ -80,5 +82,16 @@ module.exports = {
       res.json(result);
     })
     .catch(err => res.status(422).json(err));
+  },
+  addConnection: function(req, res) {
+    //this is getting an array of everyone
+    //req.body.target = an array of everyone
+    console.log("req.header if it exists = ", req.header)
+    console.log("req id inside add connection backend = ", req.body);
+    db.Artist.findOneAndUpdate({ _id: req.body.user }, { $push: { connections: req.body.target } } )
+    .then(result => {
+      console.log("result inside add connection", result)
+      res.json(result);
+    })
   }
 }

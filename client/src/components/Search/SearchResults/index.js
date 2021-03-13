@@ -11,6 +11,7 @@ const SearchResults = (props) => {
         {props.results.map((artist) => {
           return (
             <ArtistCard
+              artist={artist}
               key={artist._id}
               id={artist._id}
               image={artist.image}

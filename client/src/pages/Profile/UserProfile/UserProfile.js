@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useUserContext } from "../../../utils/UserState";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,9 @@ const UserProfile = (props) => {
   //need a post route for bio/description information
   //need get route for any messages associated with this muhfug
   //need get route for retrieving any "connections" user has
-
+useEffect(() => {
+  console.log("state.user in user profile = ", state.user)
+})
   return (
     <div className="container profile">
       <div className="row">
@@ -20,13 +22,28 @@ const UserProfile = (props) => {
               <h5>Connections</h5>
             </div>
             <div className="row">
-              <div>(Show All connections here)</div>
+              {state.hasConnections ? (
+                state.user.connections.map((con) => {
+                  return (
+                    <Link to="/artistprofile">
+                      <p>{con.stageName}</p>
+                      <img alt={`${con.stageName}`} src={con.image} width="20" height="20" />
+                    </Link>
+                  );
+                })
+              ) : (
+                <div className="container noConnections">
+                  <h3>You currently have no connections</h3>
+                </div>
+              )}
             </div>
 
             <br />
             <div className="row">
               <Link to="/artists">
-                <p style={{fontSize: "10px", color: "#C12A75"}}>Browse Artists</p>
+                <p style={{ fontSize: "10px", color: "#C12A75" }}>
+                  Browse Artists
+                </p>
               </Link>
             </div>
           </div>
