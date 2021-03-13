@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
 
 import "./style.css";
 
 const SignupForm = (props) => {
-
+  const clickHandler = () => {
+    window.location.assign("/")
+  };
 
   return (
     <div className="container signupContainer">
@@ -12,7 +14,7 @@ const SignupForm = (props) => {
         <h4 className="signupHeader" id="signup">
           Your Studio Awaits...
         </h4>
-        <hr />
+        <hr className="pageBreak"></hr>
       </div>
       <div className="row">
         <form
@@ -22,7 +24,7 @@ const SignupForm = (props) => {
           onSubmit={props.signup}
         >
           <div className="col-md-6">
-            <label htmlFor="email">Email address*</label>
+            <label htmlFor="email" className="inputLabel">Email address*</label>
             <input
               type="email"
               className="form-control"
@@ -36,7 +38,7 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="password" required>
+            <label htmlFor="password" required className="inputLabel">
               Password*
             </label>
             <input
@@ -52,7 +54,7 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="firstName">First Name*</label>
+            <label htmlFor="firstName" className="inputLabel">First Name*</label>
             <input
               type="text"
               className="form-control"
@@ -66,7 +68,7 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="lastName">Last Name*</label>
+            <label htmlFor="lastName" className="inputLabel">Last Name*</label>
             <input
               type="text"
               className="form-control"
@@ -80,7 +82,7 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="stageName">Stage Name*</label>
+            <label htmlFor="stageName" className="inputLabel">Stage Name*</label>
             <input
               type="text"
               className="form-control"
@@ -94,7 +96,7 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="genre">Genre*</label>
+            <label htmlFor="genre" className="inputLabel">Genre*</label>
             <select
               className="form-select"
               id="genre-input"
@@ -122,7 +124,7 @@ const SignupForm = (props) => {
             <div className="invalid-feedback">You must select a genre.</div>
           </div>
           <div className="form-group col-md-12">
-            <label htmlFor="city">City*</label>
+            <label htmlFor="city" className="inputLabel">City*</label>
             <input
               type="text"
               className="form-control"
@@ -146,14 +148,14 @@ const SignupForm = (props) => {
             <span className="sr-only">Error:</span>{" "}
             <span className="msg"></span>
           </div>
-          <div className="row">
-            <Link to="/">
-              <button type="button" className="btn btn-secondary">
-                Close
-              </button>
-            </Link>
-            <button type="submit" id="signupBtn" className="btn btn-default">
-              Sign Up
+          <hr className="pageBreak"></hr>
+          <div className="row" id="bottomBtns">
+            <button type="submit" className="btn btn-secondary" id="signupBtn">
+                Sign Up
+            </button>
+            <button type="button" className="btn btn-secondary" id="closeBtn" onClick={clickHandler}>
+              {/* <Redirect to="/">Cancel</Redirect> */}
+              Cancel
             </button>
           </div>
         </form>

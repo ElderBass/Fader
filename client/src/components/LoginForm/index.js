@@ -1,4 +1,5 @@
 import React from "react";
+import './style.css';
 
 
 const LoginForm = (props) => {
@@ -10,7 +11,7 @@ const LoginForm = (props) => {
         <h5 className="loginHeader" id="login">
           Login
         </h5>
-        <hr />
+        <hr className="pageBreak"></hr>
       </div>
       <div className="row">
         <form
