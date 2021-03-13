@@ -19,6 +19,8 @@ app.route("/addconnection").put(artistController.addConnection);
 
 app.route("/:id").get(artistController.getOneArtist);
 
+app.route("/message").put(artistController.leaveMessage);
+
 app.route("/login").post(artistController.signin);
 
 //.put(booksController.update)
