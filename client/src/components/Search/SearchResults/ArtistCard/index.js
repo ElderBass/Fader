@@ -10,17 +10,6 @@ import "./style.css";
 const ArtistCard = (props) => {
   const [state, dispatch] = useUserContext();
 
-  const getArtist = (e) => {
-    e.preventDefault();
-    console.log("clickbait lol");
-    let id = props.id;
-    dispatch({
-      type: GET_ARTIST,
-      id: id,
-    });
-    // window.location.href = "/artistprofile";
-  };
-  //this is working
   const handleFollowArtist = (e) => {
     e.preventDefault();
     let body = { target: props.artist, user: state.user.id };

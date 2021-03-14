@@ -2,17 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useUserContext } from "../../../utils/UserState";
 import { Link } from "react-router-dom";
 import { UPDATE_USER } from "../../../utils/action";
+import EditAbout from "../../../components/AboutInfo/EditAbout";
 
 import "./style.css";
 import API from "../../../utils/API";
-import AddAbout from "../../../components/AddAbout";
+import AddAbout from "../../../components/AboutInfo/AddAbout";
 
 const UserProfile = (props) => {
   const [state, dispatch] = useUserContext();
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [showAdd, setShowAdd] = useState(false);
+  const handleCloseAdd = () => setShowAdd(false);
+  const handleShowAdd = () => setShowAdd(true);
+
+  const [showEdit, setShowEdit] = useState(false);
+  const handleCloseEdit = () => setShowEdit(false);
+  const handleShowEdit = () => setShowEdit(true);
 
   useEffect(() => {
     console.log("state.user in user profile = ", state.user);
@@ -31,6 +36,23 @@ const UserProfile = (props) => {
         type: UPDATE_USER,
         user: result.data,
       });
+      setShowAdd(false);
+    });
+  };
+
+  const handleEditAbout = (e) => {
+    e.preventDefault();
+    let data = {
+      id: state.user.id,
+      about: e.target.about.value,
+    };
+    API.addAbout(data).then((result) => {
+      console.log("result inside handle edit about .then = ", result.data);
+      dispatch({
+        type: UPDATE_USER,
+        user: result.data,
+      });
+      setShowEdit(false);
     });
   };
 
@@ -83,15 +105,20 @@ const UserProfile = (props) => {
               </p>
               {state.user.about ? (
                 <>
-                  <p>{state.user.about}</p>
-                  <i id="editAboutBtn" class="fas fa-pencil-alt icon" />
+                  <p className="aboutInfo">{state.user.about}</p>
+                  <EditAbout
+                    edit={handleEditAbout}
+                    handleCloseEdit={handleCloseEdit}
+                    showEdit={showEdit}
+                    handleShowEdit={handleShowEdit}
+                  />
                 </>
               ) : (
                 <AddAbout
                   add={handleAddAbout}
-                  handleClose={handleClose}
-                  handleShow={handleShow}
-                  show={show}
+                  handleCloseAdd={handleCloseAdd}
+                  handleShowAdd={handleShowAdd}
+                  showAdd={showAdd}
                 />
               )}
             </div>

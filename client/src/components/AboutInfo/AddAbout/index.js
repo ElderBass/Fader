@@ -6,10 +6,10 @@ import "./style.css";
 const AddAbout = (props) => {
   return (
     <>
-      <Button variant="primary" onClick={props.handleShow}>
+      <Button className="btn-default" onClick={props.handleShowAdd}>
         Tell the World Who You Are
       </Button>
-      <Modal show={props.show} onHide={props.handleClose}>
+      <Modal show={props.showAdd} onHide={props.handleCloseAdd}>
         <Modal.Header closeButton>
           <Modal.Title>Encore.</Modal.Title>
         </Modal.Header>
@@ -25,13 +25,12 @@ const AddAbout = (props) => {
               />
             </div>
             <Modal.Footer>
-              <button className="btn btn-secondary" onClick={props.handleClose}>
+              <button className="btn btn-secondary" onClick={props.handleCloseAdd}>
                 Close
               </button>
               <button
                 className="btn btn-default"
                 type="submit"
-                // onClick={props.handleLeaveMessage}
               >
                 Add Info
               </button>
