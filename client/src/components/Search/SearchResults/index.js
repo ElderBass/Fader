@@ -7,27 +7,6 @@ import ResultsWrapper from "../SearchResults/ResultsWrapper";
 const SearchResults = (props) => {
   const [state, dispatch] = useUserContext();
 
-  // const [filtered, setFiltered] = useState({
-  //   results: props.results,
-  // });
-
-  // useEffect(() => {
-  //   if (state.isLoggedIn) {
-  //     handleFilterUser();
-  //   } else {
-  //     return;
-  //   }
-  // }, [state.isLoggedIn]);
-
-  // const handleFilterUser = () => {
-  //   let filtered = props.results.filter((res) => {
-  //     return res._id !== state.user.id;
-  //   });
-  //   setFiltered({
-  //     filtered: filtered,
-  //   });
-  // };
-
   return (
     <ResultsWrapper>
       {props.results.map((artist) => {

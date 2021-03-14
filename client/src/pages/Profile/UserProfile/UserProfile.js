@@ -26,7 +26,7 @@ const UserProfile = (props) => {
   const handleAddAbout = (e) => {
     e.preventDefault();
     let data = {
-      id: state.user.id,
+      id: state.user._id,
       about: e.target.about.value,
     };
 
@@ -43,7 +43,7 @@ const UserProfile = (props) => {
   const handleEditAbout = (e) => {
     e.preventDefault();
     let data = {
-      id: state.user.id,
+      id: state.user._id,
       about: e.target.about.value,
     };
     API.addAbout(data).then((result) => {
@@ -68,7 +68,7 @@ const UserProfile = (props) => {
               {state.user.connections.length > 0 ? (
                 state.user.connections.map((con) => {
                   return (
-                    <Link to="/artistprofile">
+                    <Link to={"/artistprofile/" + con._id}>
                       <img
                         alt={`${con.stageName}`}
                         src={con.image}

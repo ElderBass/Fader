@@ -69,7 +69,7 @@ module.exports = {
         });
         
         res.json({
-          id: user._id,
+          _id: user._id,
           stageName: user.stageName,
           firstName: user.firstName,
           lastName: user.lastName,
@@ -80,6 +80,7 @@ module.exports = {
           connections: user.connections,
           messages: user.messages,
           about: user.about,
+          following: user.following,
           accessToken: token
         });
       });
@@ -100,7 +101,7 @@ module.exports = {
   addConnection: function(req, res) {
     // console.log("req.header if it exists = ", req.header)
     console.log("req id inside add connection backend = ", req.body);
-    db.Artist.findOneAndUpdate({ _id: req.body.user }, { $push: { connections: req.body.target } }, { new: true } )
+    db.Artist.findOneAndUpdate({ _id: req.body.user }, { $push: { connections: req.body.target, following: req.body.targetId } }, { new: true } )
     .then(result => {
       console.log("result inside add connection", result)
       res.json(result);
