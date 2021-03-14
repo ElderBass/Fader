@@ -1,16 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useUserContext } from "../../../utils/UserState";
 import { Link } from "react-router-dom";
-//import "../../../assets/fonts/Aveden.ttf";
+import { UPDATE_USER } from "../../../utils/action";
 
 import "./style.css";
+import API from "../../../utils/API";
+import AddAbout from "../../../components/AddAbout";
 
 const UserProfile = (props) => {
   const [state, dispatch] = useUserContext();
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   useEffect(() => {
     console.log("state.user in user profile = ", state.user);
   });
+
+  const handleAddAbout = (e) => {
+    e.preventDefault();
+    let data = {
+      id: state.user.id,
+      about: e.target.about.value,
+    };
+
+    API.addAbout(data).then((result) => {
+      console.log("result in add about = ", result.data);
+      dispatch({
+        type: UPDATE_USER,
+        user: result.data,
+      });
+    });
+  };
+
   return (
     <div className="container profile">
       <div className="row">
@@ -58,6 +81,19 @@ const UserProfile = (props) => {
                 {state.user.firstName} {state.user.lastName} |{" "}
                 {state.user.genre} | {state.user.city}
               </p>
+              {state.user.about ? (
+                <>
+                  <p>{state.user.about}</p>
+                  <i id="editAboutBtn" class="fas fa-pencil-alt icon" />
+                </>
+              ) : (
+                <AddAbout
+                  add={handleAddAbout}
+                  handleClose={handleClose}
+                  handleShow={handleShow}
+                  show={show}
+                />
+              )}
             </div>
           </div>
         </div>

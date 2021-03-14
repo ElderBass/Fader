@@ -3,29 +3,25 @@ import { Modal, Button } from "react-bootstrap";
 
 import "./style.css";
 
-const LeaveMessage = (props) => {
+const AddAbout = (props) => {
   return (
     <>
       <Button variant="primary" onClick={props.handleShow}>
-        Leave Message
+        Tell the World Who You Are
       </Button>
-
       <Modal show={props.show} onHide={props.handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Let's Hear It</Modal.Title>
+          <Modal.Title>Encore.</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form
-
-            onSubmit={props.handleLeaveMessage}
-          >
+          <form onSubmit={props.add}>
             <div className="form-group">
-              <label htmlFor="message">What's the Word?</label>
+              <label htmlFor="about">Who Are You Even?</label>
               <input
                 type="text"
                 className="form-control"
-                id="leaveMessage"
-                name="message"
+                id="addAbout"
+                name="about"
               />
             </div>
             <Modal.Footer>
@@ -33,11 +29,11 @@ const LeaveMessage = (props) => {
                 Close
               </button>
               <button
-                className="btn btn-primary"
+                className="btn btn-default"
                 type="submit"
                 // onClick={props.handleLeaveMessage}
               >
-                Post Message
+                Add Info
               </button>
             </Modal.Footer>
           </form>
@@ -47,4 +43,4 @@ const LeaveMessage = (props) => {
   );
 };
 
-export default LeaveMessage;
+export default AddAbout;

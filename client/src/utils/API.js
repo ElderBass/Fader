@@ -21,6 +21,10 @@ export default {
   addConnection: function (data) {
     return axios.put("/api/artists/addconnection", data);
   },
+
+  addAbout: function(data) {
+    return axios.put("/api/artists/about", data)
+  },
   leaveMessage: function(data) {
     return axios.put("/api/artists/message", data);
   }

@@ -100,19 +100,31 @@ module.exports = {
   addConnection: function(req, res) {
     // console.log("req.header if it exists = ", req.header)
     console.log("req id inside add connection backend = ", req.body);
-    db.Artist.findOneAndUpdate({ _id: req.body.user }, { $push: { connections: req.body.target } } )
+    db.Artist.findOneAndUpdate({ _id: req.body.user }, { $push: { connections: req.body.target } }, { new: true } )
     .then(result => {
       console.log("result inside add connection", result)
       res.json(result);
     })
+    .catch(err => res.status(422).json(err));
   },
+
   leaveMessage: function(req, res) {
     console.log("req body inside leaveMessage = ", req.body);
-    db.Artist.findOneAndUpdate({ _id: req.body.artistId }, { $push: { messages: req.body.message } } )
+    db.Artist.findOneAndUpdate({ _id: req.body.artistId }, { $push: { messages: req.body.message } }, { new: true } )
     .then(result => {
       console.log("result inside leave message", result)
       res.json(result);
     })
+    .catch(err => res.status(422).json(err));
+  },
 
+  addAbout: function (req, res) {
+    console.log("req body inside add about = ", req.body);
+    db.Artist.findOneAndUpdate({_id: req.body.id}, { about: req.body.about }, { new: true })
+    .then(result => {
+      console.log("result inside of add about = ", result);
+      res.json(result)
+    })
+    .catch(err => res.status(422).json(err));
   }
 }
