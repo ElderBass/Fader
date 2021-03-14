@@ -17,6 +17,9 @@ const artistSeed = [
     city: "Minneapolis",
     email: "zygster11@gmail.com",
     password: "root19",
+    connections: [],
+    messages: [],
+    about: "",
   },
   {
     stageName: "Dirty McKenzie",
@@ -27,6 +30,9 @@ const artistSeed = [
     city: "Richfield",
     email: "dory@mail.com",
     password: "root2",
+    connections: [],
+    messages: [],
+    about: "",
   },
   {
     stageName: "Slimer",
@@ -37,6 +43,9 @@ const artistSeed = [
     city: "Minneapolis",
     email: "jack@gmail.com",
     password: "root3",
+    connections: [],
+    messages: [],
+    about: "",
   },
   {
     stageName: "Half Spoon",
@@ -47,6 +56,9 @@ const artistSeed = [
     city: "Minneapolis",
     email: "carson@gmail.com",
     password: "root4",
+    connections: [],
+    messages: [],
+    about: "",
   },
   {
     stageName: "Heyer Hat",
@@ -56,6 +68,9 @@ const artistSeed = [
     genre: "Indie Rock",
     city: "Minneapolis",
     email: "will@gmail.com",
+    connections: [],
+    messages: [],
+    about: "",
     password: "root5",
   }  
 ];

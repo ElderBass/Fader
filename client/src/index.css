@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+@font-face{
+  font-family: 'Aveden';
+  font-style: normal;
+  font-weight: 350;
+  src: url('./assets/fonts/Aveden.ttf') format('truetype');
+}
+
+@font-face{
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 350;
+  src: url('./assets/fonts/Avenir.ttc') format('truetype');
+}
