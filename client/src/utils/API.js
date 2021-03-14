@@ -5,7 +5,9 @@ export default {
   getAllArtists: function () {
     return axios.get("/api/artists");
   },
-  //can't get this to work and not sure why
+  getOtherArtists: function(id) {
+    return axios.get("/api/artists/others/" + id)
+  },
   getOneArtist: function (id) {
     return axios.get("/api/artists/" + id);
   },

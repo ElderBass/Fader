@@ -16,6 +16,16 @@ module.exports = {
         res.json(dbModel)})
       .catch(err => res.status(422).json(err));
   },
+  getOtherArtists: function(req, res) {
+    console.log("inside find others", req.params)
+    db.Artist
+      .find({ _id: { $nin: req.params.id}})
+      .sort({ last_name: -1 })
+      .then(dbModel => {
+        console.log("db model in find others = ", dbModel)
+        res.json(dbModel)})
+      .catch(err => res.status(422).json(err));
+  },
   addUser: function ({body}, res) {
     console.log("req.body inside addUser route = ", body);
     db.Artist
@@ -68,6 +78,8 @@ module.exports = {
           email: user.email,
           image: user.image,
           connections: user.connections,
+          messages: user.messages,
+          about: user.about,
           accessToken: token
         });
       });

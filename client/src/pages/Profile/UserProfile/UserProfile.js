@@ -19,17 +19,17 @@ const UserProfile = (props) => {
               <h5>Connections</h5>
             </div>
             <div className="row">
-              {(state.user.connections.length > 0) ? (
+              {state.user.connections.length > 0 ? (
                 state.user.connections.map((con) => {
-                  return(
-                  <Link to="/artistprofile">
-                    <img
-                      alt={`${con.stageName}`}
-                      src={con.image}
-                      width="40"
-                      height="40"
-                    />
-                  </Link>
+                  return (
+                    <Link to="/artistprofile">
+                      <img
+                        alt={`${con.stageName}`}
+                        src={con.image}
+                        width="40"
+                        height="40"
+                      />
+                    </Link>
                   );
                 })
               ) : (
@@ -66,7 +66,26 @@ const UserProfile = (props) => {
               <h5>Messages</h5>
             </div>
             <div className="row">
-              <div>(Messages go here or something)</div>
+              {state.user.messages.length > 0 ? (
+                state.user.messages.map((mess) => {
+                  return (
+                    <div>
+                      <img
+                        src={mess.image}
+                        width="35"
+                        height="35"
+                        alt={mess.user}
+                      />
+                      <p style={{ fontSize: "10px" }}>{mess.message}</p>
+                    </div>
+                  );
+                })
+              ) : (
+                <div>
+                  <h5>This thing on?</h5>
+                  <h6>This artist has no messages.</h6>
+                </div>
+              )}
             </div>
           </div>
         </div>

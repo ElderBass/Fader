@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-
+import { useUserContext } from "../../utils/UserState";
 import SearchResults from "../../components/Search/SearchResults";
 import API from "../../utils/API";
 
 import "./style.css";
 
 const BrowseArtists = (props) => {
-  
+  const [state, dispatch] = useUserContext();
+
   const [searchState, setSearchState] = useState({
     search: "",
     results: [],
@@ -24,16 +25,30 @@ const BrowseArtists = (props) => {
   }, [searchState.search]);
 
   const getAllArtists = () => {
-    console.log("inside all artists")
-    API.getAllArtists()
-      .then((results) => {
-        console.log("results inside get all =", results.data)
+    console.log("inside all artists");
+    if (state.isLoggedIn) {
+      let body = {
+        id: state.user.id,
+      };
+      console.log("boyd inside get all artists if logged in = ", body)
+      API.getOtherArtists(state.user.id).then((result) => {
+        console.log("result inside get other artists = ", result.data);
         setSearchState({
           ...searchState,
-          results: results.data,
+          results: result.data,
         });
-      })
-      .catch((err) => console.log(err));
+      });
+    } else {
+      API.getAllArtists()
+        .then((results) => {
+          console.log("results inside get all =", results.data);
+          setSearchState({
+            ...searchState,
+            results: results.data,
+          });
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   const handleFilterChange = (e) => {
@@ -66,7 +81,7 @@ const BrowseArtists = (props) => {
           filter: filter,
           placeholder: "Start Typing a Stage Name to Filter Results",
           results: searchState.results.sort((a, b) =>
-            a.stage_name.localeCompare(b.stage_name)
+            a.stageName.localeCompare(b.stageName)
           ),
         });
         break;
@@ -76,7 +91,7 @@ const BrowseArtists = (props) => {
           filter: filter,
           placeholder: "Start Typing a Stage Name to Filter Results",
           results: searchState.results.sort((a, b) =>
-            a.last_name.localeCompare(b.last_name)
+            a.lastName.localeCompare(b.lastName)
           ),
         });
         break;
@@ -111,7 +126,7 @@ const BrowseArtists = (props) => {
         break;
       case "Stage Name":
         filtered = searchState.results.filter((res) =>
-          res.stage_name.toLowerCase().includes(query.toLowerCase())
+          res.stageName.toLowerCase().includes(query.toLowerCase())
         );
         setSearchState({
           ...searchState,
@@ -121,7 +136,7 @@ const BrowseArtists = (props) => {
         break;
       case "Last Name":
         filtered = searchState.results.filter((res) =>
-          res.last_name.toLowerCase().includes(query.toLowerCase())
+          res.lastName.toLowerCase().includes(query.toLowerCase())
         );
         setSearchState({
           ...searchState,
@@ -140,7 +155,6 @@ const BrowseArtists = (props) => {
       filter: "",
     });
   };
-
 
   return (
     <div>

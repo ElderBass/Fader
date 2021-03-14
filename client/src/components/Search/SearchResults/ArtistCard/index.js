@@ -59,9 +59,11 @@ const ArtistCard = (props) => {
               <strong>Location:</strong> {props.city}
             </li>
           </ul>
-          <button type="button" onClick={handleFollowArtist}>
-            Follow Artist
-          </button>
+          {state.isLoggedIn ? (
+            <button type="button" onClick={handleFollowArtist}>
+              Follow Artist
+            </button>
+          ) : null}
         </div>
       </div>
     </Link>
