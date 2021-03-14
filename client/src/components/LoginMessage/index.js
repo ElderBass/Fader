@@ -6,17 +6,17 @@ import "./style.css";
 const LoginMessage = (props) => {
   return (
     <div className="container">
-      <div className="row">
-        <h4 className="loginMessageHeader">Excellent.</h4>
+      <div className="text-center">
+        <h4 className="loginMessageHeader">Excellent!</h4>
       </div>
       <hr />
-      <div className="row">
+      <div className="text-center">
         <h6>You're all signed in. Go make some magic happen.</h6>
       </div>
       <hr />
-      <div className="modal-footer">
+      <div className="text-center">
         <Link to="/">
-          <button type="button">Continue to Fader</button>
+          <button type="submit" className="btn btn-default" id="buttonText" >Continue</button>
         </Link>
       </div>{" "}
     </div>

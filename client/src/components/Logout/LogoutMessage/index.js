@@ -5,17 +5,18 @@ import "./style.css";
 const LogoutMessage = (props) => {
   return (
     <div className="container">
-      <div className="row">
-        <h4 className="loginMessageHeader">Fade Away</h4>
+      <div className="text-center">
+        <h4 className="loginMessageHeader">Fade Away!</h4>
       </div>
       <hr />
-      <div className="row">
-        <h6>You sure you want to logout?</h6>
+      <div className="text-center" id="logStatusQuestion">
+        <h6>... you sure about that?</h6>
       </div>
       <hr />
-      <div className="modal-footer">
-          <button onClick={props.logout} type="button">Confirm Logout</button>
+      <div className="text-center">
+          <button onClick={props.logout} type="submit" className="btn btn-default">Logout</button>
       </div>{" "}
+
     </div>
   );
 };

@@ -16,7 +16,7 @@ function NavTabs() {
           <Navbar.Brand>
             <img
               src={logo}
-              style={{ height: "50px", width: "89px" }}
+              style={{ height: "50px"}}
               className="d-inline-block align-top"
             />
           </Navbar.Brand>
