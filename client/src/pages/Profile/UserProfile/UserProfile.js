@@ -1,20 +1,66 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useUserContext } from "../../../utils/UserState";
 import { Link } from "react-router-dom";
+import { UPDATE_USER } from "../../../utils/action";
+import EditAbout from "../../../components/AboutInfo/EditAbout";
 
 import "./style.css";
+import API from "../../../utils/API";
+import AddAbout from "../../../components/AboutInfo/AddAbout";
 
 const UserProfile = (props) => {
   const [state, dispatch] = useUserContext();
 
+  const [showAdd, setShowAdd] = useState(false);
+  const handleCloseAdd = () => setShowAdd(false);
+  const handleShowAdd = () => setShowAdd(true);
+
+  const [showEdit, setShowEdit] = useState(false);
+  const handleCloseEdit = () => setShowEdit(false);
+  const handleShowEdit = () => setShowEdit(true);
+
   useEffect(() => {
     console.log("state.user in user profile = ", state.user);
   });
+
+  const handleAddAbout = (e) => {
+    e.preventDefault();
+    let data = {
+      id: state.user.id,
+      about: e.target.about.value,
+    };
+
+    API.addAbout(data).then((result) => {
+      console.log("result in add about = ", result.data);
+      dispatch({
+        type: UPDATE_USER,
+        user: result.data,
+      });
+      setShowAdd(false);
+    });
+  };
+
+  const handleEditAbout = (e) => {
+    e.preventDefault();
+    let data = {
+      id: state.user.id,
+      about: e.target.about.value,
+    };
+    API.addAbout(data).then((result) => {
+      console.log("result inside handle edit about .then = ", result.data);
+      dispatch({
+        type: UPDATE_USER,
+        user: result.data,
+      });
+      setShowEdit(false);
+    });
+  };
+
   return (
     <div className="container profile">
       <div className="row">
         <div className="col-md-4 col-lg-4 col-sm-12 ">
-          <div className="container connections">
+          <div className="container userConnections">
             <div className="row ">
               <h5>Connections</h5>
             </div>
@@ -57,11 +103,29 @@ const UserProfile = (props) => {
                 {state.user.firstName} {state.user.lastName} |{" "}
                 {state.user.genre} | {state.user.city}
               </p>
+              {state.user.about ? (
+                <>
+                  <p className="aboutInfo">{state.user.about}</p>
+                  <EditAbout
+                    edit={handleEditAbout}
+                    handleCloseEdit={handleCloseEdit}
+                    showEdit={showEdit}
+                    handleShowEdit={handleShowEdit}
+                  />
+                </>
+              ) : (
+                <AddAbout
+                  add={handleAddAbout}
+                  handleCloseAdd={handleCloseAdd}
+                  handleShowAdd={handleShowAdd}
+                  showAdd={showAdd}
+                />
+              )}
             </div>
           </div>
         </div>
         <div className="col-md-4 col-lg-4 col-sm-12">
-          <div className="container connections">
+          <div className="container userMessages">
             <div className="row">
               <h5>Messages</h5>
             </div>

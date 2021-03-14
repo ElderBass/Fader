@@ -20,7 +20,7 @@ const LeaveMessage = (props) => {
             onSubmit={props.handleLeaveMessage}
           >
             <div className="form-group">
-              <label htmlFor="message">Email address</label>
+              <label htmlFor="message">What's the Word?</label>
               <input
                 type="text"
                 className="form-control"
