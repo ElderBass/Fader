@@ -59,6 +59,7 @@ const ArtistSchema = new Schema({
     type: Array,
     defaultValue: [],
   }
+
 });
 
 ArtistSchema.pre("save", async function save(next) {

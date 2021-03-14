@@ -102,6 +102,7 @@ module.exports = {
     // console.log("req.header if it exists = ", req.header)
     console.log("req id inside add connection backend = ", req.body);
     db.Artist.findOneAndUpdate({ _id: req.body.user }, { $push: { connections: req.body.target, following: req.body.targetId } }, { new: true } )
+
     .then(result => {
       console.log("result inside add connection", result)
       res.json(result);
