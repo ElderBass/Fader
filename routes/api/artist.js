@@ -13,6 +13,8 @@ app.use(function(req, res, next) {
 
 app.route("/").get(artistController.findAll);
 
+app.route("/others/:id").get(artistController.getOtherArtists)
+
 app.route("/signup").post(artistController.addUser);
 
 app.route("/addconnection").put(artistController.addConnection);
