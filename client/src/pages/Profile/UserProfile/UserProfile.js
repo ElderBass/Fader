@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useUserContext } from "../../../utils/UserState";
 import { Link } from "react-router-dom";
+//import "../../../assets/fonts/Aveden.ttf";
 
 import "./style.css";
 
@@ -14,7 +15,7 @@ const UserProfile = (props) => {
     <div className="container profile">
       <div className="row">
         <div className="col-md-4 col-lg-4 col-sm-12 ">
-          <div className="container connections">
+          <div className="container userConnections">
             <div className="row ">
               <h5>Connections</h5>
             </div>
@@ -61,7 +62,7 @@ const UserProfile = (props) => {
           </div>
         </div>
         <div className="col-md-4 col-lg-4 col-sm-12">
-          <div className="container connections">
+          <div className="container userMessages">
             <div className="row">
               <h5>Messages</h5>
             </div>
