@@ -28,10 +28,10 @@ const BrowseArtists = (props) => {
     console.log("inside all artists");
     if (state.isLoggedIn) {
       let body = {
-        id: state.user.id,
+        id: state.user._id,
       };
       console.log("boyd inside get all artists if logged in = ", body)
-      API.getOtherArtists(state.user.id).then((result) => {
+      API.getOtherArtists(state.user._id).then((result) => {
         console.log("result inside get other artists = ", result.data);
         setSearchState({
           ...searchState,

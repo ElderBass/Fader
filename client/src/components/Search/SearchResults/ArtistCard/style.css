@@ -44,4 +44,8 @@
     transform: translateY(-1px);
     box-shadow: 0 3.3px 6.67px rgba(0, 0, 0, .7)
   }
+
+  .disabled {
+    cursor:default;
+  }
   

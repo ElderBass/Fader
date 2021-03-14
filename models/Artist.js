@@ -55,6 +55,11 @@ const ArtistSchema = new Schema({
     type: String,
     defaultValue: "",
   },
+  following: {
+    type: Array,
+    defaultValue: [],
+  }
+
 });
 
 ArtistSchema.pre("save", async function save(next) {
