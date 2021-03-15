@@ -15,7 +15,7 @@ const LandingModules = (props) => {
 
   return (
     <div className="containerCustom">
-      <Link to="/signup">
+      <Link to="/signup"  style={{ textDecoration: 'none'}}>
         <div className="gridRow" onClick={clickHandler}>
           <img
             className="landingImg"
@@ -25,8 +25,9 @@ const LandingModules = (props) => {
           <p className="btnText">Log in or signup here!</p>
         </div>
       </Link>
-      <Link to="/artists">
-        <div className="gridRow">
+      <Link to="/artists" style={{ textDecoration: 'none'}}>
+        <div className="gridRow" >
+        
           <img
             className="landingImg"
             src={profileIcon}
@@ -35,18 +36,16 @@ const LandingModules = (props) => {
           />
           <p className="btnText">Browse artists here!</p>
         </div>
-      </Link>
-      <div className="gridRow">
-        <a href="google.com" className="landingBtn" id="placeholderBtn">
-          <img
-            className="landingImg"
-            src={studioIcon}
-            alt="PLACEHOLDER modal"
-            onClick={clickHandler}
-          />
-        </a>
-        <p className="btnText">PLACEHOLDER</p>
-      </div>
+      </Link >
+        <div className="gridRow">
+            <img
+              className="landingImg"
+              src={studioIcon}
+              alt="PLACEHOLDER modal"
+              onClick={clickHandler}
+            />
+          <p className="btnText">PLACEHOLDER</p>
+        </div>
     </div>
   );
 };

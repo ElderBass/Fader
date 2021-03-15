@@ -43,7 +43,7 @@ const SignupForm = (props) => {
             </label>
             <input
               type="password"
-              className="form-control"
+              className="form-control inputClass"
               id="password-input"
               name="password"
               placeholder="Password"
@@ -57,7 +57,7 @@ const SignupForm = (props) => {
             <label htmlFor="firstName" className="inputLabel">First Name*</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control inputClass"
               id="first-name-input"
               name="firstName"
               placeholder="First Name"
@@ -71,7 +71,7 @@ const SignupForm = (props) => {
             <label htmlFor="lastName" className="inputLabel">Last Name*</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control inputClass"
               id="last-name-input"
               name="lastName"
               placeholder="Last Name"
@@ -85,7 +85,7 @@ const SignupForm = (props) => {
             <label htmlFor="stageName" className="inputLabel">Stage Name*</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control inputClass"
               id="stage-name-input"
               name="stageName"
               placeholder="Stage Name"
@@ -127,7 +127,7 @@ const SignupForm = (props) => {
             <label htmlFor="city" className="inputLabel">City*</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control inputClass"
               id="city-input"
               name="city"
               placeholder="City"

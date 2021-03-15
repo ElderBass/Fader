@@ -24,9 +24,9 @@ const LoginForm = (props) => {
         >
           <div className="form-group">
             <label htmlFor="email">Email address</label>
-            <input className="inputBox"
+            <input
               type="email"
-              className="form-control"
+              className="form-control inputClass"
               id="login-email"
               placeholder="Email"
               name="email"
@@ -40,7 +40,7 @@ const LoginForm = (props) => {
             <label htmlFor="password">Password</label>
             <input
               type="password"
-              className="form-control"
+              className="form-control inputClass"
               id="login-password"
               name="password"
               placeholder="Password"
