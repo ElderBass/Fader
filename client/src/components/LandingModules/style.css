@@ -1,13 +1,15 @@
 .containerCustom {
   display: flex;
   justify-content: space-evenly;
+  border-style: solid;
+  border-width: thin;
+  border-color: #F7BA00;
 }
 
 .gridRow {
   order: 0;
   margin: 1rem;
   background-color: #191919;
-
   border-style: solid;
   border-width: thin;
   border-color: #F7BA00;
