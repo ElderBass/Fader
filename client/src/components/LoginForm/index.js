@@ -1,9 +1,12 @@
 import React from "react";
-import './style.css';
-
+import "./style.css";
+import { Link } from "react-router-dom";
 
 const LoginForm = (props) => {
 
+  const handleCloseLogin = () => {
+    window.location.href = "/"
+  }
 
   return (
     <div className="container loginContainer">
@@ -30,7 +33,7 @@ const LoginForm = (props) => {
               required
             ></input>
             <div className="invalid-feedback">
-              Please enter your email for your Quilava account.
+              This email does not match our records.
             </div>
           </div>
           <div className="form-group">
@@ -44,14 +47,19 @@ const LoginForm = (props) => {
               required
             ></input>
             <div className="invalid-feedback">
-              Please enter your password for your Quilava account.
+              Incorrect Password. Please Try Again.
             </div>
           </div>
           <hr />
           <div className="row loginFooter">
-            <button type="submit" id="loginBtn" className="btn btn-default">
+            <button type="submit" id="loginBtn" className="btn">
               Login
             </button>
+            {/* <a className="closeLogin" href="/"> */}
+              <button onClick={handleCloseLogin} href="/" type="submit" id="closeLogin" className="btn btn-default">
+                Close
+              </button>
+            {/* </a> */}
           </div>
         </form>
       </div>

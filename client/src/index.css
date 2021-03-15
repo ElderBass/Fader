@@ -25,3 +25,7 @@ code {
   font-weight: 350;
   src: url('./assets/fonts/Avenir.ttc') format('truetype');
 }
+
+* {
+  font-family: "Avenir";
+}
