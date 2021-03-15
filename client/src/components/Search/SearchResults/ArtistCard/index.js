@@ -85,31 +85,20 @@ const ArtistCard = (props) => {
             <Follow follow={handleFollowArtist} id={props.id} />
           </div>
         </div>
-      </Link>
-    );
-  } else {
-    return (
-      <Link to={"/artistprofile/" + props.id}>
-        <div className="card Artist">
-          <div className="img-container">
-            <img alt={`Photo of ${props.stageName}`} src={props.image} />
-          </div>
-          <div className="content">
-            <ul>
-              <li>
-                <strong>Stage Name:</strong> {props.stageName}
-              </li>
-              <li>
-                <strong> Real Name:</strong> {props.firstName} {props.lastName}
-              </li>
-              <li>
-                <strong>Genre:</strong> {props.genre}
-              </li>
-              <li>
-                <strong>Location:</strong> {props.city}
-              </li>
-            </ul>
-          </div>
+
+        <div className="content">
+          <ul >
+            <li>
+              {props.stageName}
+            </li>
+
+          </ul>
+          {state.isLoggedIn ? (
+            <button onClick={handleFollowArtist} type="submit" className="btn btn-default">
+              Follow Artist
+            </button>
+          ) : null}
+
         </div>
       </Link>
     );
