@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MIDISounds from 'midi-sounds-react';
+import "./style.css"
 
 class TestSequencer extends Component {
     constructor(props) {
@@ -10,10 +11,10 @@ class TestSequencer extends Component {
             , drumHiHat: 35
             , drumClap: 24
             , tracks: [
-                [true, false, false, false, false, false, false, true, true, false, true, false, false, false, true, false]
-                , [false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false]
-                , [false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false]
-                , [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+                , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+                , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+                , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
             ]
         };
         this.state.data = []
@@ -21,7 +22,7 @@ class TestSequencer extends Component {
         this.state.bpm = 120;
     }
     componentDidMount() {
-        this.setState({ initialized: true });
+        this.setState({ initialized: false });
     }
     onSelectDrumSnare(e) {
         var list = e.target;
@@ -114,6 +115,7 @@ class TestSequencer extends Component {
 
     render() {
         return (
+
             <div className="App">
                 <form>
                     {/* <button id="startBtn" type="button">start</button>
@@ -216,6 +218,7 @@ class TestSequencer extends Component {
                     ]}
                 />
                 <hr />
+
             </div>
         );
     }
