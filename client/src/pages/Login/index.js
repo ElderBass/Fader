@@ -18,6 +18,10 @@ const Login = (props) => {
     console.log("user in login =", user);
     API.login(user)
       .then((result) => {
+        //set session storage here
+        let userData = JSON.stringify(result.data);
+        console.log("user data just before saving to storage = ", userData);
+        localStorage.setItem("user", userData);
         console.log("result in login = ", result.data);
         dispatch({
           type: LOGIN_USER,

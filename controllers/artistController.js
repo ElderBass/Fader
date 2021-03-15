@@ -64,6 +64,7 @@ module.exports = {
         expiresIn: 86400, // 24 hours
       });
 
+
       res.json({
         _id: user._id,
         stageName: user.stageName,

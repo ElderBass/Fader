@@ -31,7 +31,7 @@ const LoginForm = (props) => {
               placeholder="Email"
               name="email"
               required
-            ></input>
+            />
             <div className="invalid-feedback">
               This email does not match our records.
             </div>
@@ -45,7 +45,7 @@ const LoginForm = (props) => {
               name="password"
               placeholder="Password"
               required
-            ></input>
+            />
             <div className="invalid-feedback">
               Incorrect Password. Please Try Again.
             </div>

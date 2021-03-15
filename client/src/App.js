@@ -1,24 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
-import Footer from "./components/Footer";
+import { UserProvider } from "./utils/UserState";
 import ArtistProfile from "./pages/Profile/ArtistProfile/ArtistProfile";
 import Home from "./pages/Home";
 import Browse from "./pages/BrowseArtists/BrowseArtists";
-import { UserProvider } from "./utils/UserState";
 import TestSequencer from "./components/realStepSequencer";
 
 import "./App.css";
 
 function App() {
+
+  
   return (
     <>
       <Router>
-        <UserProvider>
-          <Navbar />
+          <UserProvider>
           <div className="mainContainer">
             <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={Signup} />
@@ -31,8 +30,7 @@ function App() {
         <Route exact path="/profile" component={UserProfile} /> */}
           </div>
           <TestSequencer />
-          <Footer />
-        </UserProvider>
+          </UserProvider>
       </Router>
     </>
   );
