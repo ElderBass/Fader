@@ -26,6 +26,7 @@ const UserProfile = (props) => {
   const handleAddAbout = (e) => {
     e.preventDefault();
     let data = {
+
       id: state.user._id,
       about: e.target.about.value,
     };
