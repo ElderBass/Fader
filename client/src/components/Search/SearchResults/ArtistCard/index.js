@@ -34,22 +34,14 @@ const ArtistCard = (props) => {
           <img alt={`Photo of ${props.stageName}`} src={props.image} />
         </div>
         <div className="content">
-          <ul>
+          <ul >
             <li>
-              <strong>Stage Name:</strong> {props.stageName}
+              {props.stageName}
             </li>
-            <li>
-              <strong> Real Name:</strong> {props.firstName} {props.lastName}
-            </li>
-            <li>
-              <strong>Genre:</strong> {props.genre}
-            </li>
-            <li>
-              <strong>Location:</strong> {props.city}
-            </li>
+
           </ul>
           {state.isLoggedIn ? (
-            <button type="button" onClick={handleFollowArtist}>
+            <button onClick={handleFollowArtist} type="submit" className="btn btn-default">
               Follow Artist
             </button>
           ) : null}
