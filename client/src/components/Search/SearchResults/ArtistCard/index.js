@@ -44,7 +44,7 @@ const ArtistCard = (props) => {
 
   const handleFollowArtist = (e) => {
     e.preventDefault();
-    let body = { target: props.artist, targetId: props.id, user: state.user._id };
+    let body = { target: props.artist, targetId: props.id, user: state.user.id };
     state.user.connections.push(props.artist);
 
 
@@ -85,20 +85,31 @@ const ArtistCard = (props) => {
             <Follow follow={handleFollowArtist} id={props.id} />
           </div>
         </div>
-
-        <div className="content">
-          <ul >
-            <li>
-              {props.stageName}
-            </li>
-
-          </ul>
-          {state.isLoggedIn ? (
-            <button onClick={handleFollowArtist} type="submit" className="btn btn-default">
-              Follow Artist
-            </button>
-          ) : null}
-
+      </Link>
+    );
+  } else {
+    return (
+      <Link to={"/artistprofile/" + props.id}>
+        <div className="card Artist">
+          <div className="img-container">
+            <img alt={`Photo of ${props.stageName}`} src={props.image} />
+          </div>
+          <div className="content">
+            <ul>
+              <li>
+                <strong>Stage Name:</strong> {props.stageName}
+              </li>
+              <li>
+                <strong> Real Name:</strong> {props.firstName} {props.lastName}
+              </li>
+              <li>
+                <strong>Genre:</strong> {props.genre}
+              </li>
+              <li>
+                <strong>Location:</strong> {props.city}
+              </li>
+            </ul>
+          </div>
         </div>
       </Link>
     );
