@@ -1,119 +1,150 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MIDISounds from 'midi-sounds-react';
 import "./style.css"
 
-class TestSequencer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            drumSnare: 15
-            , drumBass: 5
-            , drumHiHat: 35
-            , drumClap: 24
-            , tracks: [
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-                , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-                , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-                , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-            ]
-        };
-        this.state.data = []
-        this.beats = [];
-        this.state.bpm = 120;
-    }
-    componentDidMount() {
-        this.setState({ initialized: false });
-    }
-    onSelectDrumSnare(e) {
+const TestSequencer = (props) => {
+
+    const [ drumState, setDrumState ] = useState({
+        drumSnare: 15
+        , drumBass: 5
+        , drumHiHat: 35
+        , drumClap: 24
+        , tracks: [
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+            , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+            , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+            , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+        ],
+
+    data: [],
+    beats: [],
+    bpm: 120,
+    })
+
+    const midiSounds = useRef();
+
+    useEffect(() => {
+        console.log("midi sounds in useEffect = ", midiSounds)
+        setDrumState({
+            ...drumState,
+            initialized: false
+        })
+    }, []);
+
+
+    const onSelectDrumSnare = (e) => {
         var list = e.target;
         var n = list.options[list.selectedIndex].getAttribute("value");
-        this.midiSounds.cacheDrum(n);
-        var me = this;
-        this.midiSounds.player.loader.waitLoad(function () {
-            me.setState({
+        midiSounds.current.cacheDrum(n);
+        //var me = this;
+        midiSounds.current.player.loader.waitLoad(function () {
+            setDrumState({
+                ...drumState,
                 drumSnare: n
             });
-            me.fillBeat();
+            fillBeat();
         });
     }
-    onSelectDrumBass(e) {
+    
+    const onSelectDrumBass = (e) => {
         var list = e.target;
         var n = list.options[list.selectedIndex].getAttribute("value");
-        this.midiSounds.cacheDrum(n);
-        var me = this;
-        this.midiSounds.player.loader.waitLoad(function () {
-            me.setState({
+        midiSounds.current.cacheDrum(n);
+        //var me = this;
+        midiSounds.current.player.loader.waitLoad(function () {
+            setDrumState({
+                ...drumState,
                 drumBass: n
             });
-            me.fillBeat();
+            fillBeat();
         });
     }
-    onSelectDrumHiHat(e) {
+    const onSelectDrumHiHat = (e) => {
         var list = e.target;
         var n = list.options[list.selectedIndex].getAttribute("value");
-        this.midiSounds.cacheDrum(n);
-        var me = this;
-        this.midiSounds.player.loader.waitLoad(function () {
-            me.setState({
+        midiSounds.current.cacheDrum(n);
+        //var me = this;
+        midiSounds.current.player.loader.waitLoad(function () {
+            setDrumState({
+                ...drumState,
                 drumHiHat: n
             });
-            me.fillBeat();
+            fillBeat();
         });
     }
-    onSelectDrumClap(e) {
+    const onSelectDrumClap = (e) => {
         var list = e.target;
         var n = list.options[list.selectedIndex].getAttribute("value");
-        this.midiSounds.cacheDrum(n);
-        var me = this;
-        this.midiSounds.player.loader.waitLoad(function () {
-            me.setState({
+        midiSounds.current.cacheDrum(n);
+        //var me = this;
+        midiSounds.current.player.loader.waitLoad(function () {
+            setDrumState({
+                ...drumState,
                 drumClap: n
             });
-            me.fillBeat();
+            fillBeat();
         });
     }
-    createSelectItems() {
-        if (this.midiSounds) {
-            if (!(this.items)) {
-                this.items = [];
-                for (let i = 0; i < this.midiSounds.player.loader.drumKeys().length; i++) {
-                    this.items.push(<option key={i} value={i}>{'' + (i + 0) + '. ' + this.midiSounds.player.loader.drumInfo(i).title}</option>);
+    const createSelectItems = () => {
+        if (midiSounds.current) {
+            // if (!(items)) {
+                let items = [];
+                for (let i = 0; i < midiSounds.current.player.loader.drumKeys().length; i++) {
+                    items.push(<option key={i} value={i}>{'' + (i + 0) + '. ' + midiSounds.current.player.loader.drumInfo(i).title}</option>);
                 }
-            }
-            return this.items;
+            // }
+            return items;
         }
     }
-    fillBeat() {
+    const fillBeat = () => {
+        let beats = [];
         for (var i = 0; i < 16; i++) {
             var drums = [];
-            if (this.state.tracks[0][i]) { drums.push(this.state.drumBass); }
-            if (this.state.tracks[1][i]) { drums.push(this.state.drumSnare); }
-            if (this.state.tracks[2][i]) { drums.push(this.state.drumClap); }
-            if (this.state.tracks[3][i]) { drums.push(this.state.drumHiHat); }
+            if (drumState.tracks[0][i]) { drums.push(drumState.drumBass); }
+            if (drumState.tracks[1][i]) { drums.push(drumState.drumSnare); }
+            if (drumState.tracks[2][i]) { drums.push(drumState.drumClap); }
+            if (drumState.tracks[3][i]) { drums.push(drumState.drumHiHat); }
             var beat = [drums, []];
-            this.beats[i] = beat;
-        }
+        
+            beats[i] = beat
     }
-    playLoop() {
-        this.fillBeat();
-        this.midiSounds.startPlayLoop(this.beats, this.state.bpm, 1 / 16);
-    }
-    stopLoop() {
-        this.midiSounds.stopPlayLoop();
-    }
-    toggleDrum(track, step) {
-        var a = this.state.tracks;
+    console.log("whole beats array = ", beats)
+    setDrumState({
+        ...drumState,
+        beats: beats
+})
+}
+    const playLoop = () => {
+        console.log("drumstate beats = ", drumState.beats, drumState.bpm);
+
+        // fillBeat();
+        midiSounds.current.startPlayLoop(drumState.beats, drumState.bpm, 1 / 16);
+    };
+
+    const stopLoop = () => {
+        midiSounds.current.stopPlayLoop();
+    };
+
+    const toggleDrum = (track, step) => {
+
+        var a = drumState.tracks;
         a[track][step] = !a[track][step];
-        this.setState({ tracks: a });
-        this.fillBeat();
+        setDrumState({ 
+            ...drumState,
+            tracks: a 
+        });
+        fillBeat();
+        console.log("after fill beat in toggle drum = ", drumState.beats)
     }
 
-    handleBPMChange = (e) => {
+    const handleBPMChange = (e) => {
         let bpm = e.target.value;
-        this.setState({ bpm: bpm })
+        setDrumState({ 
+            ...drumState,
+            bpm: bpm 
+        })
     }
-
-    render() {
+   
         return (
 
             <div className="App">
@@ -122,105 +153,105 @@ class TestSequencer extends Component {
                     <button id="stopBtn" type="button">stop</button> */}
                     <div>BPM 
                     <input id="bpm" name="slider" type="range" min="1" max="250" step="1" 
-                    value={this.state.bpm} onChange={this.handleBPMChange}></input></div>
-                    <input type="number" id="bpmValue" name="amountInput" min="1" max="250" value={this.state.bpm}
-                        onChange={this.handleBPMChange} />
+                    value={drumState.bpm} onChange={handleBPMChange}></input></div>
+                    <input type="number" id="bpmValue" name="amountInput" min="1" max="250" value={drumState.bpm}
+                        onChange={handleBPMChange} />
                 </form>
                 <table align='center'>
                     <tbody>
                         <tr>
-                            <td><select value={this.state.drumBass} onChange={this.onSelectDrumBass.bind(this)}>{this.createSelectItems()}</select></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][0]} onChange={(e) => this.toggleDrum(0, 0)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][1]} onChange={(e) => this.toggleDrum(0, 1)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][2]} onChange={(e) => this.toggleDrum(0, 2)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][3]} onChange={(e) => this.toggleDrum(0, 3)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][4]} onChange={(e) => this.toggleDrum(0, 4)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][5]} onChange={(e) => this.toggleDrum(0, 5)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][6]} onChange={(e) => this.toggleDrum(0, 6)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][7]} onChange={(e) => this.toggleDrum(0, 7)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][8]} onChange={(e) => this.toggleDrum(0, 8)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][9]} onChange={(e) => this.toggleDrum(0, 9)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][10]} onChange={(e) => this.toggleDrum(0, 10)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][11]} onChange={(e) => this.toggleDrum(0, 11)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][12]} onChange={(e) => this.toggleDrum(0, 12)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][13]} onChange={(e) => this.toggleDrum(0, 13)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][14]} onChange={(e) => this.toggleDrum(0, 14)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[0][15]} onChange={(e) => this.toggleDrum(0, 15)} /></td>
+                            <td><select value={drumState.drumBass} onChange={() => onSelectDrumBass}>{createSelectItems()}</select></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][0]} onChange={(e) => toggleDrum(0, 0)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][1]} onChange={(e) => toggleDrum(0, 1)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][2]} onChange={(e) => toggleDrum(0, 2)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][3]} onChange={(e) => toggleDrum(0, 3)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][4]} onChange={(e) => toggleDrum(0, 4)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][5]} onChange={(e) => toggleDrum(0, 5)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][6]} onChange={(e) => toggleDrum(0, 6)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][7]} onChange={(e) => toggleDrum(0, 7)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][8]} onChange={(e) => toggleDrum(0, 8)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][9]} onChange={(e) => toggleDrum(0, 9)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][10]} onChange={(e) => toggleDrum(0, 10)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][11]} onChange={(e) => toggleDrum(0, 11)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][12]} onChange={(e) => toggleDrum(0, 12)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][13]} onChange={(e) => toggleDrum(0, 13)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][14]} onChange={(e) => toggleDrum(0, 14)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[0][15]} onChange={(e) => toggleDrum(0, 15)} /></td>
                         </tr>
                         <tr>
-                            <td><select value={this.state.drumSnare} onChange={this.onSelectDrumSnare.bind(this)}>{this.createSelectItems()}</select></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][0]} onChange={(e) => this.toggleDrum(1, 0)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][1]} onChange={(e) => this.toggleDrum(1, 1)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][2]} onChange={(e) => this.toggleDrum(1, 2)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][3]} onChange={(e) => this.toggleDrum(1, 3)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][4]} onChange={(e) => this.toggleDrum(1, 4)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][5]} onChange={(e) => this.toggleDrum(1, 5)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][6]} onChange={(e) => this.toggleDrum(1, 6)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][7]} onChange={(e) => this.toggleDrum(1, 7)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][8]} onChange={(e) => this.toggleDrum(1, 8)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][9]} onChange={(e) => this.toggleDrum(1, 9)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][10]} onChange={(e) => this.toggleDrum(1, 10)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][11]} onChange={(e) => this.toggleDrum(1, 11)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][12]} onChange={(e) => this.toggleDrum(1, 12)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][13]} onChange={(e) => this.toggleDrum(1, 13)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][14]} onChange={(e) => this.toggleDrum(1, 14)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[1][15]} onChange={(e) => this.toggleDrum(1, 15)} /></td>
+                            <td><select value={drumState.drumSnare} onChange={() => onSelectDrumSnare}>{createSelectItems()}</select></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][0]} onChange={(e) => toggleDrum(1, 0)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][1]} onChange={(e) => toggleDrum(1, 1)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][2]} onChange={(e) => toggleDrum(1, 2)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][3]} onChange={(e) => toggleDrum(1, 3)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][4]} onChange={(e) => toggleDrum(1, 4)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][5]} onChange={(e) => toggleDrum(1, 5)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][6]} onChange={(e) => toggleDrum(1, 6)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][7]} onChange={(e) => toggleDrum(1, 7)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][8]} onChange={(e) => toggleDrum(1, 8)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][9]} onChange={(e) => toggleDrum(1, 9)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][10]} onChange={(e) => toggleDrum(1, 10)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][11]} onChange={(e) => toggleDrum(1, 11)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][12]} onChange={(e) => toggleDrum(1, 12)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][13]} onChange={(e) => toggleDrum(1, 13)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][14]} onChange={(e) => toggleDrum(1, 14)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[1][15]} onChange={(e) => toggleDrum(1, 15)} /></td>
                         </tr>
                         <tr>
-                            <td><select value={this.state.drumClap} onChange={this.onSelectDrumClap.bind(this)}>{this.createSelectItems()}</select></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][0]} onChange={(e) => this.toggleDrum(2, 0)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][1]} onChange={(e) => this.toggleDrum(2, 1)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][2]} onChange={(e) => this.toggleDrum(2, 2)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][3]} onChange={(e) => this.toggleDrum(2, 3)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][4]} onChange={(e) => this.toggleDrum(2, 4)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][5]} onChange={(e) => this.toggleDrum(2, 5)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][6]} onChange={(e) => this.toggleDrum(2, 6)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][7]} onChange={(e) => this.toggleDrum(2, 7)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][8]} onChange={(e) => this.toggleDrum(2, 8)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][9]} onChange={(e) => this.toggleDrum(2, 9)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][10]} onChange={(e) => this.toggleDrum(2, 10)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][11]} onChange={(e) => this.toggleDrum(2, 11)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][12]} onChange={(e) => this.toggleDrum(2, 12)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][13]} onChange={(e) => this.toggleDrum(2, 13)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][14]} onChange={(e) => this.toggleDrum(2, 14)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[2][15]} onChange={(e) => this.toggleDrum(2, 15)} /></td>
+                            <td><select value={drumState.drumClap} onChange={() => onSelectDrumClap}>{createSelectItems()}</select></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][0]} onChange={(e) => toggleDrum(2, 0)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][1]} onChange={(e) => toggleDrum(2, 1)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][2]} onChange={(e) => toggleDrum(2, 2)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][3]} onChange={(e) => toggleDrum(2, 3)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][4]} onChange={(e) => toggleDrum(2, 4)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][5]} onChange={(e) => toggleDrum(2, 5)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][6]} onChange={(e) => toggleDrum(2, 6)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][7]} onChange={(e) => toggleDrum(2, 7)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][8]} onChange={(e) => toggleDrum(2, 8)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][9]} onChange={(e) => toggleDrum(2, 9)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][10]} onChange={(e) => toggleDrum(2, 10)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][11]} onChange={(e) => toggleDrum(2, 11)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][12]} onChange={(e) => toggleDrum(2, 12)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][13]} onChange={(e) => toggleDrum(2, 13)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][14]} onChange={(e) => toggleDrum(2, 14)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[2][15]} onChange={(e) => toggleDrum(2, 15)} /></td>
                         </tr>
                         <tr>
-                            <td><select value={this.state.drumHiHat} onChange={this.onSelectDrumHiHat.bind(this)}>{this.createSelectItems()}</select></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][0]} onChange={(e) => this.toggleDrum(3, 0)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][1]} onChange={(e) => this.toggleDrum(3, 1)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][2]} onChange={(e) => this.toggleDrum(3, 2)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][3]} onChange={(e) => this.toggleDrum(3, 3)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][4]} onChange={(e) => this.toggleDrum(3, 4)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][5]} onChange={(e) => this.toggleDrum(3, 5)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][6]} onChange={(e) => this.toggleDrum(3, 6)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][7]} onChange={(e) => this.toggleDrum(3, 7)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][8]} onChange={(e) => this.toggleDrum(3, 8)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][9]} onChange={(e) => this.toggleDrum(3, 9)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][10]} onChange={(e) => this.toggleDrum(3, 10)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][11]} onChange={(e) => this.toggleDrum(3, 11)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][12]} onChange={(e) => this.toggleDrum(3, 12)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][13]} onChange={(e) => this.toggleDrum(3, 13)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][14]} onChange={(e) => this.toggleDrum(3, 14)} /></td>
-                            <td><input type="checkbox" defaultChecked={this.state.tracks[3][15]} onChange={(e) => this.toggleDrum(3, 15)} /></td>
+                            <td><select value={drumState.drumHiHat} onChange={()=> onSelectDrumHiHat}>{createSelectItems()}</select></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][0]} onChange={(e) => toggleDrum(3, 0)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][1]} onChange={(e) => toggleDrum(3, 1)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][2]} onChange={(e) => toggleDrum(3, 2)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][3]} onChange={(e) => toggleDrum(3, 3)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][4]} onChange={(e) => toggleDrum(3, 4)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][5]} onChange={(e) => toggleDrum(3, 5)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][6]} onChange={(e) => toggleDrum(3, 6)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][7]} onChange={(e) => toggleDrum(3, 7)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][8]} onChange={(e) => toggleDrum(3, 8)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][9]} onChange={(e) => toggleDrum(3, 9)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][10]} onChange={(e) => toggleDrum(3, 10)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][11]} onChange={(e) => toggleDrum(3, 11)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][12]} onChange={(e) => toggleDrum(3, 12)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][13]} onChange={(e) => toggleDrum(3, 13)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][14]} onChange={(e) => toggleDrum(3, 14)} /></td>
+                            <td><input type="checkbox" defaultChecked={drumState.tracks[3][15]} onChange={(e) => toggleDrum(3, 15)} /></td>
                         </tr>
                     </tbody>
                 </table>
                 <p>
-                    <button onClick={this.playLoop.bind(this)}>Play</button>
-                    <button onClick={this.stopLoop.bind(this)}>Stop</button>
+                    <button onClick={playLoop}>Play</button>
+                    <button onClick={stopLoop}>Stop</button>
                 </p>
-                <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root"
-                    drums={[this.state.drumSnare
-                        , this.state.drumBass
-                        , this.state.drumHiHat
-                        , this.state.drumClap
+                <MIDISounds ref={midiSounds} appElementName="root"
+                    drums={[drumState.drumSnare
+                        , drumState.drumBass
+                        , drumState.drumHiHat
+                        , drumState.drumClap
                     ]}
                 />
                 <hr />
             </div>
         );
-    }
+    
 }
 
 export default TestSequencer;
