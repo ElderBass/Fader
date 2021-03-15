@@ -9,17 +9,17 @@ const SignupMessage = (props) => {
 
 return (
 <div className="container">
-      <div className="row">
+      <div className="text-center">
         <h4 className="signupMessageHeader">Fade In</h4>
       </div>
       <hr />
-      <div className="row">
+      <div className="text-center">
         <h6>Rock on. Welcome to Fader. Now just sign in.</h6>
       </div>
       <hr />
-      <div className="modal-footer">
+      <div className="text-center">
         <Link to="/login">
-          <button type="button">Continue to Login</button>
+        <button type="submit" className="btn btn-default" id="buttonText" >Go to Login</button>
         </Link>
       </div>{" "}
     </div>
