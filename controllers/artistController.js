@@ -63,7 +63,7 @@ module.exports = {
       let token = jwt.sign({ id: user._id }, config.secret, {
         expiresIn: 86400, // 24 hours
       });
-
+        console.log("user inside artist controller = ", user)
 
       res.json({
         _id: user._id,
