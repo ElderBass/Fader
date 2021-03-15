@@ -1,6 +1,6 @@
 import React from "react";
-import LoginForm from "../../components/LoginForm";
-import LoginMessage from "../../components/LoginMessage";
+import LoginForm from "../../components/Login/LoginForm";
+import LoginMessage from "../../components/Login/LoginMessage";
 import { useUserContext } from "../../utils/UserState";
 import { LOGIN_USER } from "../../utils/action";
 import API from "../../utils/API";

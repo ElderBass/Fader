@@ -57,6 +57,10 @@ const UserProfile = (props) => {
     });
   };
 
+  const handleChangePicture = () => {
+    console.log("click city")
+  }
+
   return (
     <div className="container profile">
       <div className="row">
@@ -99,6 +103,7 @@ const UserProfile = (props) => {
         <div className="col-md-4 col-lg-4 col-sm-12">
           <div className="row">
             <div className="container">
+              <img src={state.user.image} alt={state.user.stagename} onClick={handleChangePicture} />
               <h3 className="stage">{state.user.stageName}</h3>
               <p className="info">
                 {state.user.firstName} {state.user.lastName} |{" "}
