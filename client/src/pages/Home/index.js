@@ -3,8 +3,7 @@ import { useUserContext } from "../../utils/UserState";
 import UserProfile from "../Profile/UserProfile/UserProfile";
 import LandingModules from "../../components/LandingModules";
 import { IS_LOGGED_IN } from "../../utils/action";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+
 
 const Home = (props, { history }) => {
   console.log(history);
@@ -25,7 +24,6 @@ const Home = (props, { history }) => {
 
   return (
     <div>
-      <Navbar />
       {state.isLoggedIn ? (
         <UserProfile />
       ) : (
@@ -34,7 +32,6 @@ const Home = (props, { history }) => {
           <LandingModules />
         </div>
       )}
-      <Footer />
     </div>
   );
 };

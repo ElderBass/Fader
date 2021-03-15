@@ -8,6 +8,8 @@ import ArtistProfile from "./pages/Profile/ArtistProfile/ArtistProfile";
 import Home from "./pages/Home";
 import Browse from "./pages/BrowseArtists/BrowseArtists";
 import TestSequencer from "./components/realStepSequencer";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import "./App.css";
 
@@ -18,6 +20,7 @@ function App() {
     <>
       <Router>
           <UserProvider>
+          <Navbar />
           <div className="mainContainer">
             <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={Signup} />
@@ -30,6 +33,7 @@ function App() {
         <Route exact path="/profile" component={UserProfile} /> */}
           </div>
           <TestSequencer />
+          <Footer />
           </UserProvider>
       </Router>
     </>
