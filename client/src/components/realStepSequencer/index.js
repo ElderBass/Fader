@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
 import MIDISounds from 'midi-sounds-react';
-import './style.css';
-
+import "./style.css"
 
 class TestSequencer extends Component {
     constructor(props) {
@@ -14,17 +11,18 @@ class TestSequencer extends Component {
             , drumHiHat: 35
             , drumClap: 24
             , tracks: [
-                [true, false, false, false, false, false, false, true, true, false, true, false, false, false, true, false]
-                , [false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false]
-                , [false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false]
-                , [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+                , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+                , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+                , [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
             ]
         };
         this.state.data = []
         this.beats = [];
+        this.state.bpm = 120;
     }
     componentDidMount() {
-        this.setState({ initialized: true });
+        this.setState({ initialized: false });
     }
     onSelectDrumSnare(e) {
         var list = e.target;
@@ -98,7 +96,7 @@ class TestSequencer extends Component {
     }
     playLoop() {
         this.fillBeat();
-        this.midiSounds.startPlayLoop(this.beats, 120, 1 / 16);
+        this.midiSounds.startPlayLoop(this.beats, this.state.bpm, 1 / 16);
     }
     stopLoop() {
         this.midiSounds.stopPlayLoop();
@@ -109,15 +107,24 @@ class TestSequencer extends Component {
         this.setState({ tracks: a });
         this.fillBeat();
     }
+
+    handleBPMChange = (e) => {
+        let bpm = e.target.value;
+        this.setState({ bpm: bpm })
+    }
+
     render() {
         return (
+
             <div className="App">
                 <form>
                     {/* <button id="startBtn" type="button">start</button>
                     <button id="stopBtn" type="button">stop</button> */}
-                    <div>BPM <input id="bpm" name="slider" type="range" min="1" max="250" step="1" value="120" oninput="this.form.amountInput.value=this.value"></input></div>
-                    <input type="number" id="bpmValue" name="amountInput" min="1" max="250" value="120"
-                        oninput="this.form.slider.value=this.value" />
+                    <div>BPM 
+                    <input id="bpm" name="slider" type="range" min="1" max="250" step="1" 
+                    value={this.state.bpm} onChange={this.handleBPMChange}></input></div>
+                    <input type="number" id="bpmValue" name="amountInput" min="1" max="250" value={this.state.bpm}
+                        onChange={this.handleBPMChange} />
                 </form>
                 <table align='center'>
                     <tbody>

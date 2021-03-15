@@ -1,8 +1,8 @@
 import React from "react";
 import { useUserContext } from "../../utils/UserState";
 import { ADD_USER } from "../../utils/action";
-import SignupForm from "../../components/SignupForm";
-import SignupMessage from "../../components/SignupMessage";
+import SignupForm from "../../components/Signup/SignupForm";
+import SignupMessage from "../../components/Signup/SignupMessage";
 import API from "../../utils/API";
 import "./style.css";
 

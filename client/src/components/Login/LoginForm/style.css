@@ -1,0 +1,35 @@
+.loginHeader {
+    color: #C12A75;
+}
+
+.pageBreak {
+    border-top: 0.15rem solid #C12A75;
+}
+
+.btn-default {
+    background-color: #C12A75;
+    color: white;
+    margin: 1rem;
+    width: 8rem;
+}
+
+#loginBtn {
+    background-color: #1EB100;
+    color: white;
+    margin: 1rem;
+    width: 8rem;
+}
+
+.closeLogin {
+    text-decoration: none;
+}
+
+/* .loginCol {
+    
+    margin-left: 40;
+} */
+
+.loginFooter {
+    display: flex;
+    justify-content: center;
+}

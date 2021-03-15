@@ -32,20 +32,10 @@ const ArtistCard = (props) => {
     console.log(followState.following);
   }, []);
 
-  const handleRenderFollow = () => {
-    let ids = [];
-    for (let i = 0; i < state.user.connections.length; i++) {
-      ids.push(state.user.connections[i]._id);
-    }
-    setFollowState({
-      ...followState,
-      following: ids,
-    });
-  };
 
   const handleFollowArtist = (e) => {
     e.preventDefault();
-    let body = { target: props.artist, targetId: props.id, user: state.user._id };
+    let body = { target: props.artist, targetId: props.id, user: state.user.id };
     state.user.connections.push(props.artist);
 
 

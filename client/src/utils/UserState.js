@@ -7,6 +7,7 @@ import {
   UPDATE_USER,
   LOGOUT_USER,
   GET_ARTIST,
+  IS_LOGGED_IN,
 } from "./action.js";
 
 const UserContext = createContext();
@@ -26,6 +27,13 @@ const reducer = (state, action) => {
         user: action.user,
       };
 
+    case IS_LOGGED_IN:
+      return {
+        ...state,
+        userToken: action.user.accessToken,
+        user: action.user,
+        isLoggedIn: true,
+      }
     case GET_ARTIST:
       return {
         ...state,

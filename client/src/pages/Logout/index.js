@@ -11,7 +11,7 @@ const Logout = (props) => {
     const [ state, dispatch ] = useUserContext();
 
     const handleLogout = () => {
-       
+       localStorage.clear();
         dispatch({
             type: LOGOUT_USER,
         })
