@@ -1,19 +1,29 @@
 .card {
   margin: 1rem;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  background-color: #191919;
+
 }
 
 .img-container {
   overflow: hidden;
-  background:#191919;
-  color: #191919;
 }
 
 li{
   display:flex;
   color: #F7BA00;
   font-family: Aveden;
+  background: opaque;
 
+}
+ul {
+  padding: 0px;
+}
+img {
+  
+}
+content {
+  opacity: 0.;
 }

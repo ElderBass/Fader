@@ -90,7 +90,7 @@ const ArtistCard = (props) => {
           <div className="content">
             <ul>
               <li>
-                <strong>Stage Name:</strong> {props.stageName}
+                {props.stageName}
               </li>
             </ul>
           </div>
