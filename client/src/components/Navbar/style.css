@@ -12,13 +12,13 @@
 
 #navButtons {
     color: #C12A75;
-    font-family: 'Avenir-Heavy';
-    src: local('Avenir-Heavy'), url(/src/assets/fonts/Avenir.ttc) format('ttc');
+    font-family: 'Avenir';
+    
 }
 
 #navButtons a {
     color: #C12A75;
-    font-family: 'Avenir-Heavy';
-    src: local('Avenir-Heavy'), url(/src/assets/fonts/Avenir.ttc) format('ttc');
+    font-family: 'Avenir';
+    
     cursor: pointer;
 }

@@ -21,6 +21,8 @@ app.route("/signup").post(artistController.addUser);
 
 app.route("/addconnection").put(artistController.addConnection);
 
+app.route("/changepicture").put(artistController.changePicture);
+
 app.route("/:id").get(artistController.getOneArtist);
 
 app.route("/message").put(artistController.leaveMessage);
