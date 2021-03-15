@@ -6,8 +6,23 @@
     border-top: 0.15rem solid #C12A75;
 }
 
-.inputLabel {
+.inputClass {
+    background-color: #3A3A3A;
     color: #C12A75;
+    box-shadow: none !important;
+    border-color: #6C757D;
+}
+
+.selectClass {
+    background-color: #3A3A3A;
+    color: #C12A75;
+    box-shadow: none !important;
+    border-color: #6C757D;
+}
+
+.selectName:active {
+    box-shadow: none !important;
+    border-color: #6C757D;
 }
 
 /* Div holding submit & close buttons */
@@ -28,6 +43,7 @@
 #signupBtn {
     border-style: solid;
     border-color: #C87EA3;
+    background-color: #C12A75;
 }
 
 #signupBtn:hover {
@@ -46,7 +62,7 @@
 
 #closeBtn {
     background-color: #3A3A3A;
-    border-color: #6C757D
+    border-color: #6C757D;
 }
 
 #closeBtn:hover {

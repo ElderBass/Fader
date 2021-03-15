@@ -24,7 +24,7 @@ const LoginForm = (props) => {
         >
           <div className="form-group">
             <label htmlFor="email">Email address</label>
-            <input
+            <input className="inputBox"
               type="email"
               className="form-control"
               id="login-email"
@@ -50,15 +50,15 @@ const LoginForm = (props) => {
               Incorrect Password. Please Try Again.
             </div>
           </div>
-          <hr />
-          <div className="row loginFooter">
-            <button type="submit" id="loginBtn" className="btn">
+          <hr className="pageBreak"/>
+          <div className="row" id="bottomBtns">
+            <button type="submit" id="loginBtn" className="btn btn-secondary">
               Login
             </button>
             {/* <a className="closeLogin" href="/"> */}
-              <button onClick={handleCloseLogin} href="/" type="submit" id="closeLogin" className="btn btn-default">
-                Close
-              </button>
+            <button onClick={handleCloseLogin} href="/" type="submit" id="closeBtn" className="btn btn-secondary">
+              Close
+            </button>
             {/* </a> */}
           </div>
         </form>
