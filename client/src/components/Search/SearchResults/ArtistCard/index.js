@@ -3,6 +3,7 @@ import { useUserContext } from "../../../../utils/UserState.js";
 import { GET_ARTIST, UPDATE_USER } from "../../../../utils/action";
 import { Link } from "react-router-dom";
 import Follow from "./Follow/index";
+import artistcardknob from "../../../../assets/images/artistcardknob.png";
 
 import API from "../../../../utils/API";
 //import { generatePath } from "react-router-dom";
@@ -64,28 +65,9 @@ const ArtistCard = (props) => {
     return (
       <Link to={"/artistprofile/" + props.id}>
         <div className="card Artist">
-          <div className="img-container">
-            <img alt={`Photo of ${props.stageName}`} src={props.image} />
-          </div>
-          <div className="content">
-            <ul>
-              <li>
-                <strong>Stage Name:</strong> {props.stageName}
-              </li>
-              <li>
-                <strong> Real Name:</strong> {props.firstName} {props.lastName}
-              </li>
-              <li>
-                <strong>Genre:</strong> {props.genre}
-              </li>
-              <li>
-                <strong>Location:</strong> {props.city}
-              </li>
-            </ul>
-            <Follow follow={handleFollowArtist} id={props.id} />
-          </div>
+        <div className="img-container">
+          <img alt={`Photo of ${props.stageName}`} src={artistcardknob} />
         </div>
-
         <div className="content">
           <ul >
             <li>
@@ -93,12 +75,25 @@ const ArtistCard = (props) => {
             </li>
 
           </ul>
-          {state.isLoggedIn ? (
-            <button onClick={handleFollowArtist} type="submit" className="btn btn-default">
-              Follow Artist
-            </button>
-          ) : null}
-
+            <Follow follow={handleFollowArtist} id={props.id} />
+          </div>
+        </div>
+      </Link>
+    );
+  } else {
+    return (
+      <Link to={"/artistprofile/" + props.id}>
+        <div className="card Artist">
+          <div className="img-container">
+            <img alt={`Photo of ${props.stageName}`} src={artistcardknob} />
+          </div>
+          <div className="content">
+            <ul>
+              <li>
+                {props.stageName}
+              </li>
+            </ul>
+          </div>
         </div>
       </Link>
     );
