@@ -1,15 +1,17 @@
 .containerCustom {
   display: flex;
   justify-content: space-evenly;
+  border-style: solid;
+  border-width: thin;
+  border-color: #F7BA00;
 }
 
 .gridRow {
   order: 0;
   margin: 1rem;
-  background-color: #3A3A3A;
-  border-radius: 2rem;
+  background-color: #191919;
   border-style: solid;
-  border-width: thick;
+  border-width: thin;
   border-color: #F7BA00;
 }
 
@@ -26,18 +28,18 @@
 .landingBtn {
   border-radius: 2rem;
   padding: 2rem;
-  background-color: #3A3A3A;
+  background-color: #191919;
 }
 
 .btnText {
   color: #FFE187;
-  background-color: #3A3A3A;
+  background-color: #191919;
 }
 
 .btnText {
   margin: 1rem;
   text-align: center;
-  background-color: #3A3A3A;
+  background-color: #191919;
 }
 
 /* .logSignBtn {

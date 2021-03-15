@@ -207,8 +207,8 @@ class TestSequencer extends Component {
                     </tbody>
                 </table>
                 <p>
-                    <button onClick={this.playLoop.bind(this)}>Play loop</button>
-                    <button onClick={this.stopLoop.bind(this)}>Stop loop</button>
+                    <button onClick={this.playLoop.bind(this)}>Play</button>
+                    <button onClick={this.stopLoop.bind(this)}>Stop</button>
                 </p>
                 <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root"
                     drums={[this.state.drumSnare
@@ -218,7 +218,6 @@ class TestSequencer extends Component {
                     ]}
                 />
                 <hr />
-
             </div>
         );
     }

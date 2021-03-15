@@ -10,7 +10,7 @@ const FollowButton = (props) => {
       type="button"
       onClick={props.follow}
     >
-      Follow Artist
+      Follow
     </button>
   );
 };

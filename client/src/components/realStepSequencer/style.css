@@ -1,7 +1,18 @@
+select {
+    color: #C12A75;
+}
+
+#bpmValue {
+ color: #C12A75;
+}
+
+div {
+    color: #C12A75;
+}
 .container {
     border-radius: 2rem;
   border-style: solid;
-  border-width: thick;
+  border-width: thin;
   border-color: #F7BA00;
 }
 
