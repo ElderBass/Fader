@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Browse from "./pages/BrowseArtists/BrowseArtists";
 import { UserProvider } from "./utils/UserState";
+import TestSequencer from "./components/realStepSequencer";
 
 import "./App.css";
 
@@ -28,6 +29,7 @@ function App() {
             {/* <Route exact path="/drumpad" component={Drumpad} />
         <Route exact path="/profile" component={UserProfile} /> */}
           </div>
+          <TestSequencer />
           <Footer />
         </UserProvider>
       </Router>
