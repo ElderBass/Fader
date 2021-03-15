@@ -27,7 +27,7 @@ function NavTabs() {
               <>
                 <p style={{ color: "#7D7D7D" }}>
                   Welcome,{" "}
-                  <span style={{ color: "#1EB100" }}>
+                  <span style={{ color: "#C12A75" }}>
                     {state.user.stageName}
                   </span>
                 </p>
