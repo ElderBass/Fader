@@ -25,7 +25,12 @@ export default {
   addAbout: function(data) {
     return axios.put("/api/artists/about", data)
   },
+
   leaveMessage: function(data) {
     return axios.put("/api/artists/message", data);
-  }
+  },
+  
+  changePicture: function(data) {
+    return axios.put("/api/artists/changepicture", data);
+  },
 };

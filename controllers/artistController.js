@@ -1,6 +1,6 @@
 const config = require("../config/dbconfig");
 const db = require("../models");
-
+const cloudinary = require("cloudinary");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
@@ -137,4 +137,29 @@ module.exports = {
       })
       .catch((err) => res.status(422).json(err));
   },
+  changePicture: function(req, res) {
+     console.log("result inside of change picture = ", req.body);
+    // const path = Object.values(req.body).path
+    // cloudinary.uploader.upload(path)
+    //   .then(image => )
+   
+    db.Artist.findOneAndUpdate(
+      {_id: req.body.id},
+      { image: req.body.image },
+      { new: true }
+    )
+    .then((result) => {
+      console.log("result inside of change picture = ", result);
+      let pic = {
+        id: result._id,
+        picture: result.image
+      }
+      const path = Object.values(pic).path
+      cloudinary.uploader.upload(path)
+        .then(image =>  {
+          console.log("image inside change image = ", image)
+          res.json(image)});
+    })
+    .catch((err) => res.status(422).json(err));
+  }
 };

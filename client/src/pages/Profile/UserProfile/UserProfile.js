@@ -3,7 +3,7 @@ import { useUserContext } from "../../../utils/UserState";
 import { Link } from "react-router-dom";
 import { UPDATE_USER } from "../../../utils/action";
 import EditAbout from "../../../components/AboutInfo/EditAbout";
-
+import ProfilePictureForm from "../../../components/ProfilePictureForm";
 import "./style.css";
 import API from "../../../utils/API";
 import AddAbout from "../../../components/AboutInfo/AddAbout";
@@ -19,6 +19,10 @@ const UserProfile = (props) => {
   const handleCloseEdit = () => setShowEdit(false);
   const handleShowEdit = () => setShowEdit(true);
 
+  const [showPic, setShowPic] = useState(false);
+  const handleClosePic = () => setShowPic(false);
+  const handleShowPic = () => setShowPic(true);
+
   useEffect(() => {
     console.log("state.user in user profile = ", state.user);
   });
@@ -26,7 +30,6 @@ const UserProfile = (props) => {
   const handleAddAbout = (e) => {
     e.preventDefault();
     let data = {
-
       id: state.user._id,
       about: e.target.about.value,
     };
@@ -57,9 +60,26 @@ const UserProfile = (props) => {
     });
   };
 
-  const handleChangePicture = () => {
-    console.log("click city")
-  }
+  const handleChangePicture = (e) => {
+    // const formData = new FormData();
+
+    // formData.append("id", state.user.id);
+    // formData.append("image", e.target.picture.value);
+    let pic = {
+      id: state.user._id,
+      image: e.target.picture.value
+    }
+
+    API.changePicture(pic)
+      .then((res) => {
+        console.log("result inside the change picture func = ", res);
+        dispatch({
+          type: UPDATE_USER,
+          user: {...state.user, image: res.data },
+        });
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="container profile">
@@ -103,7 +123,18 @@ const UserProfile = (props) => {
         <div className="col-md-4 col-lg-4 col-sm-12">
           <div className="row">
             <div className="container">
-              <img src={state.user.image} alt={state.user.stagename} onClick={handleChangePicture} />
+              <img
+                src={state.user.image}
+                width="80"
+                height="80"
+                alt={state.user.stagename}
+                onClick={handleShowPic}
+              />
+              <ProfilePictureForm
+                changePicture={handleChangePicture}
+                handleClosePic={handleClosePic}
+                showPic={showPic}
+              />
               <h3 className="stage">{state.user.stageName}</h3>
               <p className="info">
                 {state.user.firstName} {state.user.lastName} |{" "}
