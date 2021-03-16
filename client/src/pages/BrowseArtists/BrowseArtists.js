@@ -13,7 +13,7 @@ const BrowseArtists = (props) => {
     search: "",
     results: [],
     filter: "",
-    placeholder: "Choose a Filter to Optimize Your Search",
+    placeholder: "Please choose a filter first!",
   });
 
   useEffect(() => {
@@ -157,42 +157,49 @@ const BrowseArtists = (props) => {
   };
 
   return (
-    <div>
-      <select
-        onChange={handleFilterChange}
-        className="form-select"
-        name="filter"
-        aria-label="Choose Filter"
-        value={searchState.filter}
-      >
-        <option selected disabled value="">
-          Choose Filter
+    <div className="container signupContainer"> {/* this container is what restricts the search bars from the entire page width*/}
+      <div className="row">
+        <div className="col">
+          <h5 className="loginHeader" id="searchHeader">
+            Search Artists
+          </h5>
+          <select
+            onChange={handleFilterChange}
+            className="form-select selectClass"
+            name="filter"
+            aria-label="Choose Filter"
+            value={searchState.filter}
+          >
+            <option selected disabled value="">
+              Choose Filter
         </option>
-        <option value="Genre">Genre</option>
-        <option value="City">City</option>
-        <option value="Stage Name">Stage Name</option>
-        <option value="Last Name">Last Name</option>
-      </select>
-      <form className="input-group mb-3 searchForm">
-        <input
-          type="text"
-          name="search"
-          className="form-control"
-          aria-describedby="searchBtn"
-          placeholder={searchState.placeholder}
-          onChange={handleFilterResults}
-          value={searchState.search}
-        ></input>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          id="searchBtn"
-          onClick={handleResetSearch}
-        >
-          Reset Search
+            <option value="Genre">Genre</option>
+            <option value="City">City</option>
+            <option value="Stage Name">Stage Name</option>
+            <option value="Last Name">Last Name</option>
+          </select>
+          <form className="input-group mb-3 searchForm">
+            <input
+              type="text"
+              name="search"
+              className="form-control inputClass"
+              aria-describedby="searchBtn"
+              placeholder={searchState.placeholder}
+              onChange={handleFilterResults}
+              value={searchState.search}
+            ></input>
+            <button
+              type="submit"
+              className="btn btn-secondary"
+              id="resetSearchBtn"
+              onClick={handleResetSearch}
+            >
+              Reset Search
         </button>
-      </form>
-      <SearchResults results={searchState.results} />
+          </form>
+          <SearchResults results={searchState.results} />
+        </div>
+      </div>
     </div>
   );
 };
