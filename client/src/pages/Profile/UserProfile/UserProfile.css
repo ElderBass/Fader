@@ -48,13 +48,13 @@
 }
 #connectionsHeader {
     font-size: 9px;
-    color: #FFE187;
+    color: #7D7D7D;
     background-color:  #3A3A3A;
 
   }
 #messagesHeader {
     font-size: 9px;
-    color: #FFE187;
+    color: #7D7D7D;
     background-color:  #3A3A3A;
 
   }
@@ -66,4 +66,12 @@
   
   #messagesBox {
     background-color: #3A3A3A;
+    font-size: 14px;
+  }
+
+  .inputLabel { 
+      background-color: #2D2D2D;
+      font-size: 10px;
+      color: #C87EA3;
+      
   }

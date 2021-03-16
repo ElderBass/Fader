@@ -6,7 +6,7 @@ const LogoutMessage = (props) => {
   return (
     <div className="container" id="logOutContainer">
       <div className="text-center">
-        <h4 className="logOutMessageHeader">Fade Away!</h4>
+        <h4 className="logOutMessageHeader">FADE OUT</h4>
       </div>
       <br></br>
       <div className="text-center">
