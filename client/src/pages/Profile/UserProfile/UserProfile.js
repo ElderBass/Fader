@@ -200,7 +200,7 @@ const UserProfile = (props) => {
           </div>
           <div className="row">
               <label htmlFor="mizes" className="inputLabel">
-                Track List
+                SEQUENCES
               </label>
               <select
                 className="form-select"
@@ -219,7 +219,7 @@ const UserProfile = (props) => {
               </select>
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12" id="connectionsBox">
+        <div className="col-md-4 col-lg-4 col-sm-12" id="messagesBox">
           <div className="container userMessages" >
             <div className="row" id="connectionsBox">
               <h5 id="messagesHeader">MESSAGES</h5>
@@ -228,7 +228,7 @@ const UserProfile = (props) => {
               {state.user.messages.length > 0 ? (
                 state.user.messages.map((mess) => {
                   return (
-                    <div id="connectionsBox">
+                    <div id="messagesBox">
                       <img 
                         src={mess.image}
                         width="35"
@@ -240,8 +240,8 @@ const UserProfile = (props) => {
                   );
                 })
               ) : (
-                <div id="connectionsBox">
-                  <h6 id="connectionsBox">NO MESSAGES</h6>
+                <div id="messagesBox">
+                  <h6 id="messagesBox">NO MESSAGES</h6>
                 </div>
               )}
             </div>
