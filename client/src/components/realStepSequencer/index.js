@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MIDISounds from 'midi-sounds-react';
-import "./style.css"
+import "./RealStepSequencer.css"
 
 class TestSequencer extends Component {
     constructor(props) {
@@ -120,7 +120,7 @@ class TestSequencer extends Component {
                 <form>
                     {/* <button id="startBtn" type="button">start</button>
                     <button id="stopBtn" type="button">stop</button> */}
-                    <div>BPM 
+                    <div id="sliderText">BPM 
                     <input id="bpm" name="slider" type="range" min="1" max="250" step="1" 
                     value={this.state.bpm} onChange={this.handleBPMChange}></input></div>
                     <input type="number" id="bpmValue" name="amountInput" min="1" max="250" value={this.state.bpm}
@@ -129,7 +129,7 @@ class TestSequencer extends Component {
                 <table align='center'>
                     <tbody>
                         <tr>
-                            <td><select value={this.state.drumBass} onChange={this.onSelectDrumBass.bind(this)}>{this.createSelectItems()}</select></td>
+                            <td><select className="selectorText" value={this.state.drumBass} onChange={this.onSelectDrumBass.bind(this)}>{this.createSelectItems()}</select></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[0][0]} onChange={(e) => this.toggleDrum(0, 0)} /></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[0][1]} onChange={(e) => this.toggleDrum(0, 1)} /></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[0][2]} onChange={(e) => this.toggleDrum(0, 2)} /></td>
@@ -148,7 +148,7 @@ class TestSequencer extends Component {
                             <td><input type="checkbox" defaultChecked={this.state.tracks[0][15]} onChange={(e) => this.toggleDrum(0, 15)} /></td>
                         </tr>
                         <tr>
-                            <td><select value={this.state.drumSnare} onChange={this.onSelectDrumSnare.bind(this)}>{this.createSelectItems()}</select></td>
+                            <td><select className="selectorText" value={this.state.drumSnare} onChange={this.onSelectDrumSnare.bind(this)}>{this.createSelectItems()}</select></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[1][0]} onChange={(e) => this.toggleDrum(1, 0)} /></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[1][1]} onChange={(e) => this.toggleDrum(1, 1)} /></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[1][2]} onChange={(e) => this.toggleDrum(1, 2)} /></td>
@@ -167,7 +167,7 @@ class TestSequencer extends Component {
                             <td><input type="checkbox" defaultChecked={this.state.tracks[1][15]} onChange={(e) => this.toggleDrum(1, 15)} /></td>
                         </tr>
                         <tr>
-                            <td><select value={this.state.drumClap} onChange={this.onSelectDrumClap.bind(this)}>{this.createSelectItems()}</select></td>
+                            <td><select className="selectorText" value={this.state.drumClap} onChange={this.onSelectDrumClap.bind(this)}>{this.createSelectItems()}</select></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[2][0]} onChange={(e) => this.toggleDrum(2, 0)} /></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[2][1]} onChange={(e) => this.toggleDrum(2, 1)} /></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[2][2]} onChange={(e) => this.toggleDrum(2, 2)} /></td>
@@ -186,7 +186,7 @@ class TestSequencer extends Component {
                             <td><input type="checkbox" defaultChecked={this.state.tracks[2][15]} onChange={(e) => this.toggleDrum(2, 15)} /></td>
                         </tr>
                         <tr>
-                            <td><select value={this.state.drumHiHat} onChange={this.onSelectDrumHiHat.bind(this)}>{this.createSelectItems()}</select></td>
+                            <td><select className="selectorText" value={this.state.drumHiHat} onChange={this.onSelectDrumHiHat.bind(this)}>{this.createSelectItems()}</select></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[3][0]} onChange={(e) => this.toggleDrum(3, 0)} /></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[3][1]} onChange={(e) => this.toggleDrum(3, 1)} /></td>
                             <td><input type="checkbox" defaultChecked={this.state.tracks[3][2]} onChange={(e) => this.toggleDrum(3, 2)} /></td>
@@ -207,8 +207,8 @@ class TestSequencer extends Component {
                     </tbody>
                 </table>
                 <p>
-                    <button onClick={this.playLoop.bind(this)}>Play</button>
-                    <button onClick={this.stopLoop.bind(this)}>Stop</button>
+                    <button id="playstop" onClick={this.playLoop.bind(this)}>Play</button>
+                    <button id="playstop" onClick={this.stopLoop.bind(this)}>Stop</button>
                 </p>
                 <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root"
                     drums={[this.state.drumSnare

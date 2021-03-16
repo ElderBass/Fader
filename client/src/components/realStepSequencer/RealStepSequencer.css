@@ -1,28 +1,22 @@
-select {
+.selectorText {
+    color: #C12A75; 
+}
+
+#playstop {
     color: #C12A75;
 }
 
 #bpmValue {
- color: #C12A75;
+ color: #7D7D7D;
 }
 
-div {
-    color: #C12A75;
-}
-.container {
-    border-radius: 2rem;
-  border-style: solid;
-  border-width: thin;
-  border-color: #F7BA00;
+#sliderText {
+    color: #7D7D7D;
 }
 
 .bpmControl {
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-#text {
-    color: white;
 }
 
 #checkboxCSS {

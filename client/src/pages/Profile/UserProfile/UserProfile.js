@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { UPDATE_USER } from "../../../utils/action";
 import EditAbout from "../../../components/AboutInfo/EditAbout";
 import ProfilePictureForm from "../../../components/ProfilePictureForm";
-import "./style.css";
+import "./UserProfile.css";
 import API from "../../../utils/API";
 import AddAbout from "../../../components/AboutInfo/AddAbout";
 
@@ -83,11 +83,11 @@ const UserProfile = (props) => {
 
   return (
     <div className="container profile">
-      <div className="row">
-        <div className="col-md-4 col-lg-4 col-sm-12 ">
+      <div className="row" >
+        <div className="col-md-4 col-lg-4 col-sm-12"  id="connectionsBox">
           <div className="container userConnections">
-            <div className="row ">
-              <h5>Connections</h5>
+            <div className="row "  id="connectionsBox">
+              <h5 id="connectionsHeader">CONNECTIONS</h5>
             </div>
             <div className="row">
               {state.user.connections.length > 0 ? (
@@ -104,16 +104,16 @@ const UserProfile = (props) => {
                   );
                 })
               ) : (
-                <div className="container noConnections">
-                  <h3>You currently have no connections</h3>
+                <div className="container" id="connectionsBox">
+                  <h3  id="connectionsBox">NO CONNECTIONS</h3>
                 </div>
               )}
             </div>
 
             <br />
-            <div className="row">
+            <div className="row"  id="connectionsBox">
               <Link to="/artists">
-                <p style={{ fontSize: "10px", color: "#C12A75" }}>
+                <p id="browseArtist">
                   Browse Artists
                 </p>
               </Link>
@@ -161,17 +161,17 @@ const UserProfile = (props) => {
             </div>
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12">
-          <div className="container userMessages">
-            <div className="row">
-              <h5>Messages</h5>
+        <div className="col-md-4 col-lg-4 col-sm-12" id="connectionsBox">
+          <div className="container userMessages" >
+            <div className="row" id="connectionsBox">
+              <h5 id="messagesHeader">MESSAGES</h5>
             </div>
-            <div className="row">
+            <div className="row" >
               {state.user.messages.length > 0 ? (
                 state.user.messages.map((mess) => {
                   return (
-                    <div>
-                      <img
+                    <div id="connectionsBox">
+                      <img 
                         src={mess.image}
                         width="35"
                         height="35"
@@ -182,9 +182,8 @@ const UserProfile = (props) => {
                   );
                 })
               ) : (
-                <div>
-                  <h5>This thing on?</h5>
-                  <h6>This artist has no messages.</h6>
+                <div id="connectionsBox">
+                  <h6 id="connectionsBox">NO MESSAGES</h6>
                 </div>
               )}
             </div>

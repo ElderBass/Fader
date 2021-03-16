@@ -1,0 +1,56 @@
+
+.container {
+    background-color:  #2D2D2D;
+}
+
+.profile {
+    text-align: center;
+    border: solid 1px #F7BA00;
+    background-color:  #2D2D2D;
+    padding: 12px;
+}
+#browseArtist {
+    font-size: 10px;
+    color: #FFE187;
+    background-color:  #3A3A3A;
+}
+.userConnections {
+    padding: 2px;
+    color: #FFE187;
+    background-color:#3A3A3A;
+}
+.userMessages {
+    padding: 2px;
+    background-color:#3A3A3A;
+    color: #FFE187;
+
+}
+.stage {
+    color: #F7BA00;
+    font-size: 30px;
+    background-color: #2D2D2D;
+    font-family: 'Aveden';
+}
+.info {
+    color: #F7BA00;
+    background-color: #2D2D2D;
+    font-size: 12px;
+}
+#connectionsHeader {
+    font-size: 9px;
+    color: #FFE187;
+    background-color:  #3A3A3A;
+
+  }
+#messagesHeader {
+    font-size: 9px;
+    color: #FFE187;
+    background-color:  #3A3A3A;
+
+  }
+
+  #connectionsBox {
+      background-color: #3A3A3A;
+      font-size: 14px;
+  }
+  

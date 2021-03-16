@@ -1,17 +1,15 @@
-* {
+#root{
   background-color: #191919;
 }
-
 .App {
   text-align: center;
 }
-
 .mainContainer {
   background-color:  #191919;
   align-items: center;
   margin-top: 40px;
 }
-
 .homeContainer {
   align-items: center;
+  background-color: #191919;
 }

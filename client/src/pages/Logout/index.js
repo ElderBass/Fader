@@ -3,7 +3,7 @@ import LogoutMessage from "../../components/Logout/LogoutMessage";
 import { useUserContext } from "../../utils/UserState";
 import { LOGOUT_USER } from "../../utils/action";
 
-import './style.css'
+import './Logout.css'
 
 
 const Logout = (props) => {

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar } from "react-bootstrap";
 import logo from "../../assets/images/faderLogo.png";
 import { useUserContext } from "../../utils/UserState";
-import "./style.css";
+import "./Navbar.css";
 
 function NavTabs() {
   const [state, dispatch] = useUserContext();
