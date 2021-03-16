@@ -7,7 +7,7 @@ const LoginMessage = (props) => {
   return (
     <div className="container">
       <div className="text-center">
-        <h4 id="logInMessageContainer" className="loginMessageHeader">Excellent!</h4>
+        <h4 id="logInMessageContainer" className="loginMessageHeader">FADE IN</h4>
       </div>
       <br />
       <div className="text-center">
