@@ -1,9 +1,7 @@
 .loginHeader {
     color: #C12A75;
-}
-
-.pageBreak {
-    border-top: 0.15rem solid #C12A75;
+    padding: 1rem;
+    border-bottom: 0.2rem solid #C12A75;
 }
 
 /* Text input */

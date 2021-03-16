@@ -7,21 +7,32 @@
 }
 
 #bpmValue {
- color: #7D7D7D;
+ color: #f7ba00;
+ margin-left: 5px;
 }
 
 #sliderText {
-    color: #7D7D7D;
+    color: #f7ba00;
+    margin-left: 5px;
 }
 
-.bpmControl {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
 #checkboxCSS {
     margin-left: 5px;
-    margin-bottom: 10px;
+    /* margin-bottom: 0px; */
     height: 25px;
     width: 25px;
+}
+
+#soundList {
+    color: #f7ba00;
+}
+
+#playPause {
+    color: #f7ba00;
+    margin-left: 10px;
+}
+
+#tempoControl {
+    margin-bottom: 10px;
 }
