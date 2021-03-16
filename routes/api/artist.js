@@ -15,6 +15,12 @@ app.route("/").get(artistController.findAll);
 
 app.route("/about").put(artistController.addAbout);
 
+app.route("/addmix").post(artistController.addMix);
+
+app.route("/getmixes/:id").get(artistController.getAllMixes);
+
+app.route("/getonemix/:id").get(artistController.getOneMix);
+
 app.route("/others/:id").get(artistController.getOtherArtists)
 
 app.route("/signup").post(artistController.addUser);

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useUserContext } from "../../../utils/UserState";
 import LeaveMessage from "../../../components/LeaveMessage/index";
 
-import "./style.css";
+import "./ArtistProfile.css";
 
 const ArtistProfile = (props) => {
   const [show, setShow] = useState(false);
@@ -71,13 +71,14 @@ const ArtistProfile = (props) => {
   };
 
   return (
-    <div className="container profile">
+    <div className="container profile" id="">
       <div className="row">
-        <div className="col-md-4 col-lg-4 col-sm-12 ">
-          <div className="container connections">
-            <div className="row ">
-              <h5>Connections</h5>
+        <div className="col-md-4 col-lg-4 col-sm-12 " id="connectionsBox">
+          <div className="container userConnections">
+            <div className="row " id="connectionsBox">
+              <h5 id="connectionsHeader">CONNECTIONS</h5>
             </div>
+            <br />
             <div className="row">
               {artist.connections.length > 0 ? (
                 artist.connections.map((con) => {
@@ -93,30 +94,30 @@ const ArtistProfile = (props) => {
                   );
                 })
               ) : (
-                <div className="container noConnections">
-                  <h5>Quiet crowd...</h5>
-                  <h6>No connections.</h6>
+                <div className="container" id="connectionsBox">
+                  <h3 id="connectionsBox">NO CONNECTIONS</h3>
                 </div>
               )}
             </div>
             <br />
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12">
+        <div className="col-md-4 col-lg-4 col-sm-12 stage">
           <div className="row">
-            <div className="container">
+            <div className="container" >
+              {/* Rounded Profile IMG left of stagename? Use Flexbox? - Dory */}
               <h3 className="stage">{artist.stageName}</h3>
               <p className="info">
-                {artist.firstName} {artist.lastName} | {artist.genre} |{" "}
+                {artist.genre} |{" "}
                 {artist.city}
               </p>
             </div>
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12">
-          <div className="container connections">
-            <div className="row">
-              <h5>MESSAGES</h5>
+        <div className="col-md-4 col-lg-4 col-sm-12" id="messagesBox">
+          <div className="container userMessages">
+            <div className="row" id="messagesBox">
+              <h5 id="messagesHeader">MESSAGES</h5>
             </div>
             <div className="row">
               {artist.messages.length > 0 ? (
@@ -134,12 +135,11 @@ const ArtistProfile = (props) => {
                   );
                 })
               ) : (
-                <div>
-                  <h5>This thing on?</h5>
-                  <h6>No Messages.</h6>
+                <div id="messagesBox">
+                  <h6 id="messagesBox">NO MESSAGES</h6>
                 </div>
               )}
-            </div>
+            </div >
             {state.isLoggedIn ? (
               <LeaveMessage
                 handleClose={handleClose}

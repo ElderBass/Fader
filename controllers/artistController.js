@@ -63,7 +63,6 @@ module.exports = {
       let token = jwt.sign({ id: user._id }, config.secret, {
         expiresIn: 86400, // 24 hours
       });
-        console.log("user inside artist controller = ", user)
 
       res.json({
         _id: user._id,
@@ -78,6 +77,7 @@ module.exports = {
         messages: user.messages,
         about: user.about,
         following: user.following,
+        mixes: user.mixes,
         accessToken: token,
       });
     });
@@ -162,5 +162,33 @@ module.exports = {
           res.json(image)});
     })
     .catch((err) => res.status(422).json(err));
+  },
+  //need to change this to Mixes schema
+  addMix: function(req, res) {
+    console.log("req body inside add mix = ", req.body);
+    db.Mixes.create(req.body)
+    .then(result => {
+      console.log("result inside .then of addMix = ", result);
+      res.json(result);
+    })
+    .catch(err => res.status(422).json(err));
+  },
+
+  getAllMixes: function(req, res) {
+    console.log("req boyd inside get all mixes - ", req.params)
+    db.Mixes.find({userId: req.params.id})
+      .then(result => {
+        console.log("result inside get all mixes =", result);
+        res.json(result)
+      })
+  },
+
+  getOneMix: function(req, res) {
+    console.log("req body inside get one mix =", req.params);
+    db.Mixes.findOne({_id: req.params.id})
+      .then(result => {
+        console.log("result inside get one mix = ", result);
+        res.json(result);
+      })
   }
 };
