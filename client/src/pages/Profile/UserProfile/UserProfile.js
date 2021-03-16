@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useUserContext } from "../../../utils/UserState";
 import { Link } from "react-router-dom";
-import { UPDATE_USER } from "../../../utils/action";
+import { UPDATE_USER, CURRENT_MIX } from "../../../utils/action";
 import EditAbout from "../../../components/AboutInfo/EditAbout";
 import ProfilePictureForm from "../../../components/ProfilePictureForm";
 import "./UserProfile.css";
@@ -10,6 +10,20 @@ import AddAbout from "../../../components/AboutInfo/AddAbout";
 
 const UserProfile = (props) => {
   const [state, dispatch] = useUserContext();
+
+  const [mixes, setMixes] = useState({
+    mixes: [],
+  });
+
+  useEffect(() => {
+    console.log("user profile use effect currentMix = ", state.currentMix)
+    API.getAllMixes(state.user._id)
+      .then(result => {
+        setMixes({
+          mixes: result.data
+        })
+      })
+  }, [state.currentMix])
 
   const [showAdd, setShowAdd] = useState(false);
   const handleCloseAdd = () => setShowAdd(false);
@@ -23,9 +37,14 @@ const UserProfile = (props) => {
   const handleClosePic = () => setShowPic(false);
   const handleShowPic = () => setShowPic(true);
 
-  useEffect(() => {
-    console.log("state.user in user profile = ", state.user);
-  });
+  // useEffect(() => {
+  //   // console.log("state.user in user profile = ", state.user);
+  //   console.log("state.current mix in user profile");
+  //   dispatch({
+  //     type: CURRENT_MIX,
+  //     mix: mixes.mixes
+  //   })
+  // }, [mixes]);
 
   const handleAddAbout = (e) => {
     e.preventDefault();
@@ -67,18 +86,34 @@ const UserProfile = (props) => {
     // formData.append("image", e.target.picture.value);
     let pic = {
       id: state.user._id,
-      image: e.target.picture.value
-    }
+      image: e.target.picture.value,
+    };
 
     API.changePicture(pic)
       .then((res) => {
         console.log("result inside the change picture func = ", res);
         dispatch({
           type: UPDATE_USER,
-          user: {...state.user, image: res.data },
+          user: { ...state.user, image: res.data },
         });
       })
       .catch((err) => console.log(err));
+  };
+
+  const handleChangeMix = (e) => {
+    let mixId = e.target.value; //this is just [object Object and not sure why]
+    console.log("mix inside handleChange Mix = ", mixId)
+
+    API.getOneMix(mixId)
+      .then(result => {
+        console.log("result inside get one mix = ", result.data)
+        dispatch({
+          type: CURRENT_MIX,
+          mix: [...result.data.mixArr]
+        })
+        console.log(state.currentMix)
+      })
+     
   };
 
   return (
@@ -140,25 +175,48 @@ const UserProfile = (props) => {
                 {" "}
                 {state.user.genre} | {state.user.city}
               </p>
-              {state.user.about ? (
-                <>
-                  <p className="aboutInfo">{state.user.about}</p>
-                  <EditAbout
-                    edit={handleEditAbout}
-                    handleCloseEdit={handleCloseEdit}
-                    showEdit={showEdit}
-                    handleShowEdit={handleShowEdit}
-                  />
-                </>
-              ) : (
-                <AddAbout
-                  add={handleAddAbout}
-                  handleCloseAdd={handleCloseAdd}
-                  handleShowAdd={handleShowAdd}
-                  showAdd={showAdd}
-                />
-              )}
             </div>
+          </div>
+         
+          <div className="row">
+            {state.user.about ? (
+              <>
+                <p className="aboutInfo">{state.user.about}</p>
+                <EditAbout
+                  edit={handleEditAbout}
+                  handleCloseEdit={handleCloseEdit}
+                  showEdit={showEdit}
+                  handleShowEdit={handleShowEdit}
+                />
+              </>
+            ) : (
+              <AddAbout
+                add={handleAddAbout}
+                handleCloseAdd={handleCloseAdd}
+                handleShowAdd={handleShowAdd}
+                showAdd={showAdd}
+              />
+            )}
+          </div>
+          <div className="row">
+              <label htmlFor="mizes" className="inputLabel">
+                Track List
+              </label>
+              <select
+                className="form-select"
+                id="mixesSelection"
+                name="mixes"
+                onChange={handleChangeMix}
+                // value={currentMix}
+              >
+                {mixes.mixes
+                  ? mixes.mixes.map((mix) => {
+                      return (
+                        <option value={mix._id}>{mix.name}</option>
+                      );
+                    })
+                  : null}
+              </select>
           </div>
         </div>
         <div className="col-md-4 col-lg-4 col-sm-12" id="connectionsBox">

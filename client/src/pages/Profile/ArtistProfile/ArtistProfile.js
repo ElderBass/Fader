@@ -108,7 +108,7 @@ const ArtistProfile = (props) => {
               {/* Rounded Profile IMG left of stagename? Use Flexbox? - Dory */}
               <h3 className="stage">{artist.stageName}</h3>
               <p className="info">
-                  {artist.genre} |{" "}
+                {artist.genre} |{" "}
                 {artist.city}
               </p>
             </div>
