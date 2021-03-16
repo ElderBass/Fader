@@ -11,16 +11,10 @@
   overflow: hidden;
 }
 
-li{
+.liText{
   display:flex;
   color: #F7BA00;
   font-family: Aveden;
   background: opaque;
 
-}
-ul {
-  padding: 0px;
-}
-content {
-  opacity: 0.;
 }

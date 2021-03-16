@@ -1,0 +1,38 @@
+.selectorText {
+    color: #C12A75; 
+}
+
+#playstop {
+    color: #C12A75;
+}
+
+#bpmValue {
+ color: #f7ba00;
+ margin-left: 5px;
+}
+
+#sliderText {
+    color: #f7ba00;
+    margin-left: 5px;
+}
+
+
+#checkboxCSS {
+    margin-left: 5px;
+    /* margin-bottom: 0px; */
+    height: 25px;
+    width: 25px;
+}
+
+#soundList {
+    color: #f7ba00;
+}
+
+#playPause {
+    color: #f7ba00;
+    margin-left: 10px;
+}
+
+#tempoControl {
+    margin-bottom: 10px;
+}

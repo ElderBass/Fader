@@ -1,9 +1,9 @@
 import React from "react";
-import phonesIcon from "../../assets/phones-icon.png";
-import profileIcon from "../../assets/profile-icon.png";
-import studioIcon from "../../assets/studio-icon.png";
+import phonesIcon from "../../assets/knobs.png";
+import profileIcon from "../../assets/drumpads.png";
+import studioIcon from "../../assets/faders.png";
 import { Link } from "react-router-dom";
-import "./style.css";
+import "./LandingModules.css";
 
 const LandingModules = (props) => {
   console.log(props.history);
@@ -22,7 +22,7 @@ const LandingModules = (props) => {
             src={phonesIcon}
             alt="login/signup modal"
           />
-          <p className="btnText">Log in or signup here!</p>
+          <p className="btnText">SIGN UP!</p>
         </div>
       </Link>
       <Link to="/artists" style={{ textDecoration: 'none'}}>
@@ -34,7 +34,7 @@ const LandingModules = (props) => {
             alt="browse artists modal"
             onClick={clickHandler}
           />
-          <p className="btnText">Browse artists here!</p>
+          <p className="btnText">BROWSE PROFILES</p>
         </div>
       </Link >
         <div className="gridRow">

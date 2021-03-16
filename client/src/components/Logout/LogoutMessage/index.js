@@ -1,21 +1,22 @@
 import React from "react";
 
-import "./style.css";
+import "./Logout.css";
 
 const LogoutMessage = (props) => {
   return (
-    <div className="container">
+    <div className="container" id="logOutContainer">
       <div className="text-center">
-        <h4 className="loginMessageHeader">Fade Away!</h4>
+        <h4 className="logOutMessageHeader">Fade Away!</h4>
       </div>
-      <hr />
-      <div className="text-center" id="logStatusQuestion">
-        <h6>... you sure about that?</h6>
-      </div>
-      <hr />
+      <br></br>
       <div className="text-center">
-          <button onClick={props.logout} type="submit" className="btn btn-default">Logout</button>
+        <h6  id="logStatusQuestion">... you sure about that?</h6>
+      </div>
+      <br></br>
+      <div className="text-center"  id="logStatusQuestion">
+          <button onClick={props.logout} type="submit" id="logOutBtn"className="btn btn-default">Logout</button>
       </div>{" "}
+      <br></br>
 
     </div>
   );

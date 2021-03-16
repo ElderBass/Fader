@@ -19,7 +19,7 @@ return (
       <hr />
       <div className="text-center">
         <Link to="/login">
-        <button type="submit" className="btn btn-default" id="buttonText" >Go to Login</button>
+        <button type="submit" className="btn btn-secondary" id="buttonText" >Go to Login</button>
         </Link>
       </div>{" "}
     </div>

@@ -95,7 +95,7 @@ const ArtistProfile = (props) => {
               ) : (
                 <div className="container noConnections">
                   <h5>Quiet crowd...</h5>
-                  <h6>This artist has no connections.</h6>
+                  <h6>No connections.</h6>
                 </div>
               )}
             </div>
@@ -116,7 +116,7 @@ const ArtistProfile = (props) => {
         <div className="col-md-4 col-lg-4 col-sm-12">
           <div className="container connections">
             <div className="row">
-              <h5>Messages</h5>
+              <h5>MESSAGES</h5>
             </div>
             <div className="row">
               {artist.messages.length > 0 ? (
@@ -136,7 +136,7 @@ const ArtistProfile = (props) => {
               ) : (
                 <div>
                   <h5>This thing on?</h5>
-                  <h6>This artist has no messages.</h6>
+                  <h6>No Messages.</h6>
                 </div>
               )}
             </div>

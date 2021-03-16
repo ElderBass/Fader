@@ -3,6 +3,7 @@ import { useUserContext } from "../../utils/UserState";
 import UserProfile from "../Profile/UserProfile/UserProfile";
 import LandingModules from "../../components/LandingModules";
 import { IS_LOGGED_IN } from "../../utils/action";
+import "./style.css"
 
 
 const Home = (props, { history }) => {

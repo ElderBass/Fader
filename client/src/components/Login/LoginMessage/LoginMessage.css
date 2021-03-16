@@ -1,0 +1,18 @@
+.loginMessageHeader {
+    color:  #F7BA00;
+    padding-top: 20px;
+   
+   }
+   
+.text-center {
+    color: #FFE187;
+    }
+   
+#logInMessageContainer {
+    background-color:  #2D2D2D;
+}
+#logInBtn {
+    background-color: #F7BA00;
+    color: #000000;
+    font-weight: bold;
+}

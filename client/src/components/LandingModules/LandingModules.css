@@ -1,9 +1,8 @@
 .containerCustom {
   display: flex;
   justify-content: space-evenly;
-  border-style: solid;
-  border-width: thin;
-  border-color: #F7BA00;
+
+
 }
 
 .gridRow {
@@ -12,7 +11,7 @@
   background-color: #191919;
   border-style: solid;
   border-width: thin;
-  border-color: #F7BA00;
+  border-color: #C12A75;
 }
 
 
@@ -27,7 +26,7 @@
 }
 
 .btnText {
-  color: #FFE187;
+  color: #F7BA00;
   background-color: #191919;
 }
 

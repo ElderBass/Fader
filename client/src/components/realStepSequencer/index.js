@@ -6,6 +6,7 @@ import AddMixForm from "./AddMixForm";
 import API from "../../utils/API";
 import "./style.css";
 
+
 const TestSequencer = (props) => {
   const [state, dispatch] = useUserContext();
 
@@ -206,6 +207,7 @@ const TestSequencer = (props) => {
       .catch((err) => console.log(err));
     setShow(false);
   };
+
 
   return (
     <div className="App">
@@ -751,5 +753,6 @@ const TestSequencer = (props) => {
     </div>
   );
 };
+
 
 export default TestSequencer;
