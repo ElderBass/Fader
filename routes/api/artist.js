@@ -15,6 +15,8 @@ app.route("/").get(artistController.findAll);
 
 app.route("/about").put(artistController.addAbout);
 
+app.route("/addmix").put(artistController.addMix);
+
 app.route("/others/:id").get(artistController.getOtherArtists)
 
 app.route("/signup").post(artistController.addUser);

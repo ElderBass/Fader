@@ -6,14 +6,12 @@ import { IS_LOGGED_IN } from "../../utils/action";
 
 
 const Home = (props, { history }) => {
-  console.log(history);
   const [state, dispatch] = useUserContext();
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
-      console.log("found user = ", foundUser);
       dispatch({
         type: IS_LOGGED_IN,
         user: foundUser,

@@ -64,7 +64,6 @@ module.exports = {
         expiresIn: 86400, // 24 hours
       });
 
-
       res.json({
         _id: user._id,
         stageName: user.stageName,
@@ -78,6 +77,7 @@ module.exports = {
         messages: user.messages,
         about: user.about,
         following: user.following,
+        mixes: user.mixes,
         accessToken: token,
       });
     });
@@ -162,5 +162,19 @@ module.exports = {
           res.json(image)});
     })
     .catch((err) => res.status(422).json(err));
+  },
+  
+  addMix: function(req, res) {
+    console.log("req body inside add mix = ", req.body);
+    db.Artist.findOneAndUpdate(
+      { _id: req.body.id },
+      { $push: { mixes: req.body.mix }},
+      { new: true }
+    )
+    .then(result => {
+      console.log("result inside .then of addMix = ", result);
+      res.json(result);
+    })
+    .catch(err => res.status(422).json(err));
   }
 };
