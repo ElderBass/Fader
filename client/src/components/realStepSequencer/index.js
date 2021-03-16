@@ -561,7 +561,7 @@ const TestSequencer = (props) => {
             <td>
               <input
                 type="checkbox"
-                checked={drumState.tracks[2][2]}
+                checked={drumState.tracks[2][3]}
                 defaultChecked={drumState.tracks[2][3]}
                 onChange={(e) => toggleDrum(2, 3)}
               />
