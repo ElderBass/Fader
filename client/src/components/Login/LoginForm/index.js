@@ -14,7 +14,6 @@ const LoginForm = (props) => {
         <h5 className="loginHeader" id="login">
           Login
         </h5>
-        <hr className="pageBreak"></hr>
       </div>
       <div className="row">
         <form
@@ -50,7 +49,6 @@ const LoginForm = (props) => {
               Incorrect Password. Please Try Again.
             </div>
           </div>
-          <hr className="pageBreak"/>
           <div className="row" id="bottomBtns">
             <button type="submit" id="loginBtn" className="btn btn-secondary">
               Login

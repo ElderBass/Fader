@@ -1,0 +1,10 @@
+.text-center {
+    color: #C12A75;;
+}
+
+.btn-secondary {
+    background-color: #C12A75;
+    width: 8rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
