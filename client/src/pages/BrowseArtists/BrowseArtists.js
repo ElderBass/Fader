@@ -13,7 +13,7 @@ const BrowseArtists = (props) => {
     search: "",
     results: [],
     filter: "",
-    placeholder: "Please choose a filter first!",
+    placeholder: "Please choose a filter first",
   });
 
   useEffect(() => {
