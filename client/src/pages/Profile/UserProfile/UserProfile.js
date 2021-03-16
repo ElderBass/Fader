@@ -94,7 +94,7 @@ const UserProfile = (props) => {
         console.log("result inside the change picture func = ", res);
         dispatch({
           type: UPDATE_USER,
-          user: { ...state.user, image: res.data },
+          user: res.data,
         });
       })
       .catch((err) => console.log(err));
