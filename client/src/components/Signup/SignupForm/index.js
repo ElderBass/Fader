@@ -14,7 +14,6 @@ const SignupForm = (props) => {
         <h4 className="signupHeader" id="signup">
           Your Studio Awaits...
         </h4>
-        <hr className="pageBreak"></hr>
       </div>
       <div className="row">
         <form
@@ -148,7 +147,6 @@ const SignupForm = (props) => {
             <span className="sr-only">Error:</span>{" "}
             <span className="msg"></span>
           </div>
-          <hr className="pageBreak"></hr>
           <div className="row" id="bottomBtns">
             <button type="submit" className="btn btn-secondary" id="signupBtn">
               Sign Up
