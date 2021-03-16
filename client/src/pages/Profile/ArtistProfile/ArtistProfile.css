@@ -36,16 +36,6 @@
     background-color: #2D2D2D;
     font-size: 12px;
 }
-.aboutInfo {
-    color: #FFE187;
-    background-color: #2D2D2D;
-    font-size: 12px;
-}
-
-#editAboutBtn {
-    background-color: #2D2D2D;
-    color: #000000;
-}
 #connectionsHeader {
     font-size: 9px;
     color: #FFE187;
@@ -62,8 +52,4 @@
   #connectionsBox {
       background-color: #3A3A3A;
       font-size: 14px;
-  }
-  
-  #messagesBox {
-    background-color: #3A3A3A;
   }

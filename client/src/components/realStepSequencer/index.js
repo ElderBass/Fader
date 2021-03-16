@@ -4,7 +4,7 @@ import MIDISounds from "midi-sounds-react";
 import { CURRENT_MIX } from "../../utils/action.js";
 import AddMixForm from "./AddMixForm";
 import API from "../../utils/API";
-import "./style.css";
+import "./RealStepSequencer.css";
 
 
 const TestSequencer = (props) => {
