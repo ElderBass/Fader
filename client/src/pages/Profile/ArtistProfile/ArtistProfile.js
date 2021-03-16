@@ -107,7 +107,7 @@ const ArtistProfile = (props) => {
             <div className="container">
               <h3 className="stage">{artist.stageName}</h3>
               <p className="info">
-                {artist.firstName} {artist.lastName} | {artist.genre} |{" "}
+                {artist.genre} |{" "}
                 {artist.city}
               </p>
             </div>

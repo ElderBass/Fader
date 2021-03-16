@@ -8,6 +8,7 @@ import {
   LOGOUT_USER,
   GET_ARTIST,
   IS_LOGGED_IN,
+  CURRENT_MIX,
 } from "./action.js";
 
 const UserContext = createContext();
@@ -61,9 +62,14 @@ const reducer = (state, action) => {
         isLoggedIn: false,
         isSignedUp: false,
       };
+    case CURRENT_MIX:
+      return {
+        ...state,
+        currentMix: action.mix
+      }
     default:
       return state;
-  }
+  };
 };
 
 const UserProvider = ({ value = [], ...props }) => {
@@ -73,6 +79,7 @@ const UserProvider = ({ value = [], ...props }) => {
     isLoggedIn: false,
     isSignedUp: false,
     targetId: "",
+    currentMix: []
   });
 
   return <Provider value={[state, dispatch]} {...props} />;

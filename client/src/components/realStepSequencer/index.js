@@ -101,11 +101,18 @@ const TestSequencer = (props) => {
   const midiSounds = useRef();
 
   useEffect(() => {
-    console.log("midi sounds in useEffect = ", midiSounds);
-    setDrumState({
-      ...drumState,
-      initialized: false,
-    });
+    if (state.currentMix.length > 0) {
+      setDrumState({
+        ...drumState,
+        initialized: false,
+        tracks: state.currentMix,
+      });
+    } else {
+      setDrumState({
+        ...drumState,
+        initialized: false,
+      });
+    }
   }, []);
 
   const onSelectDrumSnare = (e) => {
@@ -203,16 +210,15 @@ const TestSequencer = (props) => {
 
       beats[i] = beat;
     }
-    console.log("whole beats array = ", beats);
+
     setDrumState({
       ...drumState,
       beats: beats,
     });
   };
   const playLoop = () => {
-    console.log("drumstate beats = ", drumState.beats, drumState.bpm);
-
-    // fillBeat();
+    console.log("playing", drumState.tracks);
+    //fillBeat();
     midiSounds.current.startPlayLoop(drumState.beats, drumState.bpm, 1 / 16);
   };
 
@@ -228,7 +234,6 @@ const TestSequencer = (props) => {
       tracks: a,
     });
     fillBeat();
-    console.log("after fill beat in toggle drum = ", drumState.beats);
   };
 
   const handleBPMChange = (e) => {
@@ -240,13 +245,14 @@ const TestSequencer = (props) => {
   };
 
   const handleSaveMix = (e) => {
-      e.preventDefault();
+    e.preventDefault();
     let body = {
       mix: {
         name: e.target.mixName.value,
         mixArr: drumState.tracks,
+        bpm: drumState.bpm,
       },
-      id: state.user._id
+      id: state.user._id,
     };
 
     API.addMix(body)

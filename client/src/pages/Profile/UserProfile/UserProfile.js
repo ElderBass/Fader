@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useUserContext } from "../../../utils/UserState";
 import { Link } from "react-router-dom";
-import { UPDATE_USER } from "../../../utils/action";
+import { UPDATE_USER, CURRENT_MIX } from "../../../utils/action";
 import EditAbout from "../../../components/AboutInfo/EditAbout";
 import ProfilePictureForm from "../../../components/ProfilePictureForm";
 import "./style.css";
@@ -10,6 +10,10 @@ import AddAbout from "../../../components/AboutInfo/AddAbout";
 
 const UserProfile = (props) => {
   const [state, dispatch] = useUserContext();
+
+  const [currentMix, setCurrentMix] = useState({
+    currentMix: "Select a Mix",
+  });
 
   const [showAdd, setShowAdd] = useState(false);
   const handleCloseAdd = () => setShowAdd(false);
@@ -67,18 +71,26 @@ const UserProfile = (props) => {
     // formData.append("image", e.target.picture.value);
     let pic = {
       id: state.user._id,
-      image: e.target.picture.value
-    }
+      image: e.target.picture.value,
+    };
 
     API.changePicture(pic)
       .then((res) => {
         console.log("result inside the change picture func = ", res);
         dispatch({
           type: UPDATE_USER,
-          user: {...state.user, image: res.data },
+          user: { ...state.user, image: res.data },
         });
       })
       .catch((err) => console.log(err));
+  };
+
+  const handleChangeMix = (e) => {
+    let mix = e.target.value;
+    dispatch({
+      type: CURRENT_MIX,
+      mix: mix.mixArr
+    })
   };
 
   return (
@@ -140,25 +152,48 @@ const UserProfile = (props) => {
                 {state.user.firstName} {state.user.lastName} |{" "}
                 {state.user.genre} | {state.user.city}
               </p>
-              {state.user.about ? (
-                <>
-                  <p className="aboutInfo">{state.user.about}</p>
-                  <EditAbout
-                    edit={handleEditAbout}
-                    handleCloseEdit={handleCloseEdit}
-                    showEdit={showEdit}
-                    handleShowEdit={handleShowEdit}
-                  />
-                </>
-              ) : (
-                <AddAbout
-                  add={handleAddAbout}
-                  handleCloseAdd={handleCloseAdd}
-                  handleShowAdd={handleShowAdd}
-                  showAdd={showAdd}
-                />
-              )}
             </div>
+          </div>
+         
+          <div className="row">
+            {state.user.about ? (
+              <>
+                <p className="aboutInfo">{state.user.about}</p>
+                <EditAbout
+                  edit={handleEditAbout}
+                  handleCloseEdit={handleCloseEdit}
+                  showEdit={showEdit}
+                  handleShowEdit={handleShowEdit}
+                />
+              </>
+            ) : (
+              <AddAbout
+                add={handleAddAbout}
+                handleCloseAdd={handleCloseAdd}
+                handleShowAdd={handleShowAdd}
+                showAdd={showAdd}
+              />
+            )}
+          </div>
+          <div className="row">
+              <label htmlFor="mizes" className="inputLabel">
+                Track List
+              </label>
+              <select
+                className="form-select"
+                id="mixesSelection"
+                name="mixes"
+                onChange={handleChangeMix}
+                value={currentMix}
+              >
+                {state.user.mixes
+                  ? state.user.mixes.map((mix) => {
+                      return (
+                        <option value={mix}>{mix.name}</option>
+                      );
+                    })
+                  : null}
+              </select>
           </div>
         </div>
         <div className="col-md-4 col-lg-4 col-sm-12">
