@@ -35,9 +35,14 @@
     border-color: #6C757D;
 }
 
-.selectName:active {
+.selectClass:active {
     box-shadow: none !important;
     border-color: #6C757D !important;
+}
+
+.selectClass:focus {
+    box-shadow: none !important;
+    border-color: #C87EA3 !important;
 }
 
 /* Div holding submit & close buttons */
@@ -62,7 +67,7 @@
 }
 
 #signupBtn:hover {
-    background-color: #C87EA3;
+    background-color: #C87EA3 !important;
 }
 
 #signupBtn:active {

@@ -15,26 +15,26 @@ import "./App.css";
 
 function App() {
 
-  
+
   return (
     <>
       <Router>
-          <UserProvider>
+        <UserProvider>
           <Navbar />
           <div className="mainContainer">
-            <Route exact path="/" component={Home} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/logout" component={Logout}/>
-            <Route path="/artists" component={Browse} />
-            <Route path="/artistprofile/:id" component={ArtistProfile}
+              <Route exact path="/" component={Home} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/logout" component={Logout} />
+              <Route path="/artists" component={Browse} />
+              <Route path="/artistprofile/:id" component={ArtistProfile}
               />
-            {/* <Route exact path="/drumpad" component={Drumpad} />
+              {/* <Route exact path="/drumpad" component={Drumpad} />
         <Route exact path="/profile" component={UserProfile} /> */}
           </div>
           <TestSequencer />
           <Footer />
-          </UserProvider>
+        </UserProvider>
       </Router>
     </>
   );
