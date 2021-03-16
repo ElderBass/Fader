@@ -1,0 +1,4 @@
+/* Search Filter text input */
+.inputClass::placeholder {
+    color: #FFF !important;
+}

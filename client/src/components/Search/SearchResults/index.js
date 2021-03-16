@@ -4,6 +4,8 @@ import ArtistCard from "./ArtistCard";
 import { useUserContext } from "../../../utils/UserState";
 import ResultsWrapper from "../SearchResults/ResultsWrapper";
 
+import "./style.css";
+
 const SearchResults = (props) => {
   const [state, dispatch] = useUserContext();
 
