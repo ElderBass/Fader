@@ -178,7 +178,7 @@ const UserProfile = (props) => {
             </div>
           </div>
          
-          <div className="row">
+          <div className="row" id="stage">
             {state.user.about ? (
               <>
                 <p className="aboutInfo">{state.user.about}</p>
@@ -198,8 +198,8 @@ const UserProfile = (props) => {
               />
             )}
           </div>
-          <div className="row">
-              <label htmlFor="mizes" className="inputLabel">
+          <div className="row" id="mixesSelection">
+              <label htmlFor="mixes" className="inputLabel">
                 SEQUENCES
               </label>
               <select
