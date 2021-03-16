@@ -15,10 +15,11 @@ const TestSequencer = (props) => {
   const handleShow = () => setShow(true);
 
   const [drumState, setDrumState] = useState({
-    drumSnare: 15,
+    drumSnare: 0,
     drumBass: 5,
     drumHiHat: 35,
     drumClap: 24,
+    drumMisc1: 55,
     tracks: state.currentMix,
 
     data: [],
@@ -34,7 +35,7 @@ const TestSequencer = (props) => {
     for (var i = 0; i < 16; i++) {
       var drums = [];
       if (state.currentMix[0][i]) {
-        drums.push(drumState.drumBass);
+        drums.push(drumState.drumMisc1);
       }
       if (state.currentMix[1][i]) {
         drums.push(drumState.drumSnare);
@@ -43,6 +44,9 @@ const TestSequencer = (props) => {
         drums.push(drumState.drumClap);
       }
       if (state.currentMix[3][i]) {
+        drums.push(drumState.drumHiHat);
+      }
+      if (state.currentMix[4][i]) {
         drums.push(drumState.drumHiHat);
       }
       var beat = [drums, []];
@@ -140,7 +144,7 @@ const TestSequencer = (props) => {
     for (var i = 0; i < 16; i++) {
       var drums = [];
       if (drumState.tracks[0][i]) {
-        drums.push(drumState.drumBass);
+        drums.push(drumState.drumMisc1);
       }
       if (drumState.tracks[1][i]) {
         drums.push(drumState.drumSnare);
@@ -149,6 +153,9 @@ const TestSequencer = (props) => {
         drums.push(drumState.drumClap);
       }
       if (drumState.tracks[3][i]) {
+        drums.push(drumState.drumHiHat);
+      }
+      if (drumState.tracks[4][i]) {
         drums.push(drumState.drumHiHat);
       }
       var beat = [drums, []];
@@ -164,6 +171,7 @@ const TestSequencer = (props) => {
   const playLoop = () => {
     console.log("playing, tracks", drumState.tracks);
     console.log("playing, beats", drumState.beats);
+    console.log("drumstate new sound = ", drumState.drumMisc1)
     fillBeat();
     midiSounds.current.startPlayLoop(drumState.beats, drumState.bpm, 1 / 16);
   };
@@ -197,7 +205,7 @@ const TestSequencer = (props) => {
         mixArr: drumState.tracks,
         userId: state.user._id,
     };
-
+    console.log("body inside handle save mix = ", body);
     API.addMix(body)
       .then((result) => {
         console.log("result inside add Mix = ", result.data);
@@ -244,7 +252,7 @@ const TestSequencer = (props) => {
           <tr>
             <td>
               <select
-                value={drumState.drumBass}
+                value={drumState.drumMisc1}
                 onChange={() => onSelectDrumBass}
               >
                 {createSelectItems()}
@@ -790,6 +798,144 @@ const TestSequencer = (props) => {
                 checked={drumState.tracks[3][15]}
                 defaultChecked={drumState.tracks[3][15]}
                 onChange={(e) => toggleDrum(3, 15)}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select
+                value={drumState.drumBass}
+                onChange={() => onSelectDrumBass}
+              >
+                {createSelectItems()}
+              </select>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][0]}
+                defaultChecked={drumState.tracks[4][0]}
+                onChange={(e) => toggleDrum(4, 0)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][1]}
+                defaultChecked={drumState.tracks[4][1]}
+                onChange={(e) => toggleDrum(4, 1)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][2]}
+                defaultChecked={drumState.tracks[4][2]}
+                onChange={(e) => toggleDrum(4, 2)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][3]}
+                defaultChecked={drumState.tracks[4][3]}
+                onChange={(e) => toggleDrum(4, 3)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][4]}
+                defaultChecked={drumState.tracks[4][4]}
+                onChange={(e) => toggleDrum(4, 4)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][5]}
+                defaultChecked={drumState.tracks[4][5]}
+                onChange={(e) => toggleDrum(4, 5)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][6]}
+                defaultChecked={drumState.tracks[4][6]}
+                onChange={(e) => toggleDrum(4, 6)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][7]}
+                defaultChecked={drumState.tracks[4][7]}
+                onChange={(e) => toggleDrum(4, 7)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][8]}
+                defaultChecked={drumState.tracks[4][8]}
+                onChange={(e) => toggleDrum(4, 8)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][9]}
+                defaultChecked={drumState.tracks[4][9]}
+                onChange={(e) => toggleDrum(4, 9)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][10]}
+                defaultChecked={drumState.tracks[4][10]}
+                onChange={(e) => toggleDrum(4, 10)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][11]}
+                defaultChecked={drumState.tracks[4][11]}
+                onChange={(e) => toggleDrum(4, 11)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][12]}
+                defaultChecked={drumState.tracks[4][12]}
+                onChange={(e) => toggleDrum(4, 12)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][13]}
+                defaultChecked={drumState.tracks[4][13]}
+                onChange={(e) => toggleDrum(4, 13)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][14]}
+                defaultChecked={drumState.tracks[4][14]}
+                onChange={(e) => toggleDrum(4, 14)}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={drumState.tracks[4][15]}
+                defaultChecked={drumState.tracks[4][15]}
+                onChange={(e) => toggleDrum(4, 15)}
               />
             </td>
           </tr>

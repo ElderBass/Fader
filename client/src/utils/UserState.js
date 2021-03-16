@@ -152,6 +152,24 @@ const UserProvider = ({ value = [], ...props }) => {
         false,
         false,
       ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+      ],
     ]
   });
 

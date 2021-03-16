@@ -36,6 +36,7 @@ module.exports = {
   },
 
   signin: (req, res) => {
+    console.log("inside signin backend = ", req.body);
     db.Artist.findOne({
       email: req.body.email,
     }).exec((err, user) => {
