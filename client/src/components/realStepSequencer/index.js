@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MIDISounds from 'midi-sounds-react';
-import "./style.css"
+import "./RealStepSequencer.css"
 
 const TestSequencer = (props) => {
 
@@ -151,7 +151,7 @@ const TestSequencer = (props) => {
                 <form>
                     {/* <button id="startBtn" type="button">start</button>
                     <button id="stopBtn" type="button">stop</button> */}
-                    <div>BPM 
+                    <div id="sliderText">BPM 
                     <input id="bpm" name="slider" type="range" min="1" max="250" step="1" 
                     value={drumState.bpm} onChange={handleBPMChange}></input></div>
                     <input type="number" id="bpmValue" name="amountInput" min="1" max="250" value={drumState.bpm}

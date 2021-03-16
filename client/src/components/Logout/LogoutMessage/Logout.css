@@ -1,0 +1,21 @@
+.logOutMessageHeader {
+    padding-top:20px;
+    color:  #F7BA00;
+    background-color: #2D2D2D;
+
+}
+
+#logStatusQuestion {
+    color: #FFE187;
+    background-color: #2D2D2D;
+}
+
+#logOutBtn {
+    background-color: #F7BA00;
+    color: #000000;
+    font-weight: bold;
+    
+}
+#logOutContainer {
+    background-color: #2D2D2D;
+}

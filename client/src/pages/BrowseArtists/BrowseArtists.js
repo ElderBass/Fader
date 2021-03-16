@@ -4,7 +4,7 @@ import { useUserContext } from "../../utils/UserState";
 import SearchResults from "../../components/Search/SearchResults";
 import API from "../../utils/API";
 
-import "./style.css";
+import "./BrowseArtists.css";
 
 const BrowseArtists = (props) => {
   const [state, dispatch] = useUserContext();

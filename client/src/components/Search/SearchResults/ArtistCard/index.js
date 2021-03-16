@@ -60,7 +60,7 @@ const ArtistCard = (props) => {
         </div>
         <div className="content">
           <ul >
-            <li>
+            <li className="liText">
               {props.stageName}
             </li>
 
@@ -79,7 +79,7 @@ const ArtistCard = (props) => {
           </div>
           <div className="content">
             <ul>
-              <li>
+              <li className="liText">
                 {props.stageName}
               </li>
             </ul>

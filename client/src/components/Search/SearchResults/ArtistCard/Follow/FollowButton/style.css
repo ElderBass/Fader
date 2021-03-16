@@ -1,26 +1,19 @@
 .card {
-    margin: 1rem;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #191919;
-  
-  }
-  
-  .img-container {
-    overflow: hidden;
-  }
-  
-  li{
-    display:flex;
-    color: #F7BA00;
-    font-family: Aveden;
-    background: opaque;
-  
-  }
-  ul {
-    padding: 0px;
-  }
-  content {
-    opacity: 0.;
-  }
+  margin: 1rem;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #191919;
+
+}
+
+.img-container {
+  overflow: hidden;
+}
+
+.liText{
+  display:flex;
+  color: #F7BA00;
+  font-family: Aveden;
+
+}
