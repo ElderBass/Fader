@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useUserContext } from "../../utils/UserState";
 import MIDISounds from "midi-sounds-react";
-import { UPDATE_USER } from "../../utils/action.js";
+import { CURRENT_MIX } from "../../utils/action.js";
 import AddMixForm from "./AddMixForm";
 import API from "../../utils/API";
 import "./style.css";
@@ -18,80 +18,7 @@ const TestSequencer = (props) => {
     drumBass: 5,
     drumHiHat: 35,
     drumClap: 24,
-    tracks: [
-      [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-      [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-      [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-      [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-    ],
+    tracks: state.currentMix,
 
     data: [],
     beats: [],
@@ -101,19 +28,34 @@ const TestSequencer = (props) => {
   const midiSounds = useRef();
 
   useEffect(() => {
-    if (state.currentMix.length > 0) {
+      console.log("current mix inside sequencer use effect = ", state.currentMix);
+      let beats = [];
+    for (var i = 0; i < 16; i++) {
+      var drums = [];
+      if (state.currentMix[0][i]) {
+        drums.push(drumState.drumBass);
+      }
+      if (state.currentMix[1][i]) {
+        drums.push(drumState.drumSnare);
+      }
+      if (state.currentMix[2][i]) {
+        drums.push(drumState.drumClap);
+      }
+      if (state.currentMix[3][i]) {
+        drums.push(drumState.drumHiHat);
+      }
+      var beat = [drums, []];
+
+      beats[i] = beat;
+    }
       setDrumState({
         ...drumState,
-        initialized: false,
+        initialized: true,
+        beats: beats,
         tracks: state.currentMix,
       });
-    } else {
-      setDrumState({
-        ...drumState,
-        initialized: false,
-      });
-    }
-  }, []);
+      console.log("beats in use effect = ", drumState.beats);
+  }, [state.currentMix]);
 
   const onSelectDrumSnare = (e) => {
     var list = e.target;
@@ -217,8 +159,9 @@ const TestSequencer = (props) => {
     });
   };
   const playLoop = () => {
-    console.log("playing", drumState.tracks);
-    //fillBeat();
+    console.log("playing, tracks", drumState.tracks);
+    console.log("playing, beats", drumState.beats);
+    fillBeat();
     midiSounds.current.startPlayLoop(drumState.beats, drumState.bpm, 1 / 16);
   };
 
@@ -247,20 +190,17 @@ const TestSequencer = (props) => {
   const handleSaveMix = (e) => {
     e.preventDefault();
     let body = {
-      mix: {
         name: e.target.mixName.value,
         mixArr: drumState.tracks,
-        bpm: drumState.bpm,
-      },
-      id: state.user._id,
+        userId: state.user._id,
     };
 
     API.addMix(body)
       .then((result) => {
         console.log("result inside add Mix = ", result.data);
         dispatch({
-          type: UPDATE_USER,
-          user: result.data,
+          type: CURRENT_MIX,
+          currentMix: result.data.mixArr,
         });
       })
       .catch((err) => console.log(err));

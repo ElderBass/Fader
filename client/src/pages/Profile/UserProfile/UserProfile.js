@@ -11,9 +11,19 @@ import AddAbout from "../../../components/AboutInfo/AddAbout";
 const UserProfile = (props) => {
   const [state, dispatch] = useUserContext();
 
-  const [currentMix, setCurrentMix] = useState({
-    currentMix: "Select a Mix",
+  const [mixes, setMixes] = useState({
+    mixes: [],
   });
+
+  useEffect(() => {
+    console.log("user profile use effect currentMix = ", state.currentMix)
+    API.getAllMixes(state.user._id)
+      .then(result => {
+        setMixes({
+          mixes: result.data
+        })
+      })
+  }, [state.currentMix])
 
   const [showAdd, setShowAdd] = useState(false);
   const handleCloseAdd = () => setShowAdd(false);
@@ -27,9 +37,14 @@ const UserProfile = (props) => {
   const handleClosePic = () => setShowPic(false);
   const handleShowPic = () => setShowPic(true);
 
-  useEffect(() => {
-    console.log("state.user in user profile = ", state.user);
-  });
+  // useEffect(() => {
+  //   // console.log("state.user in user profile = ", state.user);
+  //   console.log("state.current mix in user profile");
+  //   dispatch({
+  //     type: CURRENT_MIX,
+  //     mix: mixes.mixes
+  //   })
+  // }, [mixes]);
 
   const handleAddAbout = (e) => {
     e.preventDefault();
@@ -86,11 +101,19 @@ const UserProfile = (props) => {
   };
 
   const handleChangeMix = (e) => {
-    let mix = e.target.value;
-    dispatch({
-      type: CURRENT_MIX,
-      mix: mix.mixArr
-    })
+    let mixId = e.target.value; //this is just [object Object and not sure why]
+    console.log("mix inside handleChange Mix = ", mixId)
+
+    API.getOneMix(mixId)
+      .then(result => {
+        console.log("result inside get one mix = ", result.data)
+        dispatch({
+          type: CURRENT_MIX,
+          mix: [...result.data.mixArr]
+        })
+        console.log(state.currentMix)
+      })
+     
   };
 
   return (
@@ -184,12 +207,12 @@ const UserProfile = (props) => {
                 id="mixesSelection"
                 name="mixes"
                 onChange={handleChangeMix}
-                value={currentMix}
+                // value={currentMix}
               >
-                {state.user.mixes
-                  ? state.user.mixes.map((mix) => {
+                {mixes.mixes
+                  ? mixes.mixes.map((mix) => {
                       return (
-                        <option value={mix}>{mix.name}</option>
+                        <option value={mix._id}>{mix.name}</option>
                       );
                     })
                   : null}

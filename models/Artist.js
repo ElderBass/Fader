@@ -59,10 +59,10 @@ const ArtistSchema = new Schema({
     type: Array,
     defaultValue: [],
   },
-  mixes: {
-    type: Array,
-    defaultValue: []
-  },
+  // mixes: {
+  //   type: Array,
+  //   defaultValue: []
+  // },
 
 });
 

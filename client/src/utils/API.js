@@ -49,8 +49,20 @@ export default {
   },
 
   addMix: function (data) {
-    return axios.put("/api/artists/addmix", data, {
+    return axios.post("/api/artists/addmix", data, {
       headers: { Authorization: localStorage.getItem("user") },
     });
   },
+
+  getAllMixes: function(id) {
+    return axios.get("/api/artists/getmixes/" + id, {
+      headers: { Authorization: localStorage.getItem("user") },
+    })
+  },
+
+  getOneMix: function(id) {
+    return axios.get("/api/artists/getonemix/" + id,  {
+      headers: { Authorization: localStorage.getItem("user") },
+    })
+  }
 };
