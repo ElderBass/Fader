@@ -125,8 +125,8 @@ const UserProfile = (props) => {
             <div className="container">
               <img
                 src={state.user.image}
-                width="80"
-                height="80"
+                width="50"
+                height="50"
                 alt={state.user.stagename}
                 onClick={handleShowPic}
               />
@@ -137,7 +137,7 @@ const UserProfile = (props) => {
               />
               <h3 className="stage">{state.user.stageName}</h3>
               <p className="info">
-                {state.user.firstName} {state.user.lastName} |{" "}
+                {" "}
                 {state.user.genre} | {state.user.city}
               </p>
               {state.user.about ? (
