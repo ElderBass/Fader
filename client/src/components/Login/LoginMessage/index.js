@@ -16,7 +16,7 @@ const LoginMessage = (props) => {
       <br />
       <div className="text-center" id="logInMessageContainer">
         <Link to="/">
-          <button type="submit" className="btn btn-default" id="logInBtn" >Continue</button>
+          <button type="submit" className="btn btn-default" id="logInBtn`" >Continue</button>
         </Link>
         <br /><br />
       </div>{" "}

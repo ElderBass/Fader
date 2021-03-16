@@ -27,7 +27,7 @@ const SignupForm = (props) => {
             <label htmlFor="email" className="inputLabel">Email address*</label>
             <input
               type="email"
-              className="form-control"
+              className="form-control inputClass"
               id="email-input"
               name="email"
               placeholder="Email"
@@ -43,7 +43,7 @@ const SignupForm = (props) => {
             </label>
             <input
               type="password"
-              className="form-control"
+              className="form-control inputClass"
               id="password-input"
               name="password"
               placeholder="Password"
@@ -57,7 +57,7 @@ const SignupForm = (props) => {
             <label htmlFor="firstName" className="inputLabel">First Name*</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control inputClass"
               id="first-name-input"
               name="firstName"
               placeholder="First Name"
@@ -71,7 +71,7 @@ const SignupForm = (props) => {
             <label htmlFor="lastName" className="inputLabel">Last Name*</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control inputClass"
               id="last-name-input"
               name="lastName"
               placeholder="Last Name"
@@ -85,7 +85,7 @@ const SignupForm = (props) => {
             <label htmlFor="stageName" className="inputLabel">Stage Name*</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control inputClass"
               id="stage-name-input"
               name="stageName"
               placeholder="Stage Name"
@@ -98,7 +98,7 @@ const SignupForm = (props) => {
           <div className="col-md-6">
             <label htmlFor="genre" className="inputLabel">Genre*</label>
             <select
-              className="form-select"
+              className="form-select selectClass"
               id="genre-input"
               name="genre"
               aria-label="Select a Genre"
@@ -127,7 +127,7 @@ const SignupForm = (props) => {
             <label htmlFor="city" className="inputLabel">City*</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control inputClass"
               id="city-input"
               name="city"
               placeholder="City"
@@ -136,7 +136,7 @@ const SignupForm = (props) => {
             <div className="invalid-feedback">You must enter your city.</div>
           </div>
           <div
-            style={{display: "none"}}
+            style={{ display: "none" }}
             id="alert"
             className="alert alert-danger"
             role="alert"
@@ -151,7 +151,7 @@ const SignupForm = (props) => {
           <hr className="pageBreak"></hr>
           <div className="row" id="bottomBtns">
             <button type="submit" className="btn btn-secondary" id="signupBtn">
-                Sign Up
+              Sign Up
             </button>
             <button type="button" className="btn btn-secondary" id="closeBtn" onClick={clickHandler}>
               {/* <Redirect to="/">Cancel</Redirect> */}

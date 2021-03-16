@@ -14,6 +14,7 @@
   border-color: #C12A75;
 }
 
+
 .gridRow:hover{
   transform: translateY(-3px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, .5);
@@ -22,12 +23,6 @@
 .gridRow:active{
   transform: translateY(-1px);
   box-shadow: 0 3.3px 6.67px rgba(0, 0, 0, .7)
-}
-
-.landingBtn {
-  border-radius: 2rem;
-  padding: 2rem;
-  background-color: #191919;
 }
 
 .btnText {
@@ -40,18 +35,6 @@
   text-align: center;
   background-color: #191919;
 }
-
-/* .logSignBtn {
-  grid-area:logSignBtn;
-}
-
-.profileBtn {
-  grid-area: profileBtn;
-}
-
-.placeholderBtn {
-  grid-area: placeholderBtn;
-} */
 
 .landingImg {
   height: 14rem;
