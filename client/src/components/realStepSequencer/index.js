@@ -135,7 +135,6 @@ const TestSequencer = (props) => {
           </option>
         );
       }
-      // }
       return items;
     }
   };
@@ -218,6 +217,104 @@ const TestSequencer = (props) => {
     setShow(false);
   };
 
+  const resetTable = () => {
+      let currentMix = [
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+      ];
+      dispatch({
+          type: CURRENT_MIX,
+          mix: currentMix
+      })
+  }
 
   return (
     <div className="App">
@@ -945,6 +1042,7 @@ const TestSequencer = (props) => {
         <button onClick={playLoop}>Play</button>
         <button onClick={stopLoop}>Stop</button>
         {state.isLoggedIn ? <button onClick={handleShow}>Save</button> : null}
+        <button onClick={resetTable}>Clear</button>
       </p>
       <AddMixForm
         show={show}
