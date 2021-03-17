@@ -1,12 +1,21 @@
-#signupContainer {
-    background-color: #191919 !important;
-    margin: 1rem;
-    padding: 1rem;
+#signupMessageContainer {
+    background-color: #191919;
 }
 
+.signupMessageHeader {
+    padding-top:20px;
+    color:  #C12A75;
+    background-color: #191919;
+}
+
+#signupMessage {
+    color: #C12A75;
+    background-color: #191919;
+}
+
+/* Submit button */
 .btn-secondary {
     background-color: #C12A75 !important;
-    border-color: #C87EA3 !important;
     width: 8rem;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -14,7 +23,6 @@
 
 #signupMessageBtn:hover {
     background-color: #C87EA3 !important;
-
 }
 
 #signupMessageBtn:active {
@@ -26,12 +34,3 @@
     background-color: #C12A75 !important;
     box-shadow: none !important;
 }
-
-.signupMessageHeader {
-    color: #C12A75;
-}
-
-.signupMessage {
-    color: #C12A75;
-}
-
