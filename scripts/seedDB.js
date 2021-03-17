@@ -12,7 +12,7 @@ const artistSeed = [
     stageName: "Elder Bass",
     firstName: "Seth",
     lastName: "Zygarlicke",
-    image: "../client/src/assets/images/artistcardknob.png",
+    image: "",
     genre: "Deep House",
     city: "Minneapolis",
     email: "zygster11@gmail.com",
