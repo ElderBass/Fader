@@ -7,16 +7,16 @@ const LoginMessage = (props) => {
   return (
     <div className="container">
       <div className="text-center">
-        <h4 id="logInMessageContainer" className="loginMessageHeader">FADE IN</h4>
+        <h4 className="loginMessageHeader">FADE IN</h4>
       </div>
       <br />
       <div className="text-center">
-        <h6 id="logInMessageContainer">You're signed in.</h6>
+        <h6 className="loginMessage">You're signed in.</h6>
       </div>
       <br />
       <div className="text-center" id="logInMessageContainer">
         <Link to="/">
-          <button type="submit" className="btn btn-default" id="logInBtn`" >Continue</button>
+          <button type="submit" className="btn btn-secondary" id="loginMessageBtn" >Continue</button>
         </Link>
         <br /><br />
       </div>{" "}
