@@ -25,14 +25,32 @@
     color: #FFE187;
 
 }
+
+#avatarShape {
+    border-radius: 50%;
+}
+
+
 .stage {
     color: #F7BA00;
     font-size: 30px;
     background-color: #2D2D2D;
     font-family: 'Aveden';
+    padding-bottom:0;
 }
+#stage {
+
+    background-color: #2D2D2D;
+}
+
+#sequenceRow {
+    background-color: #2d2d2d;
+    text-align: right;
+}
+
+
 .info {
-    color: #F7BA00;
+    color: #7D7D7D;
     background-color: #2D2D2D;
     font-size: 12px;
 }
@@ -72,6 +90,11 @@
   .inputLabel { 
       background-color: #2D2D2D;
       font-size: 10px;
-      color: #C87EA3;
+      color: #7D7D7D;
       
+  }
+
+  #mixesSelection {
+      background-color: #2D2D2D;;
+      color: #7D7D7D;
   }

@@ -7,7 +7,7 @@ const AddAbout = (props) => {
   return (
     <>
       <Button className="btn-default" onClick={props.handleShowAdd}>
-        Tell the World Who You Are
+        ADD BIO
       </Button>
       <Modal show={props.showAdd} onHide={props.handleCloseAdd}>
         <Modal.Header closeButton>

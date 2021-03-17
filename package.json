@@ -29,11 +29,14 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
+    "express-fileupload": "^1.2.1",
     "express-form-data": "^2.0.14",
     "if-env": "^1.0.4",
+    "imgur": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "midi-sounds-react": "^1.2.54",
     "mongoose": "^5.3.16",
+    "node": "^15.10.0",
     "okta": "^1.0.0",
     "react-bootstrap": "^1.5.2"
   }

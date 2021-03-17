@@ -37,15 +37,6 @@ const UserProfile = (props) => {
   const handleClosePic = () => setShowPic(false);
   const handleShowPic = () => setShowPic(true);
 
-  // useEffect(() => {
-  //   // console.log("state.user in user profile = ", state.user);
-  //   console.log("state.current mix in user profile");
-  //   dispatch({
-  //     type: CURRENT_MIX,
-  //     mix: mixes.mixes
-  //   })
-  // }, [mixes]);
-
   const handleAddAbout = (e) => {
     e.preventDefault();
     let data = {
@@ -80,30 +71,31 @@ const UserProfile = (props) => {
   };
 
   const handleChangePicture = (e) => {
-    // const formData = new FormData();
-
-    // formData.append("id", state.user.id);
-    // formData.append("image", e.target.picture.value);
-    let pic = {
+    e.preventDefault();
+    console.log("e target - ", URL.createObjectURL(e.target.files[0]));
+    let image = URL.createObjectURL(e.target.files[0])
+    image.replace()
+    //let image = e.target.picture.value.replace(/^blob:/i, '');
+    let body = {
       id: state.user._id,
-      image: e.target.picture.value,
+      image: image,
     };
 
-    API.changePicture(pic)
+
+    //console.log("image = ", image);
+    API.changePicture(body)
       .then((res) => {
-        console.log("result inside the change picture func = ", res);
+        console.log("result inside the change picture func = ", res.data);
         dispatch({
           type: UPDATE_USER,
-          user: { ...state.user, image: res.data },
+          user: res.data,
         });
       })
       .catch((err) => console.log(err));
   };
 
   const handleChangeMix = (e) => {
-    let mixId = e.target.value; //this is just [object Object and not sure why]
-    console.log("mix inside handleChange Mix = ", mixId)
-
+    let mixId = e.target.value;
     API.getOneMix(mixId)
       .then(result => {
         console.log("result inside get one mix = ", result.data)
@@ -111,17 +103,15 @@ const UserProfile = (props) => {
           type: CURRENT_MIX,
           mix: [...result.data.mixArr]
         })
-        console.log(state.currentMix)
       })
-     
   };
 
   return (
     <div className="container profile">
       <div className="row" >
-        <div className="col-md-4 col-lg-4 col-sm-12"  id="connectionsBox">
+        <div className="col-md-3 col-lg-3 col-sm-12" id="connectionsBox">
           <div className="container userConnections">
-            <div className="row "  id="connectionsBox">
+            <div className="row " id="connectionsBox">
               <h5 id="connectionsHeader">CONNECTIONS</h5>
             </div>
             <div className="row">
@@ -140,13 +130,13 @@ const UserProfile = (props) => {
                 })
               ) : (
                 <div className="container" id="connectionsBox">
-                  <h3  id="connectionsBox">NO CONNECTIONS</h3>
+                  <h3 id="connectionsBox">NO CONNECTIONS</h3>
                 </div>
               )}
             </div>
 
             <br />
-            <div className="row"  id="connectionsBox">
+            <div className="row" id="connectionsBox">
               <Link to="/artists">
                 <p id="browseArtist">
                   Browse Artists
@@ -155,71 +145,80 @@ const UserProfile = (props) => {
             </div>
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12">
-          <div className="row">
-            <div className="container">
-              <img
-                src={state.user.image}
-                width="50"
-                height="50"
-                alt={state.user.stagename}
-                onClick={handleShowPic}
-              />
+        {/* Artist Info Center Container */}
+        <div className="col-md-6 col-lg-6 col-sm-12" id="">
+          <div className="row" id="stage">
+            <div className="col-md-1 col-lg-1 col-sm-12" id="stage"></div>
+            <div className="col-md-2 col-lg-2 col-sm-12" id="stage"><img id="avatarShape"
+              src={state.user.image}
+              width="50"
+              height="50"
+              alt={state.user.stagename}
+              onClick={handleShowPic}
+            />
               <ProfilePictureForm
                 changePicture={handleChangePicture}
                 handleClosePic={handleClosePic}
                 showPic={showPic}
-              />
-              <h3 className="stage">{state.user.stageName}</h3>
+              /></div>
+
+            <div className="col-md-6 col-lg-6 col-sm-12" id="stage"><h3 className="stage">{state.user.stageName}</h3>
               <p className="info">
                 {" "}
                 {state.user.genre} | {state.user.city}
               </p>
+              <p className="aboutInfo">{state.user.about}</p>
+            </div>
+            <div className="col-md-1 col-lg-1 col-sm-12" id="stage">
+              {state.user.about ? (
+                <>
+
+                  <EditAbout
+                    edit={handleEditAbout}
+                    handleCloseEdit={handleCloseEdit}
+                    showEdit={showEdit}
+                    handleShowEdit={handleShowEdit}
+                  />
+                </>
+              ) : (
+                <AddAbout
+                  add={handleAddAbout}
+                  handleCloseAdd={handleCloseAdd}
+                  handleShowAdd={handleShowAdd}
+                  showAdd={showAdd}
+                />
+              )}
+
             </div>
           </div>
-         
-          <div className="row">
-            {state.user.about ? (
-              <>
-                <p className="aboutInfo">{state.user.about}</p>
-                <EditAbout
-                  edit={handleEditAbout}
-                  handleCloseEdit={handleCloseEdit}
-                  showEdit={showEdit}
-                  handleShowEdit={handleShowEdit}
-                />
-              </>
-            ) : (
-              <AddAbout
-                add={handleAddAbout}
-                handleCloseAdd={handleCloseAdd}
-                handleShowAdd={handleShowAdd}
-                showAdd={showAdd}
-              />
-            )}
-          </div>
-          <div className="row">
-              <label htmlFor="mizes" className="inputLabel">
-                SEQUENCES
-              </label>
+          <div className="row" id="mixesSelection">
+            <div className="col-md-2 col-lg-2 col-sm-12" id="stage"></div>
+            <div className="col-md-1 col-lg-1 col-sm-12" id="sequenceRow">
+              <label htmlFor="mixes" className="inputLabel" id="sequenceText">
+                BEATS
+            </label>
+            </div>
+            <div className="col-md-6 col-lg-6 col-sm-12" id="stage">
               <select
                 className="form-select"
                 id="mixesSelection"
                 name="mixes"
                 onChange={handleChangeMix}
-                // value={currentMix}
               >
+                <option selected disabled value="">Select a Sequence</option>
                 {mixes.mixes
                   ? mixes.mixes.map((mix) => {
-                      return (
-                        <option value={mix._id}>{mix.name}</option>
-                      );
-                    })
+                    return (
+                      <option value={mix._id}>{mix.name}</option>
+                    );
+                  })
                   : null}
               </select>
+            </div>
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12" id="messagesBox">
+        {/* End Artist Info/Middle Container */}
+        <div className="col-md-3 col-lg-3 col-sm-12" id="messagesBox">
           <div className="container userMessages" >
             <div className="row" id="connectionsBox">
               <h5 id="messagesHeader">MESSAGES</h5>
@@ -229,7 +228,7 @@ const UserProfile = (props) => {
                 state.user.messages.map((mess) => {
                   return (
                     <div id="messagesBox">
-                      <img 
+                      <img
                         src={mess.image}
                         width="35"
                         height="35"

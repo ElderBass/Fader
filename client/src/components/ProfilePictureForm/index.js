@@ -8,30 +8,24 @@ const ProfilePictureForm = (props) => {
 
 
 return (
-    // <div className='buttons fadein'>
-    // <div className='button'>
-    //   <label htmlFor='single'>
-    //     <FontAwesomeIcon icon={faImage} color='#3B5998' size='10x' />
-    //   </label>
-    //   <input type='file' id='single' onChange={props.onChange} /> 
-    // </div>
 
     <Modal show={props.showPic} onHide={props.handleClosePic}>
         <Modal.Header closeButton>
-          <Modal.Title>Let's Hear It</Modal.Title>
+          <Modal.Title>Profile Avatar</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form
 
-            onSubmit={props.changePicture}
+            
           >
             <div className="form-group">
-              <label htmlFor="picture">Branding.</label>
-              <input
+              <label  htmlFor="picture">Attach an image file (.png, .jpg, .gif) 400x400 for best results.</label>
+              <input 
                 type="file"
                 className="form-control"
                 id="changePicture"
                 name="picture"
+                onChange={props.changePicture}
               />
             </div>
             <Modal.Footer>
@@ -43,7 +37,7 @@ return (
                 type="submit"
                 // onClick={props.handleLeaveMessage}
               >
-                Save Changes
+                Upload
               </button>
             </Modal.Footer>
           </form>
