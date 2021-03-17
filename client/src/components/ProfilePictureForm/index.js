@@ -26,8 +26,8 @@ return (
             onSubmit={props.changePicture}
           >
             <div className="form-group">
-              <label htmlFor="picture">Attach an image file (.png, .jpg, .gif) 400x400 for best results.</label>
-              <input
+              <label  htmlFor="picture">Attach an image file (.png, .jpg, .gif) 400x400 for best results.</label>
+              <input 
                 type="file"
                 className="form-control"
                 id="changePicture"

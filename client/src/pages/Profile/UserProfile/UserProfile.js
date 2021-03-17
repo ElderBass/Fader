@@ -119,7 +119,7 @@ const UserProfile = (props) => {
   return (
     <div className="container profile">
       <div className="row" >
-        <div className="col-md-4 col-lg-4 col-sm-12"  id="connectionsBox">
+        <div className="col-md-3 col-lg-3 col-sm-12"  id="connectionsBox">
           <div className="container userConnections">
             <div className="row "  id="connectionsBox">
               <h5 id="connectionsHeader">CONNECTIONS</h5>
@@ -155,10 +155,11 @@ const UserProfile = (props) => {
             </div>
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12">
-          <div className="row">
-            <div className="container">
-              <img
+        {/* Artist Info Center Container */}
+        <div className="col-md-6 col-lg-6 col-sm-12" id="">
+          <div className="row" id="stage">
+          <div className="col-md-1 col-lg-1 col-sm-12" id="stage"></div>
+            <div className="col-md-2 col-lg-2 col-sm-12" id="stage"><img
                 src={state.user.image}
                 width="50"
                 height="50"
@@ -169,16 +170,15 @@ const UserProfile = (props) => {
                 changePicture={handleChangePicture}
                 handleClosePic={handleClosePic}
                 showPic={showPic}
-              />
-              <h3 className="stage">{state.user.stageName}</h3>
+              /></div>
+            
+            <div className="col-md-6 col-lg-6 col-sm-12" id="stage"><h3 className="stage">{state.user.stageName}</h3>
               <p className="info">
                 {" "}
                 {state.user.genre} | {state.user.city}
               </p>
-            </div>
-          </div>
-         
-          <div className="row" id="stage">
+              </div>
+            <div className="col-md-1 col-lg-1 col-sm-12" id="stage">
             {state.user.about ? (
               <>
                 <p className="aboutInfo">{state.user.about}</p>
@@ -197,12 +197,18 @@ const UserProfile = (props) => {
                 showAdd={showAdd}
               />
             )}
+              
+            </div>
           </div>
           <div className="row" id="mixesSelection">
-              <label htmlFor="mixes" className="inputLabel">
-                SEQUENCES
-              </label>
-              <select
+          <div className="col-md-2 col-lg-2 col-sm-12" id="stage"></div>
+            <div className="col-md-1 col-lg-1 col-sm-12" id="sequenceRow">
+              <label htmlFor="mixes" className="inputLabel" id="sequenceText">
+                BEATS
+            </label>
+            </div>
+            <div className="col-md-6 col-lg-6 col-sm-12" id="stage">
+                <select
                 className="form-select"
                 id="mixesSelection"
                 name="mixes"
@@ -216,10 +222,12 @@ const UserProfile = (props) => {
                       );
                     })
                   : null}
-              </select>
+                </select>
+              </div>      
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12" id="messagesBox">
+        {/* End Artist Info/Middle Container */}
+        <div className="col-md-3 col-lg-3 col-sm-12" id="messagesBox">
           <div className="container userMessages" >
             <div className="row" id="connectionsBox">
               <h5 id="messagesHeader">MESSAGES</h5>
