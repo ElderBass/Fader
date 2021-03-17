@@ -211,7 +211,7 @@ const TestSequencer = (props) => {
         console.log("result inside add Mix = ", result.data);
         dispatch({
           type: CURRENT_MIX,
-          currentMix: result.data.mixArr,
+          mix: result.data.mixArr,
         });
       })
       .catch((err) => console.log(err));
