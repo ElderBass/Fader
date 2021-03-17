@@ -18,7 +18,7 @@ return (
 
     <Modal show={props.showPic} onHide={props.handleClosePic}>
         <Modal.Header closeButton>
-          <Modal.Title>Let's Hear It</Modal.Title>
+          <Modal.Title>Profile Avatar</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form
@@ -26,7 +26,7 @@ return (
             onSubmit={props.changePicture}
           >
             <div className="form-group">
-              <label htmlFor="picture">Branding.</label>
+              <label htmlFor="picture">Attach an image file (.png, .jpg, .gif) 400x400 for best results.</label>
               <input
                 type="file"
                 className="form-control"
@@ -43,7 +43,7 @@ return (
                 type="submit"
                 // onClick={props.handleLeaveMessage}
               >
-                Save Changes
+                Upload
               </button>
             </Modal.Footer>
           </form>
