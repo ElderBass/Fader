@@ -35,7 +35,4 @@ app.route("/message").put(artistController.leaveMessage);
 
 app.route("/login").post(artistController.signin);
 
-//.put(booksController.update)
-//   .delete(booksController.remove);
-
 module.exports = app;

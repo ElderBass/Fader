@@ -35,7 +35,7 @@ const ArtistCard = (props) => {
 
   const handleFollowArtist = (e) => {
     e.preventDefault();
-    let body = { target: props.artist, targetId: props.id, user: state.user.id };
+    let body = { target: props.artist, targetId: props.id, user: state.user._id };
     state.user.connections.push(props.artist);
 
 

@@ -15,6 +15,21 @@ const UserProfile = (props) => {
     mixes: [],
   });
 
+  const [ userState, setUserState ] = useState({
+    _id: "",
+    stageName: "",
+    firstName: "",
+    lastName: "",
+    genre: "",
+    city: "",
+    email: "",
+    image: "",
+    connections: "",
+    messages: "",
+    about: "",
+    following: "",
+  })
+
   useEffect(() => {
     console.log("user profile use effect currentMix = ", state.currentMix)
     API.getAllMixes(state.user._id)
@@ -24,6 +39,26 @@ const UserProfile = (props) => {
         })
       })
   }, [state.currentMix])
+
+  useEffect(() => {
+    API.getOneArtist(state.user._id)
+      .then(user => {
+        setUserState({
+          _id: user.data._id,
+          stageName: user.data.stageName,
+          firstName: user.data.firstName,
+          lastName: user.data.lastName,
+          genre: user.data.genre,
+          city: user.data.city,
+          email: user.data.email,
+          image: user.data.image,
+          connections: user.data.connections,
+          messages: user.data.messages,
+          about: user.data.about,
+          following: user.data.following,
+        })
+      })
+  }, [state.user])
 
   const [showAdd, setShowAdd] = useState(false);
   const handleCloseAdd = () => setShowAdd(false);
@@ -115,8 +150,8 @@ const UserProfile = (props) => {
               <h5 id="connectionsHeader">CONNECTIONS</h5>
             </div>
             <div className="row">
-              {state.user.connections.length > 0 ? (
-                state.user.connections.map((con) => {
+              {userState.connections.length > 0 ? (
+                userState.connections.map((con) => {
                   return (
                     <Link to={"/artistprofile/" + con._id}>
                       <img
@@ -149,10 +184,10 @@ const UserProfile = (props) => {
           <div className="row">
             <div className="container">
               <img
-                src={state.user.image}
+                src={userState.image}
                 width="50"
                 height="50"
-                alt={state.user.stageName}
+                alt={userState.stageName}
                 onClick={handleShowPic}
               />
               <ProfilePictureForm
@@ -160,10 +195,10 @@ const UserProfile = (props) => {
                 handleClosePic={handleClosePic}
                 showPic={showPic}
               />
-              <h3 className="stage">{state.user.stageName}</h3>
+              <h3 className="stage">{userState.stageName}</h3>
               <p className="info">
                 {" "}
-                {state.user.genre} | {state.user.city}
+                {userState.genre} | {userState.city}
               </p>
             </div>
           </div>
@@ -171,7 +206,7 @@ const UserProfile = (props) => {
           <div className="row">
             {state.user.about ? (
               <>
-                <p className="aboutInfo">{state.user.about}</p>
+                <p className="aboutInfo">{userState.about}</p>
                 <EditAbout
                   edit={handleEditAbout}
                   handleCloseEdit={handleCloseEdit}
@@ -215,8 +250,8 @@ const UserProfile = (props) => {
               <h5 id="messagesHeader">MESSAGES</h5>
             </div>
             <div className="row" >
-              {state.user.messages.length > 0 ? (
-                state.user.messages.map((mess) => {
+              {userState.messages.length > 0 ? (
+                userState.messages.map((mess) => {
                   return (
                     <div id="messagesBox">
                       <img 

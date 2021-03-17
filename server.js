@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const cloudinary = require('cloudinary');
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -13,12 +12,6 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 };
-
-cloudinary.config({ 
-  cloud_name: process.env.CLOUD_NAME, 
-  api_key: process.env.API_KEY, 
-  api_secret: process.env.API_SECRET
-})
 
 // Add routes, both API and view
 app.use(routes);
