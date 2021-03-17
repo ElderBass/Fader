@@ -19,6 +19,7 @@ const LogoutMessage = (props) => {
       </div>{" "}
       <br></br>
 
+
     </div>
   );
 };

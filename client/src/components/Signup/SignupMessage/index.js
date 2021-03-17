@@ -21,7 +21,6 @@ const SignupMessage = (props) => {
       </div>{" "}
       <br></br>
     </div>
-
   );
 }
 
