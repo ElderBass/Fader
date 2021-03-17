@@ -73,10 +73,12 @@ const UserProfile = (props) => {
   const handleChangePicture = (e) => {
     e.preventDefault();
     console.log("e target - ", URL.createObjectURL(e.target.files[0]));
-    //let image = e.target.picture.value.replace(/^C:\\fakepath\\/i, '');
+    let image = URL.createObjectURL(e.target.files[0])
+    image.replace()
+    //let image = e.target.picture.value.replace(/^blob:/i, '');
     let body = {
       id: state.user._id,
-      image: URL.createObjectURL(e.target.files[0]),
+      image: image,
     };
 
 
