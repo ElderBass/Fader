@@ -25,6 +25,12 @@
     color: #FFE187;
 
 }
+
+#avatarShape {
+    border-radius: 50%;
+}
+
+
 .stage {
     color: #F7BA00;
     font-size: 30px;
