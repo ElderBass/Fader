@@ -1,18 +1,36 @@
-.loginMessageHeader {
-    color:  #F7BA00;
-    padding-top: 20px;
-   
-   }
-   
-.text-center {
-    color: #FFE187;
-    }
-   
-#logInMessageContainer {
-    background-color:  #2D2D2D;
+.container {
+    background-color: #191919 !important;
+    margin: 1rem;
+    padding: 1rem;
 }
-#logInBtn {
-    background-color: #F7BA00;
-    color: #000000;
-    font-weight: bold;
+
+.btn-secondary {
+    background-color: #C12A75 !important;
+    border-color: #C87EA3 !important;
+    width: 8rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#loginMessageBtn:hover {
+    background-color: #C87EA3 !important;
+
+}
+
+#loginMessageBtn:active {
+    background-color: #C12A75 !important;
+    box-shadow: none !important;
+}
+
+#loginMessageBtn:focus {
+    background-color: #C12A75 !important;
+    box-shadow: none !important;
+}
+
+.loginMessageHeader {
+    color: #C12A75;
+}
+
+.loginMessage {
+    color: #C12A75;
 }
