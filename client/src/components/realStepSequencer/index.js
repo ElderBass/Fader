@@ -522,14 +522,7 @@ const TestSequencer = (props) => {
         <tbody>
           <tr>
             <td>
-              <h6>Dat Bass Doe</h6>
-                {/* value={drumState.misc6}
-
-                onChange={() => onSelectDrumBass}
-              ><option> </option>
-                 
-                {createSelectItems()}
-              </select> */}
+              <h6 id="soundList">Cabasa</h6>
             </td>
             <td>
               <input
@@ -678,7 +671,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h7>Ride</h7>
+              <h6 id="soundList">Ride</h6>
               {/* <select id="soundList"
                 value={drumState.misc5}
                 onChange={() => onSelectDrumSnare}
@@ -833,7 +826,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h8>Clap #1</h8>
+              <h6 id="soundList">Clap #1</h6>
               {/* <select id="soundList"
                 value={drumState.misc4}
                 onChange={() => onSelectDrumClap}
@@ -988,7 +981,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h9>Clap #2</h9>
+              <h6 id="soundList">Clap #2</h6>
               {/* <select id="soundList"
                 value={drumState.misc3}
                 onChange={() => onSelectDrumHiHat}
@@ -1143,7 +1136,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h10>Closed Hat</h10>
+              <h6 id="soundList">Closed Hat</h6>
               {/* <select id="soundList"
                 value={drumState.misc2}
                 onChange={() => onSelectDrumBass}
@@ -1298,7 +1291,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h11>Open Hat</h11>
+              <h6 id="soundList">Open Hat</h6>
               {/* <select id="soundList"
                 value={drumState.misc1}
                 onChange={() => onSelectDrumBass}
@@ -1453,7 +1446,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h12>Snare #1</h12>
+              <h6 id="soundList">Snare #1</h6>
               {/* <select id="soundList"
                 value={drumState.snare3}
                 onChange={() => onSelectDrumBass}
@@ -1608,7 +1601,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h13>Snare #2</h13>
+              <h6 id="soundList">Snare #2</h6>
               {/* <select id="soundList"
                 value={drumState.snare2}
                 onChange={() => onSelectDrumBass}
@@ -1763,7 +1756,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h14>Snare #3</h14>
+              <h6 id="soundList">Snare #3</h6>
               {/* <select id="soundList"
                 value={drumState.snare1}
                 onChange={() => onSelectDrumBass}
@@ -1918,7 +1911,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h15>Kick #1</h15>
+              <h6 id="soundList">Kick #1</h6>
               {/* <select id="soundList"
                 value={drumState.kick3}
                 onChange={() => onSelectDrumBass}
@@ -2073,7 +2066,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h16>Kick #2</h16>
+              <h6 id="soundList">Kick #2</h6>
               {/* <select id="soundList"
                 value={drumState.kick2}
                 onChange={() => onSelectDrumBass}
@@ -2228,7 +2221,7 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h17>Kick #3</h17>
+              <h6 id="soundList">Kick #3</h6>
               {/* <select id="soundList"
                 value={drumState.kick1}
                 onChange={() => onSelectDrumBass}
