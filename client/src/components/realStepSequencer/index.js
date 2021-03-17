@@ -522,12 +522,14 @@ const TestSequencer = (props) => {
         <tbody>
           <tr>
             <td>
-              <select id="soundList"
-                value={drumState.misc6}
+              <h6>Dat Bass Doe</h6>
+                {/* value={drumState.misc6}
+
                 onChange={() => onSelectDrumBass}
-              >
+              ><option> </option>
+                 
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -676,12 +678,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h7>Ride</h7>
+              {/* <select id="soundList"
                 value={drumState.misc5}
                 onChange={() => onSelectDrumSnare}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -830,12 +833,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h8>Clap #1</h8>
+              {/* <select id="soundList"
                 value={drumState.misc4}
                 onChange={() => onSelectDrumClap}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -984,12 +988,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h9>Clap #2</h9>
+              {/* <select id="soundList"
                 value={drumState.misc3}
                 onChange={() => onSelectDrumHiHat}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -1138,12 +1143,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h10>Closed Hat</h10>
+              {/* <select id="soundList"
                 value={drumState.misc2}
                 onChange={() => onSelectDrumBass}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -1292,12 +1298,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h11>Open Hat</h11>
+              {/* <select id="soundList"
                 value={drumState.misc1}
                 onChange={() => onSelectDrumBass}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -1446,12 +1453,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h12>Snare #1</h12>
+              {/* <select id="soundList"
                 value={drumState.snare3}
                 onChange={() => onSelectDrumBass}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -1600,12 +1608,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h13>Snare #2</h13>
+              {/* <select id="soundList"
                 value={drumState.snare2}
                 onChange={() => onSelectDrumBass}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -1754,12 +1763,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h14>Snare #3</h14>
+              {/* <select id="soundList"
                 value={drumState.snare1}
                 onChange={() => onSelectDrumBass}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -1908,12 +1918,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h15>Kick #1</h15>
+              {/* <select id="soundList"
                 value={drumState.kick3}
                 onChange={() => onSelectDrumBass}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -2062,12 +2073,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h16>Kick #2</h16>
+              {/* <select id="soundList"
                 value={drumState.kick2}
                 onChange={() => onSelectDrumBass}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -2216,12 +2228,13 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <select id="soundList"
+              <h17>Kick #3</h17>
+              {/* <select id="soundList"
                 value={drumState.kick1}
                 onChange={() => onSelectDrumBass}
               >
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
@@ -2371,7 +2384,6 @@ const TestSequencer = (props) => {
         </tbody>
       </table>
       <p>
- features/dank-sequencer-css
         <button id="playPause" onClick={playLoop}>Play</button>
         <button id="playPause" onClick={stopLoop}>Stop</button>
         {state.isLoggedIn ? <button id="playPause" onClick={handleShow}>Save</button> : null}
