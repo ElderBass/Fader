@@ -142,7 +142,7 @@ module.exports = {
   changePicture: function (req, res) {
     console.log("req body inside change picture = ", req.body);
     //C:\Users\zygst\OneDrive\Pictures\90334222_10159396454554128_5844131711557828608_o (2)
-    imgur.uploadFile(req.body.image)
+    imgur.uploadFile("https://fader-project3.herokuapp.com/5cab5e31-4823-4973-8a7e-f85650277bfd.jpg")
       .then((json) => {
         console.log("json.link inside change picture = ", json.link);
         // db.Artist.findOneAndUpdate(
