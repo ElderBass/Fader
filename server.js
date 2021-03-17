@@ -1,9 +1,6 @@
-require('dotenv').config()
-const express = require('express')
-const cloudinary = require('cloudinary')
-const formData = require('express-form-data')
-//const cors = require('cors')
-//const { CLIENT_ORIGIN } = require('./config')
+require('dotenv').config();
+const express = require('express');
+const cloudinary = require('cloudinary');
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -22,12 +19,6 @@ cloudinary.config({
   api_key: process.env.API_KEY, 
   api_secret: process.env.API_SECRET
 })
-  
-// app.use(cors({ 
-//   origin: CLIENT_ORIGIN 
-// })) 
-
-app.use(formData.parse())
 
 // Add routes, both API and view
 app.use(routes);

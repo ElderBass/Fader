@@ -8,13 +8,6 @@ const ProfilePictureForm = (props) => {
 
 
 return (
-    // <div className='buttons fadein'>
-    // <div className='button'>
-    //   <label htmlFor='single'>
-    //     <FontAwesomeIcon icon={faImage} color='#3B5998' size='10x' />
-    //   </label>
-    //   <input type='file' id='single' onChange={props.onChange} /> 
-    // </div>
 
     <Modal show={props.showPic} onHide={props.handleClosePic}>
         <Modal.Header closeButton>
@@ -23,7 +16,7 @@ return (
         <Modal.Body>
           <form
 
-            onSubmit={props.changePicture}
+            
           >
             <div className="form-group">
               <label htmlFor="picture">Branding.</label>
@@ -32,6 +25,7 @@ return (
                 className="form-control"
                 id="changePicture"
                 name="picture"
+                onChange={props.changePicture}
               />
             </div>
             <Modal.Footer>

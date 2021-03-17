@@ -71,18 +71,19 @@ const UserProfile = (props) => {
   };
 
   const handleChangePicture = (e) => {
-    // const formData = new FormData();
-
-    // formData.append("id", state.user.id);
-    // formData.append("image", e.target.picture.value);
-    let pic = {
+    e.preventDefault();
+    console.log("e target - ", webKitURL.createObjectURL(e.target.files[0]));
+    //let image = e.target.picture.value.replace(/^C:\\fakepath\\/i, '');
+    let body = {
       id: state.user._id,
-      image: e.target.picture.value,
+      image: URL.createObjectURL(e.target.files[0]),
     };
 
-    API.changePicture(pic)
+
+    //console.log("image = ", image);
+    API.changePicture(body)
       .then((res) => {
-        console.log("result inside the change picture func = ", res);
+        console.log("result inside the change picture func = ", res.data);
         dispatch({
           type: UPDATE_USER,
           user: res.data,
@@ -149,7 +150,7 @@ const UserProfile = (props) => {
                 src={state.user.image}
                 width="50"
                 height="50"
-                alt={state.user.stagename}
+                alt={state.user.stageName}
                 onClick={handleShowPic}
               />
               <ProfilePictureForm

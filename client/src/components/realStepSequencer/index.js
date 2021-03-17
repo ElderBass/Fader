@@ -522,12 +522,13 @@ const TestSequencer = (props) => {
         <tbody>
           <tr>
             <td>
-              <select
-                value={drumState.misc6}
+              <h6>Dat Bass Doe</h6>
+                {/* value={drumState.misc6}
                 onChange={() => onSelectDrumBass}
-              >
+              ><option> </option>
+                 
                 {createSelectItems()}
-              </select>
+              </select> */}
             </td>
             <td>
               <input
