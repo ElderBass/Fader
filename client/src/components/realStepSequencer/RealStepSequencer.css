@@ -25,3 +25,8 @@
     border-style: solid;
     border-color: #c12a75;
 }
+
+#miniPhoto {
+    height: 25px;
+    width: 35px;
+}
