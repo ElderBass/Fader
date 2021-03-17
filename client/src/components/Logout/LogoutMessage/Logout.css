@@ -1,21 +1,36 @@
+#logOutContainer {
+    background-color: #191919;
+}
+
 .logOutMessageHeader {
     padding-top:20px;
-    color:  #F7BA00;
-    background-color: #2D2D2D;
-
+    color:  #C12A75;
+    background-color: #191919;
 }
 
 #logStatusQuestion {
-    color: #FFE187;
-    background-color: #2D2D2D;
+    color: #C12A75 !important;
+    background-color: #191919;
 }
 
-#logOutBtn {
-    background-color: #F7BA00;
-    color: #000000;
-    font-weight: bold;
-    
+/* Submit button */
+.btn-secondary {
+    background-color: #C12A75;
+    width: 8rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
-#logOutContainer {
-    background-color: #2D2D2D;
+
+#logoutMessageBtn:hover {
+    background-color: #C87EA3 !important;
+}
+
+#logoutMessageBtn:active {
+    background-color: #C12A75 !important;
+    box-shadow: none !important;
+}
+
+#logoutMessageBtn:focus {
+    background-color: #C12A75 !important;
+    box-shadow: none !important;
 }

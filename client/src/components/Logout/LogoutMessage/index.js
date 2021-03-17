@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import "./Logout.css";
 
 const LogoutMessage = (props) => {
@@ -10,11 +11,11 @@ const LogoutMessage = (props) => {
       </div>
       <br></br>
       <div className="text-center">
-        <h6  id="logStatusQuestion">... you sure about that?</h6>
+        <h6  id="logStatusQuestion">Are you sure?</h6>
       </div>
       <br></br>
       <div className="text-center"  id="logStatusQuestion">
-          <button onClick={props.logout} type="submit" id="logOutBtn"className="btn btn-default">Logout</button>
+          <button onClick={props.logout} type="submit" id="logoutMessageBtn"className="btn btn-secondary">Logout</button>
       </div>{" "}
       <br></br>
 
