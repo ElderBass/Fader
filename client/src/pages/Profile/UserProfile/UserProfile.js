@@ -37,15 +37,6 @@ const UserProfile = (props) => {
   const handleClosePic = () => setShowPic(false);
   const handleShowPic = () => setShowPic(true);
 
-  // useEffect(() => {
-  //   // console.log("state.user in user profile = ", state.user);
-  //   console.log("state.current mix in user profile");
-  //   dispatch({
-  //     type: CURRENT_MIX,
-  //     mix: mixes.mixes
-  //   })
-  // }, [mixes]);
-
   const handleAddAbout = (e) => {
     e.preventDefault();
     let data = {
@@ -94,16 +85,14 @@ const UserProfile = (props) => {
         console.log("result inside the change picture func = ", res);
         dispatch({
           type: UPDATE_USER,
-          user: { ...state.user, image: res.data },
+          user: res.data,
         });
       })
       .catch((err) => console.log(err));
   };
 
   const handleChangeMix = (e) => {
-    let mixId = e.target.value; //this is just [object Object and not sure why]
-    console.log("mix inside handleChange Mix = ", mixId)
-
+    let mixId = e.target.value;
     API.getOneMix(mixId)
       .then(result => {
         console.log("result inside get one mix = ", result.data)
@@ -111,9 +100,7 @@ const UserProfile = (props) => {
           type: CURRENT_MIX,
           mix: [...result.data.mixArr]
         })
-        console.log(state.currentMix)
       })
-     
   };
 
   return (
@@ -213,8 +200,8 @@ const UserProfile = (props) => {
                 id="mixesSelection"
                 name="mixes"
                 onChange={handleChangeMix}
-                // value={currentMix}
               >
+                <option selected disabled value="">Select a Sequence</option>
                 {mixes.mixes
                   ? mixes.mixes.map((mix) => {
                       return (
