@@ -63,9 +63,22 @@ const ArtistProfile = (props) => {
         user: state.user.stageName,
       },
     };
+    let updatedMessages = artist.messages.unshift(body.message);
+
     //artist.messages.push(e.target.value)
     API.leaveMessage(body).then((result) => {
       console.log("result data in side handle leave message = ", result.data);
+      setState({
+        id: result.data._id,
+        stageName:  result.data.stageName,
+        firstName:  result.data.firstName,
+        lastName:  result.data.lastName,
+        genre:  result.data.genre,
+        city:  result.data.city,
+        email:  result.data.email,
+        messages:  result.data.messages,
+        connections:  result.data.connections,
+      })
       setShow(false);
     });
   };

@@ -23,7 +23,7 @@ const EditAbout = (props) => {
       <i
         id="editAboutBtn"
         onClick={props.handleShowEdit}
-        class="fa fa-cog"
+        className="fas fa-pencil-alt icon"
       />
       <Modal show={props.showEdit} onHide={props.handleCloseEdit}>
         <Modal.Header closeButton>
