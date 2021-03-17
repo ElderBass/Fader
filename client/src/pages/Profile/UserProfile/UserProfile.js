@@ -107,9 +107,9 @@ const UserProfile = (props) => {
   return (
     <div className="container profile">
       <div className="row" >
-        <div className="col-md-4 col-lg-4 col-sm-12"  id="connectionsBox">
+        <div className="col-md-3 col-lg-3 col-sm-12" id="connectionsBox">
           <div className="container userConnections">
-            <div className="row "  id="connectionsBox">
+            <div className="row " id="connectionsBox">
               <h5 id="connectionsHeader">CONNECTIONS</h5>
             </div>
             <div className="row">
@@ -128,13 +128,13 @@ const UserProfile = (props) => {
                 })
               ) : (
                 <div className="container" id="connectionsBox">
-                  <h3  id="connectionsBox">NO CONNECTIONS</h3>
+                  <h3 id="connectionsBox">NO CONNECTIONS</h3>
                 </div>
               )}
             </div>
 
             <br />
-            <div className="row"  id="connectionsBox">
+            <div className="row" id="connectionsBox">
               <Link to="/artists">
                 <p id="browseArtist">
                   Browse Artists
@@ -143,53 +143,60 @@ const UserProfile = (props) => {
             </div>
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12">
-          <div className="row">
-            <div className="container">
-              <img
-                src={state.user.image}
-                width="50"
-                height="50"
-                alt={state.user.stageName}
-                onClick={handleShowPic}
-              />
+        {/* Artist Info Center Container */}
+        <div className="col-md-6 col-lg-6 col-sm-12" id="">
+          <div className="row" id="stage">
+            <div className="col-md-1 col-lg-1 col-sm-12" id="stage"></div>
+            <div className="col-md-2 col-lg-2 col-sm-12" id="stage"><img id="avatarShape"
+              src={state.user.image}
+              width="50"
+              height="50"
+              alt={state.user.stagename}
+              onClick={handleShowPic}
+            />
               <ProfilePictureForm
                 changePicture={handleChangePicture}
                 handleClosePic={handleClosePic}
                 showPic={showPic}
-              />
-              <h3 className="stage">{state.user.stageName}</h3>
+              /></div>
+
+            <div className="col-md-6 col-lg-6 col-sm-12" id="stage"><h3 className="stage">{state.user.stageName}</h3>
               <p className="info">
                 {" "}
                 {state.user.genre} | {state.user.city}
               </p>
+              <p className="aboutInfo">{state.user.about}</p>
+            </div>
+            <div className="col-md-1 col-lg-1 col-sm-12" id="stage">
+              {state.user.about ? (
+                <>
+
+                  <EditAbout
+                    edit={handleEditAbout}
+                    handleCloseEdit={handleCloseEdit}
+                    showEdit={showEdit}
+                    handleShowEdit={handleShowEdit}
+                  />
+                </>
+              ) : (
+                <AddAbout
+                  add={handleAddAbout}
+                  handleCloseAdd={handleCloseAdd}
+                  handleShowAdd={handleShowAdd}
+                  showAdd={showAdd}
+                />
+              )}
+
             </div>
           </div>
-         
-          <div className="row">
-            {state.user.about ? (
-              <>
-                <p className="aboutInfo">{state.user.about}</p>
-                <EditAbout
-                  edit={handleEditAbout}
-                  handleCloseEdit={handleCloseEdit}
-                  showEdit={showEdit}
-                  handleShowEdit={handleShowEdit}
-                />
-              </>
-            ) : (
-              <AddAbout
-                add={handleAddAbout}
-                handleCloseAdd={handleCloseAdd}
-                handleShowAdd={handleShowAdd}
-                showAdd={showAdd}
-              />
-            )}
-          </div>
-          <div className="row">
-              <label htmlFor="mizes" className="inputLabel">
-                SEQUENCES
-              </label>
+          <div className="row" id="mixesSelection">
+            <div className="col-md-2 col-lg-2 col-sm-12" id="stage"></div>
+            <div className="col-md-1 col-lg-1 col-sm-12" id="sequenceRow">
+              <label htmlFor="mixes" className="inputLabel" id="sequenceText">
+                BEATS
+            </label>
+            </div>
+            <div className="col-md-6 col-lg-6 col-sm-12" id="stage">
               <select
                 className="form-select"
                 id="mixesSelection"
@@ -199,15 +206,17 @@ const UserProfile = (props) => {
                 <option selected disabled value="">Select a Sequence</option>
                 {mixes.mixes
                   ? mixes.mixes.map((mix) => {
-                      return (
-                        <option value={mix._id}>{mix.name}</option>
-                      );
-                    })
+                    return (
+                      <option value={mix._id}>{mix.name}</option>
+                    );
+                  })
                   : null}
               </select>
+            </div>
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12" id="messagesBox">
+        {/* End Artist Info/Middle Container */}
+        <div className="col-md-3 col-lg-3 col-sm-12" id="messagesBox">
           <div className="container userMessages" >
             <div className="row" id="connectionsBox">
               <h5 id="messagesHeader">MESSAGES</h5>
@@ -217,7 +226,7 @@ const UserProfile = (props) => {
                 state.user.messages.map((mess) => {
                   return (
                     <div id="messagesBox">
-                      <img 
+                      <img
                         src={mess.image}
                         width="35"
                         height="35"
