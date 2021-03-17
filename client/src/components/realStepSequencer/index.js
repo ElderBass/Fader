@@ -220,7 +220,6 @@ const TestSequencer = (props) => {
   const playLoop = () => {
     console.log("playing, tracks", drumState.tracks);
     console.log("playing, beats", drumState.beats);
-    console.log("drumstate new sound = ", drumState.drumMisc1)
     fillBeat();
     midiSounds.current.startPlayLoop(drumState.beats, drumState.bpm, 1 / 16);
   };
@@ -1970,10 +1969,18 @@ const TestSequencer = (props) => {
         ref={midiSounds}
         appElementName="root"
         drums={[
-          drumState.drumSnare,
-          drumState.drumBass,
-          drumState.drumHiHat,
-          drumState.drumClap,
+          drumState.misc6,
+          drumState.misc5,
+          drumState.misc4,
+          drumState.misc3,
+          drumState.misc2,
+          drumState.misc1,
+          drumState.snare3,
+          drumState.snare2,
+          drumState.snare1,
+          drumState.kick3,
+          drumState.kick2,
+          drumState.kick1,
         ]}
       />
       <hr />
