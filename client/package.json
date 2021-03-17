@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.8.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "imgur": "^1.0.0",
     "midi-sounds-react": "^1.2.54",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",
