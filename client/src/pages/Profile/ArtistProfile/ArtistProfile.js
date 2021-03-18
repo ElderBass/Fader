@@ -112,7 +112,7 @@ const ArtistProfile = (props) => {
               {artist.connections.length > 0 ? (
                 artist.connections.map((con) => {
                   return (
-                    <Link to={"/artistprofile/" + con._id}>
+                    <Link id="imageLink" to={"/artistprofile/" + con._id}>
                       <img id="connectionsBox"
                         alt={`${con.stageName}`}
                         src={con.image}

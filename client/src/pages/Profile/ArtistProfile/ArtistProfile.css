@@ -44,7 +44,6 @@
   color: #ffe187;
   background-color: #3a3a3a;
 }
-
 #connectionsBox {
   background-color: #3a3a3a;
   font-size: 14px;
@@ -54,7 +53,10 @@
   background-color: #3a3a3a;
   font-size: 10px;
 }
-
+#imageLink {
+  width: 0.2rem;
+  padding:0.2rem;
+}
 .browse {
   background-color: #191919;
   margin-top: 20px;
