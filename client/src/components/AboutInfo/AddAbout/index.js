@@ -9,7 +9,7 @@ const AddAbout = (props) => {
       <Button className="btn-default" onClick={props.handleShowAdd}>
         ADD BIO
       </Button>
-      <Modal show={props.showAdd} onHide={props.handleCloseAdd}>
+      <Modal show={props.showAdd}>
         <Modal.Header closeButton>
           <Modal.Title>Encore.</Modal.Title>
         </Modal.Header>
@@ -25,9 +25,6 @@ const AddAbout = (props) => {
               />
             </div>
             <Modal.Footer>
-              <button className="btn btn-secondary" onClick={props.handleCloseAdd}>
-                Close
-              </button>
               <button
                 className="btn btn-default"
                 type="submit"

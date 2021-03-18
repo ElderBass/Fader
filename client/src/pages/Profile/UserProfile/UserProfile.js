@@ -107,17 +107,11 @@ const UserProfile = (props) => {
 
   const handleChangePicture = (e) => {
     e.preventDefault();
-    console.log("e target - ", URL.createObjectURL(e.target.files[0]));
-    let image = URL.createObjectURL(e.target.files[0])
-    image.replace()
-    //let image = e.target.picture.value.replace(/^blob:/i, '');
     let body = {
       id: state.user._id,
-      image: image,
+      image: e.target.picture.value,
     };
-
-
-    //console.log("image = ", image);
+    console.log("body in handlechangepicture = ", body);
     API.changePicture(body)
       .then((res) => {
         console.log("result inside the change picture func = ", res.data);
@@ -125,11 +119,13 @@ const UserProfile = (props) => {
           type: UPDATE_USER,
           user: res.data,
         });
+        setShowPic(false);
       })
       .catch((err) => console.log(err));
   };
 
   const handleChangeMix = (e) => {
+    e.preventDefault();
     let mixId = e.target.value;
     API.getOneMix(mixId)
       .then(result => {

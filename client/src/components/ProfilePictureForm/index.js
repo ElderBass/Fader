@@ -14,30 +14,23 @@ return (
           <Modal.Title>Profile Avatar</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form
-
-            
+          <form onSubmit={props.changePicture}          
           >
             <div className="form-group">
-              <label  htmlFor="picture">Attach an image file (.png, .jpg, .gif) 400x400 for best results.</label>
+              <label  htmlFor="picture">Enter a url from the internet - square 400x400 are ideal.</label>
               <input 
-                type="file"
+                type="text"
                 className="form-control"
                 id="changePicture"
                 name="picture"
-                onChange={props.changePicture}
               />
             </div>
             <Modal.Footer>
-              <button className="btn btn-secondary" onClick={props.handleClosePic}>
-                Close
-              </button>
               <button
-                className="btn btn-primary"
+                className="btn btn-secondary"
                 type="submit"
-                // onClick={props.handleLeaveMessage}
               >
-                Upload
+                Save Photo
               </button>
             </Modal.Footer>
           </form>

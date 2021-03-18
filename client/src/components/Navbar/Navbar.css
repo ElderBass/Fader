@@ -16,9 +16,21 @@
     
 }
 
+.profileLink {
+    color: #C12A75;
+}
+
+.profileLink:hover {
+    color: #0065B1;
+}
+
+.logoutLink:hover {
+    color: #5B00B1;
+}
+
 #navButtons a {
     color: #C12A75;
     font-family: 'Avenir';
-    
+    text-decoration:none;
     cursor: pointer;
 }
