@@ -7,7 +7,7 @@ import { UserProvider } from "./utils/UserState";
 import ArtistProfile from "./pages/Profile/ArtistProfile/ArtistProfile";
 import Home from "./pages/Home";
 import Browse from "./pages/BrowseArtists/BrowseArtists";
-import TestSequencer from "./components/realStepSequencer";
+import Studio from "./pages/Studio";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -27,12 +27,11 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/logout" component={Logout} />
               <Route path="/artists" component={Browse} />
-              <Route path="/artistprofile/:id" component={ArtistProfile}
-              />
+              <Route path="/artistprofile/:id" component={ArtistProfile} />
+              <Route exact path ="/studio" component={Studio}/>
               {/* <Route exact path="/drumpad" component={Drumpad} />
         <Route exact path="/profile" component={UserProfile} /> */}
           </div>
-          <TestSequencer />
           <Footer />
         </UserProvider>
       </Router>

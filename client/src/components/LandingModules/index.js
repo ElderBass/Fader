@@ -37,6 +37,7 @@ const LandingModules = (props) => {
           <p className="btnText">BROWSE PROFILES</p>
         </div>
       </Link >
+      <Link to="/studio">
         <div className="gridRow">
             <img
               className="landingImg"
@@ -46,6 +47,7 @@ const LandingModules = (props) => {
             />
           <p className="btnText">PLACEHOLDER</p>
         </div>
+        </Link>
     </div>
   );
 };

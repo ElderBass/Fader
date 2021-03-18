@@ -1,6 +1,5 @@
 const config = require("../config/dbconfig");
 const db = require("../models");
-const imgur = require("imgur");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
@@ -39,48 +38,53 @@ module.exports = {
     console.log("inside signin backend = ", req.body);
     db.Artist.findOne({
       email: req.body.email,
-    }).exec((err, user) => {
-      if (err) {
-        res.status(500).send({ message: err });
-        return;
-      }
+    }).exec(async (err, user) => {
+      try {
+        if (err) {
+          res.status(500).send({ message: err });
+          return;
+        }
 
-      if (!user) {
-        return res.status(404).send({ message: "User Not found." });
-      }
+        if (!user) {
+          return res.status(404).send({ message: "User Not found." });
+        }
 
-      let passwordIsValid = user.validatePassword(
-        req.body.password,
-        user.password
-      );
+        let passwordIsValid = await user.validatePassword(req.body.password);
+        
+        console.log("password is valid", passwordIsValid);
+        if (!passwordIsValid) {
+          return res.status(401).send({
+            accessToken: null,
+            message: "Invalid Password!",
+          });
+        }
 
-      if (!passwordIsValid) {
-        return res.status(401).send({
-          accessToken: null,
-          message: "Invalid Password!",
+        let token = jwt.sign({ id: user._id }, config.secret, {
+          expiresIn: 86400, // 24 hours
+        });
+
+        res.json({
+          _id: user._id,
+          stageName: user.stageName,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          genre: user.genre,
+          city: user.city,
+          email: user.email,
+          image: user.image,
+          connections: user.connections,
+          messages: user.messages,
+          about: user.about,
+          following: user.following,
+          mixes: user.mixes,
+          accessToken: token,
+        });
+      } catch (error) {
+        res.json({
+          error: error,
+          myMessage: "Incorrect Password. Please Try Again."
         });
       }
-
-      let token = jwt.sign({ id: user._id }, config.secret, {
-        expiresIn: 86400, // 24 hours
-      });
-
-      res.json({
-        _id: user._id,
-        stageName: user.stageName,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        genre: user.genre,
-        city: user.city,
-        email: user.email,
-        image: user.image,
-        connections: user.connections,
-        messages: user.messages,
-        about: user.about,
-        following: user.following,
-        mixes: user.mixes,
-        accessToken: token,
-      });
     });
   },
 
@@ -139,7 +143,7 @@ module.exports = {
       })
       .catch((err) => res.status(422).json(err));
   },
-  
+
   changePicture: function (req, res) {
     console.log("req body inside change picture = ", req.body);
 

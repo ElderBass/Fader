@@ -18,7 +18,6 @@ const LoginForm = (props) => {
       <div className="row">
         <form
           className="login needs-validation"
-          noValidate
           onSubmit={props.handleSignIn}
         >
           <div className="form-group">
@@ -31,9 +30,6 @@ const LoginForm = (props) => {
               name="email"
               required
             />
-            <div className="invalid-feedback">
-              This email does not match our records.
-            </div>
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
@@ -45,9 +41,7 @@ const LoginForm = (props) => {
               placeholder="Password"
               required
             />
-            <div className="invalid-feedback">
-              Incorrect Password. Please Try Again.
-            </div>
+            {props.validated.isPasswordCorrect ? null : <p>Incorrect Password. Please Try Again.</p>}
           </div>
           <div className="row" id="bottomBtns">
             <button type="submit" id="loginBtn" className="btn btn-secondary">

@@ -150,7 +150,6 @@ const TestSequencer = (props) => {
 
       drumState.beats[i] = beat;
     }
-
     // setDrumState({
     //   ...drumState,
     //   beats: beats,
