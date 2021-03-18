@@ -13,7 +13,7 @@ const EditAbout = (props) => {
 
   const handleEditChange = (e) => {
     e.preventDefault();
-    console.log("changing inside handle edit change = ", e.target)
+
     editAboutState({
       about: e.target.value,
     });

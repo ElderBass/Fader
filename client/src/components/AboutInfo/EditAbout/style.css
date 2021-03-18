@@ -9,3 +9,15 @@
 #submitButton {
     color: #c12a75;
 }
+
+
+#editAbout {
+    background-color: #3A3A3A;
+    color: #fff;
+    box-shadow: none;
+    border-color: #c12a75;
+}
+
+#editAbout::placeholder {
+    color: #6C757D;
+}
