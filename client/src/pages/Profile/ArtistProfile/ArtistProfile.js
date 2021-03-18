@@ -97,6 +97,7 @@ const ArtistProfile = (props) => {
   };
 
   return (
+    <>
     <div className="container profile">
       <div className="row">
         <div className="col-md-3 col-lg-3 col-sm-12 " id="connectionsBox">
@@ -164,7 +165,7 @@ const ArtistProfile = (props) => {
                 </option>
                 {mixes.mixes.length > 0
                   ? mixes.mixes.map((mix) => {
-                      return <option value={mix._id}>{mix.name}</option>;
+                      return <option key={mix._id} value={mix._id}>{mix.name}</option>;
                     })
                   : null}
               </select>
@@ -210,6 +211,9 @@ const ArtistProfile = (props) => {
         </div>
       </div>
     </div>
+  <div className="row browse"><Link to="/artists"><i className="fas fa-search browseArtistsLink">{" "} Browse More Artists</i> </Link></div>
+  
+</>
   );
 };
 
