@@ -163,12 +163,12 @@ const ArtistProfile = (props) => {
                 name="mixes"
                 onChange={handleChangeMix}
               >
-                <option selected disabled value="">
+                <option selected disabled value="" id="mixSelectorOption">
                   Select a Sequence
                 </option>
                 {mixes.mixes.length > 0
                   ? mixes.mixes.map((mix) => {
-                      return <option key={mix._id} value={mix._id}>{mix.name}</option>;
+                      return <option id="mixSelectorOptionItems" key={mix._id} value={mix._id}>{mix.name}</option>;
                     })
                   : null}
               </select>
