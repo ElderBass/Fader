@@ -14,6 +14,11 @@ import snare1 from '../../assets/images/seqencer-icons/snare1.png';
 import openHat from '../../assets/images/seqencer-icons/op-hat1.png';
 import closedhat from '../../assets/images/seqencer-icons/cl-hat1.png';
 import clap2 from '../../assets/images/seqencer-icons/clap1.png';
+import clap1 from '../../assets/images/seqencer-icons/clap2.png';
+import ride from '../../assets/images/seqencer-icons/ride1.png';
+import shaker1 from '../../assets/images/seqencer-icons/shaker1.png';
+
+
 
 
 
@@ -457,7 +462,8 @@ const TestSequencer = (props) => {
         <tbody>
           <tr>
             <td>
-              <h6 id="soundList">Cabasa</h6>
+              {/* <h6 id="soundList">Cabasa</h6> */}
+              <img id='miniPhoto' src={shaker1} alt="cabasa photo"></img>
             </td>
             <td>
               <input
@@ -606,13 +612,8 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h6 id="soundList">Ride</h6>
-              {/* <select id="soundList"
-                value={drumState.misc5}
-                onChange={() => onSelectDrumSnare}
-              >
-                {createSelectItems()}
-              </select> */}
+              {/* <h6 id="soundList">Ride</h6> */}
+              <img id='miniPhoto' src={ride} alt="ride photo"></img>
             </td>
             <td>
               <input
@@ -761,13 +762,8 @@ const TestSequencer = (props) => {
           </tr>
           <tr>
             <td>
-              <h6 id="soundList">Clap #1</h6>
-              {/* <select id="soundList"
-                value={drumState.misc4}
-                onChange={() => onSelectDrumClap}
-              >
-                {createSelectItems()}
-              </select> */}
+              {/* <h6 id="soundList">Clap #1</h6> */}
+              <img id='miniPhoto' src={clap1} alt="clap 1 photo"></img>
             </td>
             <td>
               <input
