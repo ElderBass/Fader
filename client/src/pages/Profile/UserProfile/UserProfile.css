@@ -11,18 +11,17 @@
 }
 #browseArtist {
     font-size: 10px;
-    color: #FFE187;
+    color: #F7BA00;
     background-color:  #3A3A3A;
 }
 .userConnections {
-    padding: 2px;
-    color: #FFE187;
+    color: #F7BA00;
     background-color:#3A3A3A;
 }
 .userMessages {
-    padding: 2px;
+
     background-color:#3A3A3A;
-    color: #FFE187;
+    color: #F7BA00;
 
 }
 
@@ -97,4 +96,10 @@
   #mixesSelection {
       background-color: #2D2D2D;;
       color: #7D7D7D;
+  }
+
+  #noMessagesBox {
+    color: #F7BA00;
+    background-color: #3A3A3A;
+    font-size: 14px;
   }

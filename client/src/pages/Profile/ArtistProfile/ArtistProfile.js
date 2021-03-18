@@ -98,13 +98,12 @@ const ArtistProfile = (props) => {
 
   return (
     <div className="container profile">
-      <div className="row" id="connectionsBox">
-        <div className="col-md-4 col-lg-4 col-sm-12 " id="connectionsBox">
+      <div className="row">
+        <div className="col-md-3 col-lg-3 col-sm-12 " id="connectionsBox">
           <div className="container userConnections">
             <div className="row " id="connectionsBox">
               <h5 id="connectionsHeader">CONNECTIONS</h5>
             </div>
-            <br />
             <div className="row" id="connectionsBox">
               {artist.connections.length > 0 ? (
                 artist.connections.map((con) => {
@@ -125,13 +124,19 @@ const ArtistProfile = (props) => {
                 </div>
               )}
             </div>
-            <br />
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12 stage">
-          <div className="row">
-            <div className="container" >
-              <h3 className="stage">{artist.stageName}</h3>
+        {/* Artist Info Center Container Begin */}
+        <div className="col-md-6 col-lg-6 col-sm-12 stage">
+          <div className="row" id="stage">
+          <div className="col-md-1 col-lg-1 col-sm-12" id="stage"></div>
+          <div className="col-md-2 col-lg-2 col-sm-12" id="stage"><img id="avatarShape"
+              src={artist.image}
+              width="40"
+              height="40"
+              />
+              </div>
+              <div className="col-md-6 col-lg-6 col-sm-12" id="stage"><h3 className="stage">{artist.stageName}</h3>
               <p className="info">
                 {artist.genre} | {artist.city}
               </p>
@@ -140,7 +145,8 @@ const ArtistProfile = (props) => {
           <div className="row">
             {artist.about ? <p className="aboutInfo">{artist.about}</p> : null}
           </div>
-          <div className="row">
+          <div className="row"id="mixesSelection">
+            <div className="col-md-2 col-lg-2 col-sm-12" id="stage"></div>
             <div className="col-md-1 col-lg-1 col-sm-12" id="sequenceRow">
               <label htmlFor="mixes" className="inputLabel" id="sequenceText">
                 BEATS
@@ -165,7 +171,8 @@ const ArtistProfile = (props) => {
             </div>
           </div>
         </div>
-        <div className="col-md-4 col-lg-4 col-sm-12" id="messagesBox">
+           {/* Artist Info Center Container End */}
+        <div className="col-md-3 col-lg-3 col-sm-12" id="messagesBox">
           <div className="container userMessages">
             <div className="row" id="messagesBox">
               <h5 id="messagesHeader">MESSAGES</h5>

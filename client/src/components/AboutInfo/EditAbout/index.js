@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useUserContext } from "../../../utils/UserState";
 import "./style.css";
+import cog from "../../../assets/images/cog.png";
 
 const EditAbout = (props) => {
   const [state, dispatch] = useUserContext();
@@ -20,10 +21,9 @@ const EditAbout = (props) => {
 
   return (
     <>
-      <i
+      <img src={cog}
         id="editAboutBtn"
         onClick={props.handleShowEdit}
-        className="fas fa-pencil-alt icon"
       />
       <Modal show={props.showEdit} onHide={props.handleCloseEdit}>
         <Modal.Header closeButton>
