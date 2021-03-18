@@ -149,7 +149,7 @@ const UserProfile = (props) => {
               {userState.connections.length > 0 ? (
                 userState.connections.map((con) => {
                   return (
-                    <Link to={"/artistprofile/" + con._id}>
+                    <Link id="imagesLink" to={"/artistprofile/" + con._id}>
                       <img
                         alt={`${con.stageName}`}
                         src={con.image}
