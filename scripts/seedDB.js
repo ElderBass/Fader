@@ -12,7 +12,7 @@ const artistSeed = [
     stageName: "Elder Bass",
     firstName: "Seth",
     lastName: "Zygarlicke",
-    image: "",
+    image: "https://fader-project3.herokuapp.com/static/media/artistcardknob.883bb35f.png",
     genre: "Deep House",
     city: "Minneapolis",
     email: "zygster11@gmail.com",
@@ -25,7 +25,7 @@ const artistSeed = [
     stageName: "Dirty McKenzie",
     firstName: "Dory",
     lastName: "Kahale",
-    image: "../client/src/assets/images/artistcardknob.png",
+    image: "https://fader-project3.herokuapp.com/static/media/artistcardknob.883bb35f.png",
     genre: "Roller Disco",
     city: "Richfield",
     email: "dory@mail.com",
@@ -38,7 +38,7 @@ const artistSeed = [
     stageName: "Slimer",
     firstName: "Jack",
     lastName: "Battle",
-    image: "../client/src/assets/images/artistcardknob.png",
+    image: "https://fader-project3.herokuapp.com/static/media/artistcardknob.883bb35f.png",
     genre: "Psychedelic Rock",
     city: "Minneapolis",
     email: "jack@gmail.com",
@@ -51,7 +51,7 @@ const artistSeed = [
     stageName: "Half Spoon",
     firstName: "Carson",
     lastName: "Scholberg",
-    image: "../client/src/assets/images/artistcardknob.png",
+    image: "https://fader-project3.herokuapp.com/static/media/artistcardknob.883bb35f.png",
     genre: "Drum and Bass",
     city: "Minneapolis",
     email: "carson@gmail.com",
@@ -64,7 +64,7 @@ const artistSeed = [
     stageName: "Heyer Hat",
     firstName: "Will",
     lastName: "Heyer",
-    image: "../client/src/assets/images/artistcardknob.png",
+    image: "https://fader-project3.herokuapp.com/static/media/artistcardknob.883bb35f.png",
     genre: "Indie Rock",
     city: "Minneapolis",
     email: "will@gmail.com",
@@ -79,7 +79,6 @@ db.Artist
   .remove({})
   .then(() => db.Artist.collection.insertMany(artistSeed))
   .then(data => {
-    console.log(data.result.n + " records inserted!");
     process.exit(0);
   })
   .catch(err => {

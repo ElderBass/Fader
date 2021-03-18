@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
-const SALT_WORK_FACTOR = 10;
-
 const Schema = mongoose.Schema;
 
 const ArtistSchema = new Schema({
@@ -28,15 +26,12 @@ const ArtistSchema = new Schema({
   },
   image: {
     type: String,
-    defaultValue: "../assets/record.png",
+    default: "https://fader-project3.herokuapp.com/static/media/artistcardknob.f77e19d8.png",
   },
   email: {
     type: String,
     required: true,
     unique: true,
-    //   validate: {
-    //     isEmail: true
-    //   }
   },
   password: {
     type: String,
@@ -44,12 +39,12 @@ const ArtistSchema = new Schema({
   },
   connections: {
     type: Array,
-    defaultValue: [],
+    default: [],
   },
 
   messages: {
     type: Array,
-    defaultValue: [],
+    default: [],
   },
   about: {
     type: String,
@@ -57,13 +52,8 @@ const ArtistSchema = new Schema({
   },
   following: {
     type: Array,
-    defaultValue: [],
+    default: [],
   },
-  // mixes: {
-  //   type: Array,
-  //   defaultValue: []
-  // },
-
 });
 
 ArtistSchema.pre("save", function (next) {

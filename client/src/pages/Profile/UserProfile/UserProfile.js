@@ -32,7 +32,6 @@ const UserProfile = (props) => {
   })
 
   useEffect(() => {
-    console.log("user profile use effect currentMix = ", state.currentMix)
     API.getAllMixes(state.user._id)
       .then(result => {
         setMixes({
@@ -81,7 +80,6 @@ const UserProfile = (props) => {
     };
 
     API.addAbout(data).then((result) => {
-      console.log("result in add about = ", result.data);
       dispatch({
         type: UPDATE_USER,
         user: result.data,
@@ -97,7 +95,6 @@ const UserProfile = (props) => {
       about: e.target.about.value,
     };
     API.addAbout(data).then((result) => {
-      console.log("result inside handle edit about .then = ", result.data);
       dispatch({
         type: UPDATE_USER,
         user: result.data,
@@ -112,10 +109,8 @@ const UserProfile = (props) => {
       id: state.user._id,
       image: e.target.picture.value,
     };
-    console.log("body in handlechangepicture = ", body);
     API.changePicture(body)
       .then((res) => {
-        console.log("result inside the change picture func = ", res.data);
         dispatch({
           type: UPDATE_USER,
           user: res.data,
@@ -130,7 +125,6 @@ const UserProfile = (props) => {
     let mixId = e.target.value;
     API.getOneMix(mixId)
       .then(result => {
-        console.log("result inside get one mix = ", result.data)
         dispatch({
           type: CURRENT_MIX,
           mix: [...result.data.mixArr]

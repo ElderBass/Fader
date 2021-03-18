@@ -21,10 +21,9 @@ const Signup = (props) => {
       genre: e.target.genre.value,
       city: e.target.city.value,
     };
-    console.log(user);
+
     API.addUser(user)
       .then((result) => {
-          console.log("result in add user =", result.data)
         dispatch({
           type: ADD_USER,
           user: result.data,

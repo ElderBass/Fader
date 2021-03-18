@@ -6,17 +6,11 @@ import { Link } from "react-router-dom";
 import "./LandingModules.css";
 
 const LandingModules = (props) => {
-  console.log(props.history);
-  const clickHandler = () => {
-    console.log("button clicked!");
-  };
-
-  //const handleSigup = () => {};
 
   return (
     <div className="containerCustom">
       <Link to="/signup"  style={{ textDecoration: 'none'}}>
-        <div className="gridRow" onClick={clickHandler}>
+        <div className="gridRow">
           <img
             className="landingImg"
             src={phonesIcon}
@@ -32,7 +26,6 @@ const LandingModules = (props) => {
             className="landingImg"
             src={profileIcon}
             alt="browse artists modal"
-            onClick={clickHandler}
           />
           <p className="btnText">BROWSE PROFILES</p>
         </div>
@@ -43,7 +36,6 @@ const LandingModules = (props) => {
               className="landingImg"
               src={studioIcon}
               alt="PLACEHOLDER modal"
-              onClick={clickHandler}
             />
           <p className="btnText">ENTER STUDIO</p>
         </div>

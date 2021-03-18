@@ -34,13 +34,8 @@ const ArtistProfile = (props) => {
 
   useEffect(() => {
 
-    let body = {
-      id: props.match.params.id,
-    };
-    console.log("body in artist profile =", body);
     API.getOneArtist(props.match.params.id)
       .then((user) => {
-        console.log("result in useEffect of ArtistProfile =", user.data);
         setState({
           id: user.data._id,
           stageName: user.data.stageName,
@@ -58,7 +53,6 @@ const ArtistProfile = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log("user profile use effect currentMix = ", state.currentMix)
     API.getAllMixes(props.match.params.id)
       .then(result => {
         setMixes({
@@ -79,7 +73,6 @@ const ArtistProfile = (props) => {
     };
 
     API.leaveMessage(body).then((result) => {
-      console.log("result data in side handle leave message = ", result.data);
       setState({
         ...artist,
         messages: result.data.messages,
@@ -91,7 +84,6 @@ const ArtistProfile = (props) => {
   const handleChangeMix = (e) => {
     let mixId = e.target.value;
     API.getOneMix(mixId).then((result) => {
-      console.log("result inside get one mix = ", result.data);
       dispatch({
         type: CURRENT_MIX,
         mix: [...result.data.mixArr],

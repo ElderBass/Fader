@@ -18,18 +18,13 @@ const ArtistCard = (props) => {
 
   useEffect(() => {
     if (state.user.connections) {
-      console.log("inside if statement in useEffect");
-      //let following = [...state.user.connections];
-      console.log("state.user.connections = ", state.user.connections);
       setFollowState({
         ...followState,
         following: state.user.connections,
       });
     } else {
-      console.log("inside else statement of useEffect");
       return;
     }
-    console.log(followState.following);
   }, []);
 
 
@@ -46,7 +41,7 @@ const ArtistCard = (props) => {
           type: UPDATE_USER,
           user: response.data,
         });
-        console.log("result in add connection frontend = ", response.data);
+       
       })
       .catch((err) => console.log(err));
   };
@@ -56,7 +51,7 @@ const ArtistCard = (props) => {
       <Link to={"/artistprofile/" + props.id}>
         <div className="card Artist">
         <div className="img-container">
-          <img alt={`Photo of ${props.stageName}`} src={artistcardknob} />
+          <img alt={`Photo of ${props.stageName}`} src={props.image} />
         </div>
         <div className="content">
           <ul >
