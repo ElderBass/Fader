@@ -222,7 +222,7 @@ const UserProfile = (props) => {
             <div className="col-md-1 col-lg-1 col-sm-12" id="sequenceRow">
               <label htmlFor="mixes" className="inputLabel" id="sequenceText">
                 BEATS
-            </label>
+              </label>
             </div>
             <div className="col-md-6 col-lg-6 col-sm-12" id="stage">
               <select
@@ -231,11 +231,11 @@ const UserProfile = (props) => {
                 name="mixes"
                 onChange={handleChangeMix}
               >
-                <option selected disabled value="">Select a Sequence</option>
+                <option selected disabled value="" id="mixSelectorOption">Select a Sequence</option>
                 {mixes.mixes
                   ? mixes.mixes.map((mix) => {
                     return (
-                      <option key={mix._id} value={mix._id}>{mix.name}</option>
+                      <option id="mixSelectorOptionItems" key={mix._id} value={mix._id}>{mix.name}</option>
                     );
                   })
                   : null}
