@@ -141,7 +141,7 @@ const UserProfile = (props) => {
             <div className="row " id="connectionsBox">
               <h5 id="connectionsHeader">CONNECTIONS</h5>
             </div>
-            <div className="row" id="connectionsBox">
+            <div className="row" id="imagesBoxID">
               {userState.connections.length > 0 ? (
                 userState.connections.map((con) => {
                   return (
@@ -161,7 +161,6 @@ const UserProfile = (props) => {
                 </div>
               )}
             </div>
-
             <br />
             <div className="row" id="connectionsBox">
               <Link to="/artists">

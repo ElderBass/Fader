@@ -100,7 +100,7 @@ const ArtistProfile = (props) => {
             <div className="row " id="connectionsBox">
               <h5 id="connectionsHeader">CONNECTIONS</h5>
             </div>
-            <div className="row" id="connectionsBox">
+            <div className="row" id="imagesBoxID">
               {artist.connections.length > 0 ? (
                 artist.connections.map((con) => {
                   return (

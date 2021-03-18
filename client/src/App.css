@@ -21,3 +21,7 @@ div p button {
   margin-left: 10px;
   margin-top: 10px;
 }
+
+div div div button span {
+  color: gold !important;
+}

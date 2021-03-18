@@ -19,10 +19,8 @@
     background-color:#3A3A3A;
 }
 .userMessages {
-
     background-color:#3A3A3A;
     color: #F7BA00;
-
 }
 #avatarShape {
     border-radius: 50%;
@@ -64,7 +62,6 @@
     font-size: 9px;
     color: #7D7D7D;
     background-color:  #3A3A3A;
-
   }
 #messagesHeader {
     font-size: 9px;
@@ -78,7 +75,12 @@
   #connectionsBox {
     background-color: #3A3A3A;
     font-size: 14px;
-    display: inline-block
+    /* display: inline-block */
+  }
+  #imagesBoxID {
+    background-color: #3a3a3a;
+    font-size: 14px;
+    display: inline-block;
   }
   #messagesBox {
     background-color: #3A3A3A;
