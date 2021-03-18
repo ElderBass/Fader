@@ -17,7 +17,7 @@
 
 .gridRow:hover{
   transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, .5);
+  box-shadow: 0 8px 16px #1EB100;
 }
 
 .gridRow:active{
@@ -40,4 +40,12 @@
   height: 14rem;
   margin: 1rem;
   padding: 1rem;
+}
+
+.studioLink {
+  text-decoration: none;
+}
+
+.studioLink:hover {
+  box-shadow: 0 8px 16px #1EB100;
 }

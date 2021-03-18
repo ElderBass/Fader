@@ -37,15 +37,17 @@ const LandingModules = (props) => {
           <p className="btnText">BROWSE PROFILES</p>
         </div>
       </Link >
-        <div className="gridRow">
+      <Link to="/studio">
+        <div className="gridRow studioLink">
             <img
               className="landingImg"
               src={studioIcon}
               alt="PLACEHOLDER modal"
               onClick={clickHandler}
             />
-          <p className="btnText">PLACEHOLDER</p>
+          <p className="btnText">ENTER STUDIO</p>
         </div>
+        </Link>
     </div>
   );
 };

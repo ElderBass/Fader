@@ -7,6 +7,7 @@ import ProfilePictureForm from "../../../components/ProfilePictureForm";
 import "./UserProfile.css";
 import API from "../../../utils/API";
 import AddAbout from "../../../components/AboutInfo/AddAbout";
+import TestSequencer from "../../../components/realStepSequencer/index";
 
 const UserProfile = (props) => {
   const [state, dispatch] = useUserContext();
@@ -138,6 +139,7 @@ const UserProfile = (props) => {
   };
 
   return (
+    <>
     <div className="container profile">
       <div className="row" >
         <div className="col-md-3 col-lg-3 col-sm-12" id="connectionsBox">
@@ -279,6 +281,8 @@ const UserProfile = (props) => {
         </div>
       </div>
     </div>
+    <TestSequencer />
+    </>
   );
 };
 

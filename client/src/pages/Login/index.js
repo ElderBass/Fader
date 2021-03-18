@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LoginForm from "../../components/Login/LoginForm";
 import LoginMessage from "../../components/Login/LoginMessage";
 import { useUserContext } from "../../utils/UserState";
@@ -9,33 +9,66 @@ import "./style.css";
 const Login = (props) => {
   const [state, dispatch] = useUserContext();
 
+  const [ validate, setValidate ] = useState({
+    isPasswordCorrect: true,
+    isEmailCorrect: null,
+  })
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const user = {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    console.log("user in login =", user);
     API.login(user)
       .then((result) => {
         //set session storage here
         let userData = JSON.stringify(result.data);
-        console.log("user data just before saving to storage = ", userData);
         localStorage.setItem("user", userData);
-        console.log("result in login = ", result.data);
         dispatch({
           type: LOGIN_USER,
           user: result.data,
         });
         //window.location.href = "/";
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err.myMessage);
+        setValidate({
+          isPasswordCorrect: false,
+        })
+      })
   };
+
+  const emailValidation = email => {
+    if (
+      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        email,
+      )
+    ) {
+      return null;
+    }
+    if (email.trim() === '') {
+      return 'Email is required';
+    }
+    return 'Please enter a valid email';
+  };
+
+  const passwordValidation = password => {
+    if (!password) {
+      return "Please Enter Your Correct Password"
+    }
+    return null;
+  }
+
+  // const validate = {
+  //   //email: email => nameValidation('First Name', name),
+  //   email: emailValidation,
+  // }; 
 
   return (
     <>
       {!state.isLoggedIn ? (
-        <LoginForm handleSignIn={handleSignIn} />
+        <LoginForm validated={validate} handleSignIn={handleSignIn} />
       ) : (
         <LoginMessage />
       )}
