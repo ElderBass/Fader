@@ -10,12 +10,12 @@ const AddMixForm = (props) => {
 return (
     <Modal show={props.show} onHide={props.handleClose}>
     <Modal.Header closeButton>
-      <Modal.Title>Fresh Track.</Modal.Title>
+      <Modal.Title id="title">Fresh Track.</Modal.Title>
     </Modal.Header>
     <Modal.Body>
       <form onSubmit={props.addMix}>
         <div className="form-group">
-          <label htmlFor="mixName">Mix Name</label>
+          <label id="title" htmlFor="mixName">Mix Name</label>
           <input
             type="text"
             className="form-control"
@@ -24,12 +24,10 @@ return (
           />
         </div>
         <Modal.Footer>
-          <button className="btn btn-secondary" onClick={props.handleClose}>
-            Close
-          </button>
           <button
             className="btn btn-default"
             type="submit"
+            id="submitButton"
           >
             Save Mix
           </button>
