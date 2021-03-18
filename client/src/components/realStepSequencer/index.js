@@ -107,7 +107,7 @@ const TestSequencer = (props) => {
 
 
   const fillBeat = () => {
-    let beats = [];
+    
     for (var i = 0; i < 16; i++) {
       var drums = [];
       if (drumState.tracks[0][i]) {
@@ -148,13 +148,13 @@ const TestSequencer = (props) => {
       }
       var beat = [drums, []];
 
-      beats[i] = beat;
+      drumState.beats[i] = beat;
     }
 
-    setDrumState({
-      ...drumState,
-      beats: beats,
-    });
+    // setDrumState({
+    //   ...drumState,
+    //   beats: beats,
+    // });
   };
   const playLoop = () => {
     console.log("playing, tracks", drumState.tracks);
@@ -179,6 +179,7 @@ const TestSequencer = (props) => {
 
   const handleBPMChange = (e) => {
     let bpm = e.target.value;
+    drumState.bpm = bpm;
     setDrumState({
       ...drumState,
       bpm: bpm,
@@ -192,10 +193,10 @@ const TestSequencer = (props) => {
         mixArr: drumState.tracks,
         userId: state.user._id,
     };
-    console.log("body inside handle save mix = ", body);
+    
     API.addMix(body)
       .then((result) => {
-        console.log("result inside add Mix = ", result.data);
+
         dispatch({
           type: CURRENT_MIX,
           mix: result.data.mixArr,
@@ -2266,6 +2267,7 @@ const TestSequencer = (props) => {
         <button id="playPause" onClick={playLoop}>Play</button>
         <button id="playPause" onClick={stopLoop}>Stop</button>
         {state.isLoggedIn ? <button id="playPause" onClick={handleShow}>Save</button> : null}
+        <button id="playPause" onClick={resetTable}>Clear</button>
       </p>
       <AddMixForm
         show={show}

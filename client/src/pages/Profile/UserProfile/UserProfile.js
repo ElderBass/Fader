@@ -240,7 +240,7 @@ const UserProfile = (props) => {
                 {mixes.mixes
                   ? mixes.mixes.map((mix) => {
                     return (
-                      <option value={mix._id}>{mix.name}</option>
+                      <option key={mix._id} value={mix._id}>{mix.name}</option>
                     );
                   })
                   : null}

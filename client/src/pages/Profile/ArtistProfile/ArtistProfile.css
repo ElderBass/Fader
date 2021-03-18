@@ -57,3 +57,17 @@
     background-color: #3A3A3A;
     font-size: 14px;
   }
+
+  .browse {
+      background-color: #191919;
+      margin-top: 20px;
+      /* margin-left: 50px; */
+      text-align: center;
+      padding: 20px;
+  }
+  .browseArtistsLink {
+      color: #C12A75;
+      text-decoration: none;
+      background-color: #191919;
+
+  }
