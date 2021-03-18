@@ -145,7 +145,7 @@ const UserProfile = (props) => {
             <div className="row " id="connectionsBox">
               <h5 id="connectionsHeader">CONNECTIONS</h5>
             </div>
-            <div className="row">
+            <div className="row" id="connectionsBox">
               {userState.connections.length > 0 ? (
                 userState.connections.map((con) => {
                   return (
@@ -176,7 +176,7 @@ const UserProfile = (props) => {
             </div>
           </div>
         </div>
-        {/* Artist Info Center Container */}
+        {/* Artist Info Center Container Begin */}
         <div className="col-md-6 col-lg-6 col-sm-12" id="">
           <div className="row" id="stage">
             <div className="col-md-1 col-lg-1 col-sm-12" id="stage"></div>
@@ -248,7 +248,7 @@ const UserProfile = (props) => {
             </div>
           </div>
         </div>
-        {/* End Artist Info/Middle Container */}
+        {/* End Artist Info/Middle Container End*/}
         <div className="col-md-3 col-lg-3 col-sm-12" id="messagesBox">
           <div className="container userMessages" >
             <div className="row" id="connectionsBox">
@@ -270,8 +270,8 @@ const UserProfile = (props) => {
                   );
                 })
               ) : (
-                <div id="messagesBox">
-                  <h6 id="messagesBox">NO MESSAGES</h6>
+                <div id="noMessagesBox">
+                  <h6 id="noMessagesBox">NO MESSAGES</h6>
                 </div>
               )}
             </div>

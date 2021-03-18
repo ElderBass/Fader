@@ -6,8 +6,8 @@ import "./style.css";
 const LeaveMessage = (props) => {
   return (
     <>
-      <Button variant="primary" onClick={props.handleShow}>
-        Leave Message
+      <Button id="messageBtn" variant="primary" onClick={props.handleShow}>
+        Message
       </Button>
 
       <Modal show={props.show} onHide={props.handleClose}>
