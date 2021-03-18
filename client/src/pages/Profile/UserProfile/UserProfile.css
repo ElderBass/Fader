@@ -72,31 +72,51 @@
     width: 0.2rem;
     padding:0.2rem;
 }
-  #connectionsBox {
+#connectionsBox {
     background-color: #3A3A3A;
     font-size: 14px;
     /* display: inline-block */
-  }
-  #imagesBoxID {
+}
+#imagesBoxID {
     background-color: #3a3a3a;
     font-size: 14px;
     display: inline-block;
-  }
-  #messagesBox {
+}
+#messagesBox {
     background-color: #3A3A3A;
     font-size: 14px;
-  }
-  .inputLabel { 
+}
+.inputLabel { 
     background-color: #2D2D2D;
     font-size: 10px;
     color: #7D7D7D;
-  }
-  #mixesSelection {
-    background-color: #2D2D2D;;
-    color: #7D7D7D;
-  }
-  #noMessagesBox {
+}
+
+#noMessagesBox {
     color: #F7BA00;
     background-color: #3A3A3A;
     font-size: 14px;
-  }
+}
+#mixesSelection {
+    background-color: #2D2D2D;;
+    color: #7D7D7D;
+    border-color: #f7ba00;
+}
+#mixSelectorOption {
+    color: #fff;
+    background-color: #3a3a3a;
+    box-shadow: none;
+    border-color: #f7ba00;
+}
+#mixesSelection:active {
+    box-shadow: none !important;
+    border-color: #f7ba00 !important;
+}
+#mixesSelection:focus {
+    box-shadow: none !important;
+    border-color: #f7ba00 !important;
+}
+#mixSelectorOptionItems {
+    color: #fff;
+    background-color: #3a3a3a;
+}
