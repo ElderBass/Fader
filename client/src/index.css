@@ -33,7 +33,12 @@ code {
   background-color: #191919;
 }
 
+Link {
+  text-decoration: none;
+}
+
 .ReactModal__Content {
   color: #f7ba00;
 }
+
 

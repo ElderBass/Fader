@@ -41,7 +41,7 @@ function NavTabs() {
               </>
             ) : (
               <Nav.Link>
-                <Link to="/login">LOG IN</Link>
+                <Link to="/login"><p className="loginLink">LOG IN</p></Link>
               </Nav.Link>
             )}
           </Nav>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useUserContext } from "../../../utils/UserState";
 import { CURRENT_MIX } from "../../../utils/action";
 import LeaveMessage from "../../../components/LeaveMessage/index";
+import TestSequencer from "../../../components/realStepSequencer/index";
 
 import "./ArtistProfile.css";
 
@@ -28,6 +29,7 @@ const ArtistProfile = (props) => {
     email: "",
     messages: [],
     connections: [],
+    image: "",
   });
 
   useEffect(() => {
@@ -44,6 +46,7 @@ const ArtistProfile = (props) => {
           stageName: user.data.stageName,
           firstName: user.data.firstName,
           lastName: user.data.lastName,
+          image: user.data.image,
           genre: user.data.genre,
           city: user.data.city,
           email: user.data.email,
@@ -109,7 +112,7 @@ const ArtistProfile = (props) => {
               {artist.connections.length > 0 ? (
                 artist.connections.map((con) => {
                   return (
-                    <Link to="/artistprofile">
+                    <Link to={"/artistprofile/" + con._id}>
                       <img id="connectionsBox"
                         alt={`${con.stageName}`}
                         src={con.image}
@@ -211,8 +214,8 @@ const ArtistProfile = (props) => {
         </div>
       </div>
     </div>
-  <div className="row browse"><Link to="/artists"><i className="fas fa-search browseArtistsLink">{" "} Browse More Artists</i> </Link></div>
-  
+  <div className="row browse"><Link to="/artists"><i className="fas fa-search" style={{color: "#c12a75"}}>{" "}</i><p className="browseArtistsLink" >Browse More Artists</p></Link></div>
+  <TestSequencer />
 </>
   );
 };

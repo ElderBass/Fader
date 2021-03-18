@@ -16,7 +16,7 @@ const artistSeed = [
     genre: "Deep House",
     city: "Minneapolis",
     email: "zygster11@gmail.com",
-    password: "root19",
+    password: "root12",
     connections: [],
     messages: [],
     about: "",

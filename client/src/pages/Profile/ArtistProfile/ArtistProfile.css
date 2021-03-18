@@ -61,9 +61,11 @@
   /* margin-left: 50px; */
   text-align: center;
   padding: 20px;
+  display: inline-flex;
 }
 .browseArtistsLink {
   color: #c12a75;
   text-decoration: none;
   background-color: #191919;
+  font-family: "Avenir";
 }
