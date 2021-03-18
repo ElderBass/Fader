@@ -1,73 +1,68 @@
-
 .container {
-    background-color:  #2D2D2D;
+  background-color: #2d2d2d;
 }
 
 .profile {
-    text-align: center;
-    border: solid 1px #F7BA00;
-    background-color:  #2D2D2D;
-    padding: 12px;
+  text-align: center;
+  border: solid 1px #f7ba00;
+  background-color: #2d2d2d;
+  padding: 12px;
 }
 #browseArtist {
-    font-size: 10px;
-    color: #FFE187;
-    background-color:  #3A3A3A;
+  font-size: 10px;
+  color: #ffe187;
+  background-color: #3a3a3a;
 }
 .userConnections {
-    padding: 2px;
-    color: #FFE187;
-    background-color:#3A3A3A;
+  padding: 2px;
+  color: #ffe187;
+  background-color: #3a3a3a;
 }
 .userMessages {
-    padding: 2px;
-    background-color:#3A3A3A;
-    color: #FFE187;
-
+  padding: 2px;
+  background-color: #3a3a3a;
+  color: #ffe187;
 }
 .stage {
-    color: #F7BA00;
-    font-size: 30px;
-    background-color: #2D2D2D;
-    font-family: 'Aveden';
+  color: #f7ba00;
+  font-size: 30px;
+  background-color: #2d2d2d;
+  font-family: "Aveden";
 }
 .info {
-    color: #F7BA00;
-    background-color: #2D2D2D;
-    font-size: 12px;
+  color: #f7ba00;
+  background-color: #2d2d2d;
+  font-size: 12px;
 }
 #connectionsHeader {
-    font-size: 9px;
-    color: #FFE187;
-    background-color:  #3A3A3A;
-
-  }
+  font-size: 9px;
+  color: #ffe187;
+  background-color: #3a3a3a;
+}
 #messagesHeader {
-    font-size: 9px;
-    color: #FFE187;
-    background-color:  #3A3A3A;
+  font-size: 9px;
+  color: #ffe187;
+  background-color: #3a3a3a;
+}
 
-  }
+#connectionsBox {
+  background-color: #3a3a3a;
+  font-size: 14px;
+}
+#messageBox {
+  background-color: #3a3a3a;
+  font-size: 10px;
+}
 
-  #connectionsBox {
-      background-color: #3A3A3A;
-      font-size: 14px;
-  }
-  #messageBox {
-    background-color: #3A3A3A;
-    font-size: 14px;
-  }
-
-  .browse {
-      background-color: #191919;
-      margin-top: 20px;
-      /* margin-left: 50px; */
-      text-align: center;
-      padding: 20px;
-  }
-  .browseArtistsLink {
-      color: #C12A75;
-      text-decoration: none;
-      background-color: #191919;
-
-  }
+.browse {
+  background-color: #191919;
+  margin-top: 20px;
+  /* margin-left: 50px; */
+  text-align: center;
+  padding: 20px;
+}
+.browseArtistsLink {
+  color: #c12a75;
+  text-decoration: none;
+  background-color: #191919;
+}
