@@ -84,20 +84,20 @@ const ArtistProfile = (props) => {
   };
 
   return (
-    <div className="container profile" id="">
-      <div className="row">
+    <div className="container profile">
+      <div className="row" id="connectionsBox">
         <div className="col-md-4 col-lg-4 col-sm-12 " id="connectionsBox">
           <div className="container userConnections">
             <div className="row " id="connectionsBox">
               <h5 id="connectionsHeader">CONNECTIONS</h5>
             </div>
             <br />
-            <div className="row">
+            <div className="row" id="connectionsBox">
               {artist.connections.length > 0 ? (
                 artist.connections.map((con) => {
                   return (
                     <Link to="/artistprofile">
-                      <img
+                      <img id="connectionsBox"
                         alt={`${con.stageName}`}
                         src={con.image}
                         width="40"
@@ -118,7 +118,6 @@ const ArtistProfile = (props) => {
         <div className="col-md-4 col-lg-4 col-sm-12 stage">
           <div className="row">
             <div className="container" >
-              {/* Rounded Profile IMG left of stagename? Use Flexbox? - Dory */}
               <h3 className="stage">{artist.stageName}</h3>
               <p className="info">
                 {artist.genre} |{" "}
@@ -132,18 +131,18 @@ const ArtistProfile = (props) => {
             <div className="row" id="messagesBox">
               <h5 id="messagesHeader">MESSAGES</h5>
             </div>
-            <div className="row">
+            <div className="row" id="messageBox">
               {artist.messages.length > 0 ? (
                 artist.messages.map((mess) => {
                   return (
-                    <div>
-                      <img
+                    <div id="messageBox">
+                      <img id="messageBox"
                         src={mess.image}
                         width="35"
                         height="35"
                         alt={mess.user}
                       />
-                      <p style={{fontSize: "10px"}}>{mess.message}</p>
+                      <p id="messageBox" style={{fontSize: "10px"}}>{mess.message}</p>
                     </div>
                   );
                 })
