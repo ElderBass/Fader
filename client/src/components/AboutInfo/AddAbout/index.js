@@ -11,12 +11,12 @@ const AddAbout = (props) => {
       </Button>
       <Modal show={props.showAdd}>
         <Modal.Header closeButton>
-          <Modal.Title>Encore.</Modal.Title>
+          <Modal.Title id="title">Encore.</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={props.add}>
             <div className="form-group">
-              <label htmlFor="about">Who Are You Even?</label>
+              <label id="title" htmlFor="about">Who Are You Even?</label>
               <input
                 type="text"
                 className="form-control"
@@ -28,6 +28,7 @@ const AddAbout = (props) => {
               <button
                 className="btn btn-default"
                 type="submit"
+                id="submitButton"
               >
                 Add Info
               </button>

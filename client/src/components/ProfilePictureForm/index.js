@@ -11,13 +11,13 @@ return (
 
     <Modal show={props.showPic} onHide={props.handleClosePic}>
         <Modal.Header closeButton>
-          <Modal.Title>Profile Avatar</Modal.Title>
+          <Modal.Title id="title">Profile Avatar</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={props.changePicture}          
           >
             <div className="form-group">
-              <label  htmlFor="picture">Enter a url from the internet - square 400x400 are ideal.</label>
+              <label id="title" htmlFor="picture">Enter a url from the internet - square 400x400 are ideal.</label>
               <input 
                 type="text"
                 className="form-control"
