@@ -43,12 +43,6 @@ const EditAbout = (props) => {
               />
             </div>
             <Modal.Footer>
-              <button
-                className="btn btn-secondary"
-                onClick={props.handleCloseEdit}
-              >
-                Close
-              </button>
               <button className="btn btn-default" type="submit">
                 Edit Info
               </button>

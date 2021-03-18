@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from "../../../utils/API";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../../../utils/UserState";
+import { CURRENT_MIX } from "../../../utils/action";
 import LeaveMessage from "../../../components/LeaveMessage/index";
 
 import "./ArtistProfile.css";
@@ -12,6 +13,10 @@ const ArtistProfile = (props) => {
   const handleShow = () => setShow(true);
 
   const [state, dispatch] = useUserContext();
+
+  const [mixes, setMixes] = useState({
+    mixes: [],
+  });
 
   const [artist, setState] = useState({
     id: "",
@@ -26,10 +31,6 @@ const ArtistProfile = (props) => {
   });
 
   useEffect(() => {
-    console.log(
-      "props match inside useEffect Artist Profile =",
-      props.match.params.id
-    );
 
     let body = {
       id: props.match.params.id,
@@ -53,6 +54,16 @@ const ArtistProfile = (props) => {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    console.log("user profile use effect currentMix = ", state.currentMix)
+    API.getAllMixes(props.match.params.id)
+      .then(result => {
+        setMixes({
+          mixes: result.data
+        })
+      })
+  }, [state.currentMix])
+
   const handleLeaveMessage = (e) => {
     e.preventDefault();
     let body = {
@@ -63,23 +74,25 @@ const ArtistProfile = (props) => {
         user: state.user.stageName,
       },
     };
-    let updatedMessages = artist.messages.unshift(body.message);
 
-    //artist.messages.push(e.target.value)
     API.leaveMessage(body).then((result) => {
       console.log("result data in side handle leave message = ", result.data);
       setState({
-        id: result.data._id,
-        stageName:  result.data.stageName,
-        firstName:  result.data.firstName,
-        lastName:  result.data.lastName,
-        genre:  result.data.genre,
-        city:  result.data.city,
-        email:  result.data.email,
-        messages:  result.data.messages,
-        connections:  result.data.connections,
-      })
+        ...artist,
+        messages: result.data.messages,
+      });
       setShow(false);
+    });
+  };
+
+  const handleChangeMix = (e) => {
+    let mixId = e.target.value;
+    API.getOneMix(mixId).then((result) => {
+      console.log("result inside get one mix = ", result.data);
+      dispatch({
+        type: CURRENT_MIX,
+        mix: [...result.data.mixArr],
+      });
     });
   };
 
@@ -117,13 +130,39 @@ const ArtistProfile = (props) => {
         </div>
         <div className="col-md-4 col-lg-4 col-sm-12 stage">
           <div className="row">
-            <div className="container" >
+            <div className="container">
               {/* Rounded Profile IMG left of stagename? Use Flexbox? - Dory */}
               <h3 className="stage">{artist.stageName}</h3>
               <p className="info">
-                {artist.genre} |{" "}
-                {artist.city}
+                {artist.genre} | {artist.city}
               </p>
+            </div>
+          </div>
+          <div className="row">
+            {artist.about ? <p className="aboutInfo">{artist.about}</p> : null}
+          </div>
+          <div className="row">
+            <div className="col-md-1 col-lg-1 col-sm-12" id="sequenceRow">
+              <label htmlFor="mixes" className="inputLabel" id="sequenceText">
+                BEATS
+              </label>
+            </div>
+            <div className="col-md-6 col-lg-6 col-sm-12" id="stage">
+              <select
+                className="form-select"
+                id="mixesSelection"
+                name="mixes"
+                onChange={handleChangeMix}
+              >
+                <option selected disabled value="">
+                  Select a Sequence
+                </option>
+                {mixes.mixes.length > 0
+                  ? mixes.mixes.map((mix) => {
+                      return <option value={mix._id}>{mix.name}</option>;
+                    })
+                  : null}
+              </select>
             </div>
           </div>
         </div>
@@ -143,7 +182,7 @@ const ArtistProfile = (props) => {
                         height="35"
                         alt={mess.user}
                       />
-                      <p style={{fontSize: "10px"}}>{mess.message}</p>
+                      <p style={{ fontSize: "10px" }}>{mess.message}</p>
                     </div>
                   );
                 })
@@ -152,7 +191,7 @@ const ArtistProfile = (props) => {
                   <h6 id="messagesBox">NO MESSAGES</h6>
                 </div>
               )}
-            </div >
+            </div>
             {state.isLoggedIn ? (
               <LeaveMessage
                 handleClose={handleClose}
