@@ -32,3 +32,8 @@ code {
 * {
   background-color: #191919;
 }
+
+.ReactModal__Content {
+  color: #f7ba00;
+}
+
