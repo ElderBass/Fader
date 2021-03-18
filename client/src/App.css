@@ -13,3 +13,11 @@
   align-items: center;
   background-color: #191919;
 }
+
+div p button {
+  color: #f7ba00;
+  border-style: solid;
+  border-color: #c12a75;
+  margin-left: 10px;
+  margin-top: 10px;
+}

@@ -30,3 +30,8 @@
     height: 25px;
     width: 35px;
 }
+
+table tbody tr td[style] {
+    color: black !important;
+    /* background-color: #c12a75 !important; */
+}

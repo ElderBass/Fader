@@ -27,12 +27,12 @@ const EditAbout = (props) => {
       />
       <Modal show={props.showEdit} onHide={props.handleCloseEdit}>
         <Modal.Header closeButton>
-          <Modal.Title>Remix.</Modal.Title>
+          <Modal.Title id="title">Remix.</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={props.edit}>
             <div className="form-group">
-              <label htmlFor="about">Not Feeling That Vibe?</label>
+              <label id="title" htmlFor="about">Not Feeling That Vibe?</label>
               <input
                 placeholder={state.user.about}
                 onChange={handleEditChange}
@@ -43,7 +43,7 @@ const EditAbout = (props) => {
               />
             </div>
             <Modal.Footer>
-              <button className="btn btn-default" type="submit">
+              <button id="submitButton" className="btn btn-default" type="submit">
                 Edit Info
               </button>
             </Modal.Footer>

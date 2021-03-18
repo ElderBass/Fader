@@ -24,12 +24,9 @@
     color: #F7BA00;
 
 }
-
 #avatarShape {
     border-radius: 50%;
 }
-
-
 .stage {
     color: #F7BA00;
     font-size: 30px;
@@ -73,31 +70,29 @@
     font-size: 9px;
     color: #7D7D7D;
     background-color:  #3A3A3A;
-
   }
-
+#imageLink {
+    width: 0.2rem;
+    padding:0.2rem;
+}
   #connectionsBox {
-      background-color: #3A3A3A;
-      font-size: 14px;
+    background-color: #3A3A3A;
+    font-size: 14px;
+    display: inline-block
   }
-  
   #messagesBox {
     background-color: #3A3A3A;
     font-size: 14px;
   }
-
   .inputLabel { 
-      background-color: #2D2D2D;
-      font-size: 10px;
-      color: #7D7D7D;
-      
+    background-color: #2D2D2D;
+    font-size: 10px;
+    color: #7D7D7D;
   }
-
   #mixesSelection {
-      background-color: #2D2D2D;;
-      color: #7D7D7D;
+    background-color: #2D2D2D;;
+    color: #7D7D7D;
   }
-
   #noMessagesBox {
     color: #F7BA00;
     background-color: #3A3A3A;
