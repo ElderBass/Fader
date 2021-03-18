@@ -1,3 +1,11 @@
 #editAboutBtn {
     height: 20px;
 }
+
+#title {
+    color: #f7ba00;
+}
+
+#submitButton {
+    color: #c12a75;
+}
