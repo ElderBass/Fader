@@ -38,6 +38,7 @@
   font-size: 9px;
   color: #ffe187;
   background-color: #3a3a3a;
+  display: block;
 }
 #messagesHeader {
   font-size: 9px;
@@ -45,6 +46,10 @@
   background-color: #3a3a3a;
 }
 #connectionsBox {
+  background-color: #3a3a3a;
+  font-size: 14px;
+}
+#imagesBoxID {
   background-color: #3a3a3a;
   font-size: 14px;
   display: inline-block;
