@@ -94,3 +94,4 @@ ArtistSchema.methods.validatePassword = async function validatePassword(data) {
 const Artist = mongoose.model("Artist", ArtistSchema);
 
 module.exports = Artist;
+

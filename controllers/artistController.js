@@ -38,7 +38,7 @@ module.exports = {
     console.log("inside signin backend = ", req.body);
     db.Artist.findOne({
       email: req.body.email,
-    }).exec((err, user) => {
+    }).exec(async (err, user) => {
       try {
         if (err) {
           res.status(500).send({ message: err });
@@ -49,7 +49,7 @@ module.exports = {
           return res.status(404).send({ message: "User Not found." });
         }
 
-        let passwordIsValid = user.validatePassword(req.body.password);
+        let passwordIsValid = await user.validatePassword(req.body.password);
 
         console.log("password is valid", passwordIsValid);
         if (!passwordIsValid) {
