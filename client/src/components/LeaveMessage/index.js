@@ -12,7 +12,7 @@ const LeaveMessage = (props) => {
 
       <Modal show={props.show} onHide={props.handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Let's Hear It</Modal.Title>
+          <Modal.Title id="title">Let's Hear It</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form
@@ -20,7 +20,7 @@ const LeaveMessage = (props) => {
             onSubmit={props.handleLeaveMessage}
           >
             <div className="form-group">
-              <label htmlFor="message">What's the Word?</label>
+              <label id="title" htmlFor="message">What's the Word?</label>
               <input
                 type="text"
                 className="form-control"
