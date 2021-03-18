@@ -22,48 +22,21 @@ const Login = (props) => {
     };
     API.login(user)
       .then((result) => {
-        //set session storage here
+        
         let userData = JSON.stringify(result.data);
         localStorage.setItem("user", userData);
         dispatch({
           type: LOGIN_USER,
           user: result.data,
         });
-        //window.location.href = "/";
       })
       .catch((err) => {
-        console.log(err.myMessage);
+        console.log(err);
         setValidate({
           isPasswordCorrect: false,
         })
       })
   };
-
-  const emailValidation = email => {
-    if (
-      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-        email,
-      )
-    ) {
-      return null;
-    }
-    if (email.trim() === '') {
-      return 'Email is required';
-    }
-    return 'Please enter a valid email';
-  };
-
-  const passwordValidation = password => {
-    if (!password) {
-      return "Please Enter Your Correct Password"
-    }
-    return null;
-  }
-
-  // const validate = {
-  //   //email: email => nameValidation('First Name', name),
-  //   email: emailValidation,
-  // }; 
 
   return (
     <>

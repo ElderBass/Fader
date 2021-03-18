@@ -52,7 +52,6 @@ const TestSequencer = (props) => {
   const midiSounds = useRef();
 
   useEffect(() => {
-      console.log("current mix inside sequencer use effect = ", state.currentMix);
       let beats = [];
     for (var i = 0; i < 16; i++) {
       var drums = [];
@@ -102,7 +101,6 @@ const TestSequencer = (props) => {
         beats: beats,
         tracks: state.currentMix,
       });
-      console.log("beats in use effect = ", drumState.beats);
   }, [state.currentMix, drumState.tracks]);
 
 
@@ -150,14 +148,8 @@ const TestSequencer = (props) => {
 
       drumState.beats[i] = beat;
     }
-    // setDrumState({
-    //   ...drumState,
-    //   beats: beats,
-    // });
   };
   const playLoop = () => {
-    console.log("playing, tracks", drumState.tracks);
-    console.log("playing, beats", drumState.beats);
     fillBeat();
     midiSounds.current.startPlayLoop(drumState.beats, drumState.bpm, 1 / 16);
   };
