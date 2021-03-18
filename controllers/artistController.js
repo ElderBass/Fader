@@ -139,23 +139,18 @@ module.exports = {
       })
       .catch((err) => res.status(422).json(err));
   },
+  
   changePicture: function (req, res) {
     console.log("req body inside change picture = ", req.body);
-    //C:\Users\zygst\OneDrive\Pictures\90334222_10159396454554128_5844131711557828608_o (2)
-    imgur.uploadFile("https://fader-project3.herokuapp.com/5cab5e31-4823-4973-8a7e-f85650277bfd.jpg")
-      .then((json) => {
-        console.log("json.link inside change picture = ", json.link);
-        // db.Artist.findOneAndUpdate(
-        //   { _id: req.body.id },
-        //   { image: json.link },
-        //   { new: true }
-        // ).then((result) => {
-        //   console.log(
-        //     "result in .then of changing picture in schema = ",
-        //     result
-        //   );
-        //   res.json(result);
-        // });
+
+    db.Artist.findOneAndUpdate(
+      { _id: req.body.id },
+      { image: req.body.image },
+      { new: true }
+    )
+      .then((result) => {
+        console.log("result in .then of changing picture in schema = ", result);
+        res.json(result);
       })
       .catch((err) => console.log(err));
   },

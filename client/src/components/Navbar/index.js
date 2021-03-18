@@ -23,25 +23,27 @@ function NavTabs() {
         </Link>
         <Navbar.Collapse className="justify-content-end">
           <Nav className="ms-auto" id="navButtons">
-              {state.isLoggedIn ? (
-                <>
-                  <Nav.Link>
-                    <p style={{ color: "#7D7D7D" }}>
-                      Welcome,{" "}
-                      <span style={{ color: "#C12A75" }}>
+            {state.isLoggedIn ? (
+              <>
+                <Nav.Link>
+                  <p style={{ color: "#7D7D7D" }}>
+                    Welcome,{" "}
+                    <Link to="/">
+                      <span className="profileLink">
                         {state.user.stageName}
                       </span>
-                    </p>
-                  </Nav.Link>
-                  <Nav.Link>
-                    <Link to="/logout">LOG OUT </Link>
-                  </Nav.Link>
-                </>
-              ) : (
-                <Nav.Link>
-                  <Link to="/login">LOG IN</Link>
+                    </Link>
+                  </p>
                 </Nav.Link>
-              )}
+                <Nav.Link>
+                  <Link to="/logout"><p className="logoutLink">LOG OUT</p> </Link>
+                </Nav.Link>
+              </>
+            ) : (
+              <Nav.Link>
+                <Link to="/login">LOG IN</Link>
+              </Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
