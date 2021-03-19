@@ -28,6 +28,7 @@
 }
 #avatarShape {
   border-radius: 50%;
+  cursor: pointer;
 }
 .stage {
   color: #f7ba00;
