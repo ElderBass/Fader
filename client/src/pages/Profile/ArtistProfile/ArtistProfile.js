@@ -191,15 +191,16 @@ const ArtistProfile = (props) => {
                 {artist.messages.length > 0 ? (
                   artist.messages.map((mess) => {
                     return (
-                      <div id="messageBox">
-                        <p id="messageBox" style={{ fontSize: "10px" }}>
+                      <div id="messageBox" style={{display: "inline-block"}}>
                           <img
                             id="messageBox"
                             src={mess.image}
                             width="25"
                             height="25"
                             alt={mess.user}
+                            style={{borderRadius: "50%", float: "left"}}
                           />
+                        <p id="messageBox" style={{ fontSize: "10px" }}>
                           {mess.message}
                         </p>
                       </div>
