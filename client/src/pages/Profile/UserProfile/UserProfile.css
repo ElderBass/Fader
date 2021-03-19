@@ -8,6 +8,9 @@
   background-color: #2d2d2d;
   padding: 12px;
 }
+#profileContainer {
+  margin: 5px;
+}
 #browseArtist {
   font-size: 10px;
   color: #f7ba00;
@@ -29,6 +32,7 @@
 #avatarShape {
   border-radius: 50%;
   cursor: pointer;
+  background-color: #2d2d2d
 }
 .stage {
   color: #f7ba00;

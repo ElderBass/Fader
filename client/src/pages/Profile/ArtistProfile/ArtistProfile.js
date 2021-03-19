@@ -92,7 +92,7 @@ const ArtistProfile = (props) => {
   return (
     <>
       <div className="container profile">
-        <div className="row">
+        <div className="row" id="profileContainer">
           <div className="col-md-3 col-lg-3 col-sm-12 " id="connectionsBox">
             <div className="container userConnections">
               <div className="row " id="connectionsBox">
@@ -191,16 +191,16 @@ const ArtistProfile = (props) => {
                 {artist.messages.length > 0 ? (
                   artist.messages.map((mess) => {
                     return (
-                      <div id="messageBox">
-                        <p id="messageBox" style={{ fontSize: "10px" }}>
+                      <div id="messageBox" style={{display: "inline-block"}}>
                           <img
                             id="messageBox"
                             src={mess.image}
                             width="25"
                             height="25"
                             alt={mess.user}
-                            style={{borderRadius: "50%", paddingRight: "5px;"}}
+                            style={{borderRadius: "50%", float: "left"}}
                           />
+                        <p id="messageBox" style={{ fontSize: "10px" }}>
                           {mess.message}
                         </p>
                       </div>
