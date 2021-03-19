@@ -1,14 +1,30 @@
-.card {
+#artistCard {
+  border: none;
   margin: 1rem;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   background-color: #191919;
-
+  align-items: center;
+  /* position: relative; */
 }
 
-.img-container {
+#img-container {
+  text-align: center;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 0px;
+}
+/* 
+#artistImage {
+
+} */
+
+#stageName {
+  font-family: "Aveden";
+  color: #F7BA00;
+  margin-top: 10px;
 }
 
 .liText{
