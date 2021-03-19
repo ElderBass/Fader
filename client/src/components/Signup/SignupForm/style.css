@@ -8,6 +8,12 @@
     color: #C12A75;
 }
 
+#inputLabel {
+    color: #C12A75;
+    background-color: #191919 !important;
+    font-size: 18px;
+}
+
 /* Text input */
 .inputClass::placeholder {
     color: #FFF !important;

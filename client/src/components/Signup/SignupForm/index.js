@@ -5,7 +5,7 @@ import "./style.css";
 
 const SignupForm = (props) => {
   const clickHandler = () => {
-    window.location.assign("/")
+    window.location.assign("/");
   };
 
   return (
@@ -19,11 +19,12 @@ const SignupForm = (props) => {
         <form
           className="row g-3 needs-validation"
           id="signup"
-          noValidate
           onSubmit={props.signup}
         >
           <div className="col-md-6">
-            <label htmlFor="email" className="inputLabel">Email address*</label>
+            <label htmlFor="email" id="inputLabel" className="inputLabel">
+              Email address
+            </label>
             <input
               type="email"
               className="form-control inputClass"
@@ -37,8 +38,13 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="password" required className="inputLabel">
-              Password*
+            <label
+              htmlFor="password"
+              id="inputLabel"
+              required
+              className="inputLabel"
+            >
+              Password
             </label>
             <input
               type="password"
@@ -53,7 +59,9 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="firstName" className="inputLabel">First Name*</label>
+            <label htmlFor="firstName" id="inputLabel" className="inputLabel">
+              First Name
+            </label>
             <input
               type="text"
               className="form-control inputClass"
@@ -67,7 +75,9 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="lastName" className="inputLabel">Last Name*</label>
+            <label htmlFor="lastName" id="inputLabel" className="inputLabel">
+              Last Name
+            </label>
             <input
               type="text"
               className="form-control inputClass"
@@ -81,7 +91,9 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="stageName" className="inputLabel">Stage Name*</label>
+            <label htmlFor="stageName" className="inputLabel">
+              Stage Name*
+            </label>
             <input
               type="text"
               className="form-control inputClass"
@@ -95,7 +107,9 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="genre" className="inputLabel">Genre*</label>
+            <label htmlFor="genre" className="inputLabel">
+              Genre*
+            </label>
             <select
               className="form-select selectClass"
               id="genre-input"
@@ -123,7 +137,9 @@ const SignupForm = (props) => {
             <div className="invalid-feedback">You must select a genre.</div>
           </div>
           <div className="form-group col-md-12">
-            <label htmlFor="city" className="inputLabel">City*</label>
+            <label htmlFor="city" className="inputLabel">
+              City*
+            </label>
             <input
               type="text"
               className="form-control inputClass"
@@ -151,7 +167,12 @@ const SignupForm = (props) => {
             <button type="submit" className="btn btn-secondary" id="signupBtn">
               Sign Up
             </button>
-            <button type="button" className="btn btn-secondary" id="closeBtn" onClick={clickHandler}>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              id="closeBtn"
+              onClick={clickHandler}
+            >
               {/* <Redirect to="/">Cancel</Redirect> */}
               Cancel
             </button>
