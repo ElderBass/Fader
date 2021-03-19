@@ -72,7 +72,7 @@
   /* margin-left: 50px; */
   text-align: center;
   padding: 20px;
-  display: inline-block;
+  display: flex;
 }
 .browseArtistsLink {
   color: #F7BA00;
