@@ -132,7 +132,7 @@ const UserProfile = (props) => {
   return (
     <>
       <div className="container profile">
-        <div className="row">
+        <div className="row" id="profileContainer">
           <div className="col-md-3 col-lg-3 col-sm-12" id="connectionsBox">
             <div className="container userConnections">
               <div className="row " id="connectionsBox">
