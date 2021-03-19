@@ -199,6 +199,7 @@ const ArtistProfile = (props) => {
                             width="25"
                             height="25"
                             alt={mess.user}
+                            style={{borderRadius: "50%", paddingRight: "5px;"}}
                           />
                           {mess.message}
                         </p>

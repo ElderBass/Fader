@@ -425,8 +425,6 @@ const TestSequencer = (props) => {
   return (
     <div id="sequencerGrid" className="App">
       <form>
-        {/* <button id="startBtn" type="button">start</button>
-                    <button id="stopBtn" type="button">stop</button> */}
         <div id="bpmValue">
           BPM
           <input

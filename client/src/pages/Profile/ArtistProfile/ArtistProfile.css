@@ -2,7 +2,9 @@
   background-color: #2d2d2d;
   /* margin-bottom: 60px; */
 }
-
+#avatarShape {
+  border-radius: 50%;
+}
 .profile {
   text-align: center;
   border: solid 1px #f7ba00;
