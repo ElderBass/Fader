@@ -1,3 +1,11 @@
 #title {
     color: #f7ba00;
 }
+
+.modal-header {
+    border-bottom: 0 none !important;
+}
+
+.modal-footer {
+    border-top: 0 none !important;
+}
