@@ -80,6 +80,10 @@
   background-color: #191919;
   font-family: "Avenir";
 }
+
+.browseArtistsLink:hover {
+  color: #C12A75;
+}
 #mixesSelection {
   background-color: #2D2D2D;;
   color: #7D7D7D;

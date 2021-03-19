@@ -228,8 +228,8 @@ const ArtistProfile = (props) => {
         </div>
       </div>
       <div className="row browse">
-        <Link to="/artists" id="routerLink">
-          <p className="browseArtistsLink">
+        <Link to="/artists" id="routerLink" style={{marginRight: "42%", marginLeft: "42%"}}>
+          <p className="browseArtistsLink" style={{textAlign: "center"}}>
             <i className="fas fa-search" style={{ color: "#F7BA00" }}>
               {" "}
             </i>{" "}

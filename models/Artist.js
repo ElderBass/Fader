@@ -26,7 +26,7 @@ const ArtistSchema = new Schema({
   },
   image: {
     type: String,
-    default: "https://fader-project3.herokuapp.com/static/media/artistcardknob.f77e19d8.png",
+    default: "https://i.pinimg.com/originals/f3/91/ff/f391ff4122046215626f623cec639ced.png",
   },
   email: {
     type: String,
