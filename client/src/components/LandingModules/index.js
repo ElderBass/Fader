@@ -9,17 +9,17 @@ const LandingModules = (props) => {
 
   return (
     <div className="containerCustom">
-      <Link to="/signup"  style={{ textDecoration: 'none'}}>
+      <Link to="/signup" id="routerLink">
         <div className="gridRow">
           <img
             className="landingImg"
             src={phonesIcon}
             alt="login/signup modal"
           />
-          <p className="btnText">SIGN UP!</p>
+          <p className="btnText">SIGN UP AND CREATE</p>
         </div>
       </Link>
-      <Link to="/artists" style={{ textDecoration: 'none'}}>
+      <Link to="/artists" id="routerLink">
         <div className="gridRow" >
         
           <img
@@ -30,7 +30,7 @@ const LandingModules = (props) => {
           <p className="btnText">BROWSE PROFILES</p>
         </div>
       </Link >
-      <Link to="/studio">
+      <Link to="/studio" id="routerLink">
         <div className="gridRow studioLink">
             <img
               className="landingImg"

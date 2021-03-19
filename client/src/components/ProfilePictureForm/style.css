@@ -2,10 +2,30 @@
     color: #f7ba00;
 }
 
+
 .modal-header {
     border-bottom: 0 none !important;
 }
 
 .modal-footer {
     border-top: 0 none !important;
+
+#customModal {
+    box-shadow: 0 4px 8px #f7ba00;
+}
+
+
+#submitButton {
+    color: #c12a75;
+}
+
+#changePicture {
+    background-color: #3A3A3A;
+    color: #fff;
+    box-shadow: none;
+    border-color: #c12a75;
+}
+
+#changePicture::placeholder {
+    color: #6C757D;
 }

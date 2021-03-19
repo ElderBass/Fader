@@ -8,7 +8,7 @@ const AddMixForm = (props) => {
 
 
 return (
-    <Modal show={props.show} onHide={props.handleClose}>
+    <Modal id="customModal" show={props.show} onHide={props.handleClose}>
     <Modal.Header closeButton>
       <Modal.Title id="title">Fresh Track.</Modal.Title>
     </Modal.Header>

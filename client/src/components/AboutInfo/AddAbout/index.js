@@ -9,7 +9,7 @@ const AddAbout = (props) => {
       <Button className="btn-default" onClick={props.handleShowAdd}>
         ADD BIO
       </Button>
-      <Modal show={props.showAdd}  onHide={props.handleCloseAdd}>
+      <Modal id="customModal" show={props.showAdd} className="customModal" onHide={props.handleCloseAdd}>
         <Modal.Header closeButton>
           <Modal.Title id="title">Encore.</Modal.Title>
         </Modal.Header>
@@ -22,6 +22,7 @@ const AddAbout = (props) => {
                 className="form-control"
                 id="addAbout"
                 name="about"
+                placeholder="Tell Fader About Yourself"
               />
             </div>
             <Modal.Footer>

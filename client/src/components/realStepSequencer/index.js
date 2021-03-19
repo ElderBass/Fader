@@ -423,7 +423,7 @@ const TestSequencer = (props) => {
   }
 
   return (
-    <div className="App">
+    <div id="sequencerGrid" className="App">
       <form>
         {/* <button id="startBtn" type="button">start</button>
                     <button id="stopBtn" type="button">stop</button> */}

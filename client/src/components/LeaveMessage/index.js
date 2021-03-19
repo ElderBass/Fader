@@ -10,7 +10,7 @@ const LeaveMessage = (props) => {
         Message
       </Button>
 
-      <Modal show={props.show} onHide={props.handleClose}>
+      <Modal id="customModal" show={props.show} onHide={props.handleClose}>
         <Modal.Header closeButton>
           <Modal.Title id="title">Let's Hear It</Modal.Title>
         </Modal.Header>

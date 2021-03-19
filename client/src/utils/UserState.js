@@ -47,7 +47,6 @@ const reducer = (state, action) => {
       };
 
     case LOGIN_USER:
-      console.log("action.user in global state =", action.user);
       return {
         ...state,
         user: action.user,

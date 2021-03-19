@@ -1,122 +1,124 @@
-
 .container {
-    background-color:  #2D2D2D;
+  background-color: #2d2d2d;
 }
 
 .profile {
-    text-align: center;
-    border: solid 1px #F7BA00;
-    background-color:  #2D2D2D;
-    padding: 12px;
+  text-align: center;
+  border: solid 1px #f7ba00;
+  background-color: #2d2d2d;
+  padding: 12px;
 }
 #browseArtist {
-    font-size: 10px;
-    color: #F7BA00;
-    background-color:  #3A3A3A;
+  font-size: 10px;
+  color: #f7ba00;
+  background-color: #3a3a3a;
+  margin-bottom: 0px;
+}
+
+#browseArtist:hover {
+  color: #c12a75;
 }
 .userConnections {
-    color: #F7BA00;
-    background-color:#3A3A3A;
+  color: #f7ba00;
+  background-color: #3a3a3a;
 }
 .userMessages {
-    background-color:#3A3A3A;
-    color: #F7BA00;
+  background-color: #3a3a3a;
+  color: #f7ba00;
 }
 #avatarShape {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 .stage {
-    color: #F7BA00;
-    font-size: 30px;
-    background-color: #2D2D2D;
-    font-family: 'Aveden';
-    padding-bottom:0;
+  color: #f7ba00;
+  font-size: 30px;
+  background-color: #2d2d2d;
+  font-family: "Aveden";
+  padding-bottom: 0;
 }
 #stage {
-
-    background-color: #2D2D2D;
+  background-color: #2d2d2d;
 }
 
 #sequenceRow {
-    background-color: #2d2d2d;
-    text-align: right;
+  background-color: #2d2d2d;
+  text-align: right;
 }
-
 
 .info {
-    color: #7D7D7D;
-    background-color: #2D2D2D;
-    font-size: 12px;
+  color: #7d7d7d;
+  background-color: #2d2d2d;
+  font-size: 12px;
 }
 .aboutInfo {
-    color: #FFE187;
-    background-color: #2D2D2D;
-    font-size: 12px;
+  color: #ffe187;
+  background-color: #2d2d2d;
+  font-size: 12px;
 }
 
 #editAboutBtn {
-    background-color: #2D2D2D;
-    color: #000000;
+  background-color: #2d2d2d;
+  color: #000000;
 }
 #connectionsHeader {
-    font-size: 9px;
-    color: #7D7D7D;
-    background-color:  #3A3A3A;
-  }
+  font-size: 9px;
+  color: #7d7d7d;
+  background-color: #3a3a3a;
+}
 #messagesHeader {
-    font-size: 9px;
-    color: #7D7D7D;
-    background-color:  #3A3A3A;
-  }
+  font-size: 9px;
+  color: #7d7d7d;
+  background-color: #3a3a3a;
+}
 #imageLink {
-    width: 0.2rem;
-    padding:0.2rem;
+  width: 0.2rem;
+  padding: 0.2rem;
 }
 #connectionsBox {
-    background-color: #3A3A3A;
-    font-size: 14px;
-    /* display: inline-block */
+  background-color: #3a3a3a;
+  font-size: 14px;
+  /* display: inline-block */
 }
 #imagesBoxID {
-    background-color: #3a3a3a;
-    font-size: 14px;
-    display: inline-block;
+  background-color: #3a3a3a;
+  font-size: 14px;
+  display: inline-block;
 }
 #messagesBox {
-    background-color: #3A3A3A;
-    font-size: 14px;
+  background-color: #3a3a3a;
+  font-size: 14px;
 }
-.inputLabel { 
-    background-color: #2D2D2D;
-    font-size: 10px;
-    color: #7D7D7D;
+.inputLabel {
+  background-color: #2d2d2d;
+  font-size: 10px;
+  color: #7d7d7d;
 }
 
 #noMessagesBox {
-    color: #F7BA00;
-    background-color: #3A3A3A;
-    font-size: 14px;
+  color: #f7ba00;
+  background-color: #3a3a3a;
+  font-size: 14px;
 }
 #mixesSelection {
-    background-color: #2D2D2D;;
-    color: #7D7D7D;
-    border-color: #f7ba00;
+  background-color: #2d2d2d;
+  color: #7d7d7d;
+  border-color: #f7ba00;
 }
 #mixSelectorOption {
-    color: #fff;
-    background-color: #3a3a3a;
-    box-shadow: none;
-    border-color: #f7ba00;
+  color: #fff;
+  background-color: #3a3a3a;
+  box-shadow: none;
+  border-color: #f7ba00;
 }
 #mixesSelection:active {
-    box-shadow: none !important;
-    border-color: #f7ba00 !important;
+  box-shadow: none !important;
+  border-color: #f7ba00 !important;
 }
 #mixesSelection:focus {
-    box-shadow: none !important;
-    border-color: #f7ba00 !important;
+  box-shadow: none !important;
+  border-color: #f7ba00 !important;
 }
 #mixSelectorOptionItems {
-    color: #fff;
-    background-color: #3a3a3a;
+  color: #fff;
+  background-color: #3a3a3a;
 }

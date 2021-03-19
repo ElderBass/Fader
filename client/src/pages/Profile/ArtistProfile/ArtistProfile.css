@@ -1,5 +1,6 @@
 .container {
   background-color: #2d2d2d;
+  /* margin-bottom: 60px; */
 }
 
 .profile {
@@ -61,6 +62,7 @@
 #imageLink {
   width: 0.2rem;
   padding:0.2rem;
+  text-decoration: none;
 }
 .browse {
   background-color: #191919;
