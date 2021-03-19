@@ -15,6 +15,11 @@
     color: #f7ba00;
 }
 
+#sequencerGrid {
+    margin-top: 60px;
+}
+
+
 #playPause {
     color: #f7ba00;
     margin-left: 10px;

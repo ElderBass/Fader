@@ -15,7 +15,7 @@ const LoginMessage = (props) => {
       </div>
       <br />
       <div className="text-center">
-        <Link to="/">
+        <Link to="/" id="routerLink">
           <button type="submit" className="btn btn-secondary" id="loginMessageBtn" >Continue</button>
         </Link>
         <br /><br />

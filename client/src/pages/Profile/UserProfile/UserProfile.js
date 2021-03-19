@@ -16,7 +16,7 @@ const UserProfile = (props) => {
     mixes: [],
   });
 
-  const [ userState, setUserState ] = useState({
+  const [userState, setUserState] = useState({
     _id: "",
     stageName: "",
     firstName: "",
@@ -29,36 +29,34 @@ const UserProfile = (props) => {
     messages: "",
     about: "",
     following: "",
-  })
+  });
 
   useEffect(() => {
-    API.getAllMixes(state.user._id)
-      .then(result => {
-        setMixes({
-          mixes: result.data
-        })
-      })
-  }, [state.currentMix])
+    API.getAllMixes(state.user._id).then((result) => {
+      setMixes({
+        mixes: result.data,
+      });
+    });
+  }, [state.currentMix]);
 
   useEffect(() => {
-    API.getOneArtist(state.user._id)
-      .then(user => {
-        setUserState({
-          _id: user.data._id,
-          stageName: user.data.stageName,
-          firstName: user.data.firstName,
-          lastName: user.data.lastName,
-          genre: user.data.genre,
-          city: user.data.city,
-          email: user.data.email,
-          image: user.data.image,
-          connections: user.data.connections,
-          messages: user.data.messages,
-          about: user.data.about,
-          following: user.data.following,
-        })
-      })
-  }, [state.user])
+    API.getOneArtist(state.user._id).then((user) => {
+      setUserState({
+        _id: user.data._id,
+        stageName: user.data.stageName,
+        firstName: user.data.firstName,
+        lastName: user.data.lastName,
+        genre: user.data.genre,
+        city: user.data.city,
+        email: user.data.email,
+        image: user.data.image,
+        connections: user.data.connections,
+        messages: user.data.messages,
+        about: user.data.about,
+        following: user.data.following,
+      });
+    });
+  }, [state.user]);
 
   const [showAdd, setShowAdd] = useState(false);
   const handleCloseAdd = () => setShowAdd(false);
@@ -123,158 +121,169 @@ const UserProfile = (props) => {
   const handleChangeMix = (e) => {
     e.preventDefault();
     let mixId = e.target.value;
-    API.getOneMix(mixId)
-      .then(result => {
-        dispatch({
-          type: CURRENT_MIX,
-          mix: [...result.data.mixArr]
-        })
-      })
+    API.getOneMix(mixId).then((result) => {
+      dispatch({
+        type: CURRENT_MIX,
+        mix: [...result.data.mixArr],
+      });
+    });
   };
 
   return (
     <>
-    <div className="container profile">
-      <div className="row" >
-        <div className="col-md-3 col-lg-3 col-sm-12" id="connectionsBox">
-          <div className="container userConnections">
-            <div className="row " id="connectionsBox">
-              <h5 id="connectionsHeader">CONNECTIONS</h5>
-            </div>
-            <div className="row" id="imagesBoxID">
-              {userState.connections.length > 0 ? (
-                userState.connections.map((con) => {
-                  return (
-                    <Link id="imagesLink" to={"/artistprofile/" + con._id}>
-                      <img
-                        alt={`${con.stageName}`}
-                        src={con.image}
-                        width="40"
-                        height="40"
-                      />
-                    </Link>
-                  );
-                })
-              ) : (
-                <div className="container" id="connectionsBox">
-                  <h3 id="connectionsBox">NO CONNECTIONS</h3>
-                </div>
-              )}
-            </div>
-            <br />
-            <div className="row" id="connectionsBox">
-              <Link to="/artists">
-                <p id="browseArtist">
-                  Browse Artists
-                </p>
-              </Link>
-            </div>
-          </div>
-        </div>
-        {/* Artist Info Center Container Begin */}
-        <div className="col-md-6 col-lg-6 col-sm-12" id="">
-          <div className="row" id="stage">
-            <div className="col-md-1 col-lg-1 col-sm-12" id="stage"></div>
-            <div className="col-md-2 col-lg-2 col-sm-12" id="stage"><img id="avatarShape"
-              src={userState.image}
-              width="50"
-              height="50"
-              alt={userState.stagename}
-              onClick={handleShowPic}
-            />
-              <ProfilePictureForm
-                changePicture={handleChangePicture}
-                handleClosePic={handleClosePic}
-                showPic={showPic}
-              /></div>
-
-            <div className="col-md-6 col-lg-6 col-sm-12" id="stage"><h3 className="stage">{state.user.stageName}</h3>
-              <p className="info">
-                {" "}
-                {userState.genre} | {userState.city}
-              </p>
-              <p className="aboutInfo">{userState.about}</p>
-            </div>
-            <div className="col-md-1 col-lg-1 col-sm-12" id="stage">
-              {userState.about ? (
-                <>
-
-                  <EditAbout
-                    edit={handleEditAbout}
-                    handleCloseEdit={handleCloseEdit}
-                    showEdit={showEdit}
-                    handleShowEdit={handleShowEdit}
-                  />
-                </>
-              ) : (
-                <AddAbout
-                  add={handleAddAbout}
-                  handleCloseAdd={handleCloseAdd}
-                  handleShowAdd={handleShowAdd}
-                  showAdd={showAdd}
-                />
-              )}
-
-            </div>
-          </div>
-          <div className="row" id="mixesSelection">
-            <div className="col-md-2 col-lg-2 col-sm-12" id="stage"></div>
-            <div className="col-md-1 col-lg-1 col-sm-12" id="sequenceRow">
-              <label htmlFor="mixes" className="inputLabel" id="sequenceText">
-                BEATS
-              </label>
-            </div>
-            <div className="col-md-6 col-lg-6 col-sm-12" id="stage">
-              <select
-                className="form-select"
-                id="mixesSelection"
-                name="mixes"
-                onChange={handleChangeMix}
-              >
-                <option selected disabled value="" id="mixSelectorOption">Select a Sequence</option>
-                {mixes.mixes
-                  ? mixes.mixes.map((mix) => {
+      <div className="container profile">
+        <div className="row">
+          <div className="col-md-3 col-lg-3 col-sm-12" id="connectionsBox">
+            <div className="container userConnections">
+              <div className="row " id="connectionsBox">
+                <h5 id="connectionsHeader">CONNECTIONS</h5>
+              </div>
+              <div className="row" id="imagesBoxID">
+                {userState.connections.length > 0 ? (
+                  userState.connections.map((con) => {
                     return (
-                      <option id="mixSelectorOptionItems" key={mix._id} value={mix._id}>{mix.name}</option>
+                      <Link id="imagesLink" to={"/artistprofile/" + con._id}>
+                        <img
+                          alt={`${con.stageName}`}
+                          src={con.image}
+                          width="40"
+                          height="40"
+                        />
+                      </Link>
                     );
                   })
-                  : null}
-              </select>
+                ) : (
+                  <div className="container" id="connectionsBox">
+                    <br />
+                    <br />
+                    <h3 id="connectionsBox">NO CONNECTIONS</h3>
+                  </div>
+                )}
+              </div>
+              <br />
+              <div className="row" id="connectionsBox">
+                <Link id="routerLink" to="/artists">
+                  <p id="browseArtist">Browse Artists</p>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-        {/* End Artist Info/Middle Container End*/}
-        <div className="col-md-3 col-lg-3 col-sm-12" id="messagesBox">
-          <div className="container userMessages" >
-            <div className="row" id="connectionsBox">
-              <h5 id="messagesHeader">MESSAGES</h5>
+          {/* Artist Info Center Container Begin */}
+          <div className="col-md-6 col-lg-6 col-sm-12" id="">
+            <div className="row" id="stage">
+              <div className="col-md-1 col-lg-1 col-sm-12" id="stage"></div>
+              <div className="col-md-2 col-lg-2 col-sm-12" id="stage">
+                <img
+                  id="avatarShape"
+                  src={userState.image}
+                  width="50"
+                  height="50"
+                  alt={userState.stagename}
+                  onClick={handleShowPic}
+                />
+                <ProfilePictureForm
+                  changePicture={handleChangePicture}
+                  handleClosePic={handleClosePic}
+                  showPic={showPic}
+                />
+              </div>
+
+              <div className="col-md-6 col-lg-6 col-sm-12" id="stage">
+                <h3 className="stage">{state.user.stageName}</h3>
+                <p className="info">
+                  {" "}
+                  {userState.genre} | {userState.city}
+                </p>
+                <p className="aboutInfo">{userState.about}</p>
+              </div>
+              <div className="col-md-1 col-lg-1 col-sm-12" id="stage">
+                {userState.about ? (
+                  <>
+                    <EditAbout
+                      edit={handleEditAbout}
+                      handleCloseEdit={handleCloseEdit}
+                      showEdit={showEdit}
+                      handleShowEdit={handleShowEdit}
+                    />
+                  </>
+                ) : (
+                  <AddAbout
+                    add={handleAddAbout}
+                    handleCloseAdd={handleCloseAdd}
+                    handleShowAdd={handleShowAdd}
+                    showAdd={showAdd}
+                  />
+                )}
+              </div>
             </div>
-            <div className="row" >
-              {userState.messages.length > 0 ? (
-                userState.messages.map((mess) => {
-                  return (
-                    <div id="messagesBox">
-                      <img
-                        src={mess.image}
-                        width="35"
-                        height="35"
-                        alt={mess.user}
-                      />
-                      <p style={{ fontSize: "10px" }}>{mess.message}</p>
-                    </div>
-                  );
-                })
-              ) : (
-                <div id="noMessagesBox">
-                  <h6 id="noMessagesBox">NO MESSAGES</h6>
-                </div>
-              )}
+            <div className="row" id="mixesSelection">
+              <div className="col-md-2 col-lg-2 col-sm-12" id="stage"></div>
+              <div className="col-md-1 col-lg-1 col-sm-12" id="sequenceRow">
+                <label htmlFor="mixes" className="inputLabel" id="sequenceText">
+                  BEATS
+                </label>
+              </div>
+              <div className="col-md-6 col-lg-6 col-sm-12" id="stage">
+                <select
+                  className="form-select"
+                  id="mixesSelection"
+                  name="mixes"
+                  onChange={handleChangeMix}
+                >
+                  <option selected disabled value="" id="mixSelectorOption">
+                    Select a Sequence
+                  </option>
+                  {mixes.mixes
+                    ? mixes.mixes.map((mix) => {
+                        return (
+                          <option
+                            id="mixSelectorOptionItems"
+                            key={mix._id}
+                            value={mix._id}
+                          >
+                            {mix.name}
+                          </option>
+                        );
+                      })
+                    : null}
+                </select>
+              </div>
+            </div>
+          </div>
+          {/* End Artist Info/Middle Container End*/}
+          <div className="col-md-3 col-lg-3 col-sm-12" id="messagesBox">
+            <div className="container userMessages">
+              <div className="row" id="connectionsBox">
+                <br />
+                <br />
+                <h5 id="messagesHeader">MESSAGES</h5>
+              </div>
+              <div className="row">
+                {userState.messages.length > 0 ? (
+                  userState.messages.map((mess) => {
+                    return (
+                      <div id="messagesBox">
+                        <img
+                          src={mess.image}
+                          width="35"
+                          height="35"
+                          alt={mess.user}
+                        />
+                        <p style={{ fontSize: "10px" }}>{mess.message}</p>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div id="noMessagesBox">
+                    <h6 id="noMessagesBox">NO MESSAGES</h6>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <TestSequencer />
+      <TestSequencer />
     </>
   );
 };
