@@ -8,7 +8,6 @@ const ProfilePictureForm = (props) => {
 
 
 return (
-
     <Modal id="customModal" show={props.showPic} onHide={props.handleClosePic}>
         <Modal.Header closeButton>
           <Modal.Title id="title">Profile Avatar</Modal.Title>

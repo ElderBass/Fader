@@ -2,6 +2,14 @@
     color: #f7ba00;
 }
 
+
+.modal-header {
+    border-bottom: 0 none !important;
+}
+
+.modal-footer {
+    border-top: 0 none !important;
+
 #customModal {
     box-shadow: 0 4px 8px #f7ba00;
 }
