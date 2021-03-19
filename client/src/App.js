@@ -29,8 +29,6 @@ function App() {
               <Route path="/artists" component={Browse} />
               <Route path="/artistprofile/:id" component={ArtistProfile} />
               <Route exact path ="/studio" component={Studio}/>
-              {/* <Route exact path="/drumpad" component={Drumpad} />
-        <Route exact path="/profile" component={UserProfile} /> */}
           </div>
           <Footer />
         </UserProvider>

@@ -7,3 +7,8 @@
     border-style: solid;
     border-color: #c12a75;
 }
+
+
+#customModal {
+    box-shadow: 0 4px 8px #f7ba00;
+}

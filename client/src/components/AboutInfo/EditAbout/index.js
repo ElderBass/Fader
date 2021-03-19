@@ -13,7 +13,7 @@ const EditAbout = (props) => {
 
   const handleEditChange = (e) => {
     e.preventDefault();
-    console.log("changing inside handle edit change = ", e.target)
+
     editAboutState({
       about: e.target.value,
     });
@@ -25,7 +25,7 @@ const EditAbout = (props) => {
         id="editAboutBtn"
         onClick={props.handleShowEdit}
       />
-      <Modal show={props.showEdit} onHide={props.handleCloseEdit}>
+      <Modal id="customModal" show={props.showEdit} onHide={props.handleCloseEdit}>
         <Modal.Header closeButton>
           <Modal.Title id="title">Remix.</Modal.Title>
         </Modal.Header>

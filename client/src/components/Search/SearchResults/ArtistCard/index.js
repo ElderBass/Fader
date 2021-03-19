@@ -48,7 +48,7 @@ const ArtistCard = (props) => {
 
   if (state.isLoggedIn) {
     return (
-      <Link to={"/artistprofile/" + props.id}>
+      <Link id="routerLink" to={"/artistprofile/" + props.id}>
         <div className="card Artist">
         <div className="img-container">
           <img alt={`Photo of ${props.stageName}`} src={props.image} />
@@ -67,7 +67,7 @@ const ArtistCard = (props) => {
     );
   } else {
     return (
-      <Link to={"/artistprofile/" + props.id}>
+      <Link id="routerLink" to={"/artistprofile/" + props.id}>
         <div className="card Artist">
           <div className="img-container">
             <img alt={`Photo of ${props.stageName}`} src={artistcardknob} />
