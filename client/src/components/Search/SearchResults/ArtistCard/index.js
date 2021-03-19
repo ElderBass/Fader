@@ -27,12 +27,14 @@ const ArtistCard = (props) => {
     }
   }, []);
 
-
   const handleFollowArtist = (e) => {
     e.preventDefault();
-    let body = { target: props.artist, targetId: props.id, user: state.user._id };
+    let body = {
+      target: props.artist,
+      targetId: props.id,
+      user: state.user._id,
+    };
     state.user.connections.push(props.artist);
-
 
     API.addConnection(body)
       .then((response) => {
@@ -41,7 +43,6 @@ const ArtistCard = (props) => {
           type: UPDATE_USER,
           user: response.data,
         });
-       
       })
       .catch((err) => console.log(err));
   };
@@ -49,17 +50,22 @@ const ArtistCard = (props) => {
   if (state.isLoggedIn) {
     return (
       <Link id="routerLink" to={"/artistprofile/" + props.id}>
-        <div className="card Artist">
-        <div className="img-container">
-          <img alt={`Photo of ${props.stageName}`} src={props.image} />
-        </div>
-        <div className="content">
-          <ul >
-            <li className="liText">
-              {props.stageName}
-            </li>
-
-          </ul>
+        <div id="artistCard" className="card">
+          <div className="row"> 
+          <div id="img-container">
+            <img
+              alt={`Photo of ${props.stageName}`}
+              width="100"
+              height="100"
+              src={props.image}
+              style={{borderRadius: "50%"}}
+            />
+          </div>
+          </div>
+          <div className="row">
+            <h5 id="stageName">{props.stageName}</h5>
+          </div>
+          <div className="row">
             <Follow follow={handleFollowArtist} id={props.id} />
           </div>
         </div>
@@ -68,16 +74,21 @@ const ArtistCard = (props) => {
   } else {
     return (
       <Link id="routerLink" to={"/artistprofile/" + props.id}>
-        <div className="card Artist">
-          <div className="img-container">
-            <img alt={`Photo of ${props.stageName}`} src={artistcardknob} />
+        <div id="artistCard" className="card Artist">
+          <div className="row"> 
+          <div id="img-container">
+            <img
+              id="artistImage"
+              alt={`Photo of ${props.stageName}`}
+              width="100"
+              height="100"
+              style={{ borderRadius: "50%" }}
+              src={props.image}
+            />
+            </div>
           </div>
-          <div className="content">
-            <ul>
-              <li className="liText">
-                {props.stageName}
-              </li>
-            </ul>
+          <div className="row">
+            <h5  id="stageName">{props.stageName}</h5>
           </div>
         </div>
       </Link>
