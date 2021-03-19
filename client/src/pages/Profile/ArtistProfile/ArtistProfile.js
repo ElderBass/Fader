@@ -192,14 +192,14 @@ const ArtistProfile = (props) => {
                   artist.messages.map((mess) => {
                     return (
                       <div id="messageBox">
-                        <img
-                          id="messageBox"
-                          src={mess.image}
-                          width="35"
-                          height="35"
-                          alt={mess.user}
-                        />
                         <p id="messageBox" style={{ fontSize: "10px" }}>
+                          <img
+                            id="messageBox"
+                            src={mess.image}
+                            width="25"
+                            height="25"
+                            alt={mess.user}
+                          />
                           {mess.message}
                         </p>
                       </div>

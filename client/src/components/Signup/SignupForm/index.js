@@ -5,25 +5,26 @@ import "./style.css";
 
 const SignupForm = (props) => {
   const clickHandler = () => {
-    window.location.assign("/")
+    window.location.assign("/");
   };
 
   return (
-    <div className="container signupContainer">
+    <div className="container"  id="signupContainer">
       <div className="row">
         <h4 className="signupHeader" id="signup">
-          Your Studio Awaits...
+          Your Studio Awaits.
         </h4>
       </div>
       <div className="row">
         <form
           className="row g-3 needs-validation"
           id="signup"
-          noValidate
           onSubmit={props.signup}
         >
           <div className="col-md-6">
-            <label htmlFor="email" className="inputLabel">Email address*</label>
+            <label htmlFor="email" id="inputLabel" className="inputLabel">
+              Email address
+            </label>
             <input
               type="email"
               className="form-control inputClass"
@@ -37,8 +38,13 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="password" required className="inputLabel">
-              Password*
+            <label
+              htmlFor="password"
+              id="inputLabel"
+              required
+              className="inputLabel"
+            >
+              Password
             </label>
             <input
               type="password"
@@ -53,7 +59,9 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="firstName" className="inputLabel">First Name*</label>
+            <label htmlFor="firstName" id="inputLabel" className="inputLabel">
+              First Name
+            </label>
             <input
               type="text"
               className="form-control inputClass"
@@ -67,7 +75,9 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="lastName" className="inputLabel">Last Name*</label>
+            <label htmlFor="lastName" id="inputLabel" className="inputLabel">
+              Last Name
+            </label>
             <input
               type="text"
               className="form-control inputClass"
@@ -81,7 +91,9 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="stageName" className="inputLabel">Stage Name*</label>
+            <label htmlFor="stageName" id="inputLabel" className="inputLabel">
+              Stage Name
+            </label>
             <input
               type="text"
               className="form-control inputClass"
@@ -95,7 +107,9 @@ const SignupForm = (props) => {
             </div>
           </div>
           <div className="col-md-6">
-            <label htmlFor="genre" className="inputLabel">Genre*</label>
+            <label htmlFor="genre" id="inputLabel" className="inputLabel">
+              Genre
+            </label>
             <select
               className="form-select selectClass"
               id="genre-input"
@@ -107,23 +121,44 @@ const SignupForm = (props) => {
                 Please Select Your Genre
               </option>
               <option value="Pop">Pop</option>
+              <option value="Synth Pop">Synth Pop</option>
+              <option value="K-Pop">K-Pop</option>
               <option value="Rock">Rock</option>
+              <option value="Indie Rock">Indie Rock</option>
               <option value="Punk">Punk</option>
+              <option value="Grunge">Grunge</option>
               <option value="Metal">Metal</option>
-              <option value="Psychedelic">Psychedelic</option>
+              <option value="Psychedelic">Psychedelic Rock</option>
               <option value="Rap">Rap</option>
+              <option value="Hip-Hop">Hip-Hop</option>
+              <option value="Trap">Trap</option>
+              <option value="Boom Bap">Boom Bap</option>
               <option value="R&B">R&B</option>
               <option value="Jazz">Jazz</option>
               <option value="Classical">Classical</option>
               <option value="Disco">Disco</option>
+              <option value="Nu Disco">Nu Disco</option>
+              <option value="Trance">Trance</option>
+              <option value="Psytrance">Psytrance</option>
               <option value="House">House</option>
+              <option value="Deep House">Deep House</option>
+              <option value="Classic House">Classic House</option>
+              <option value="Future House">Future House</option>
+              <option value="Chicago House">Chicago House</option>
+              <option value="Ghetto House">Ghetto House</option>
               <option value="Dubstep">Dubstep</option>
               <option value="Drum and Bass">Drum and Bass</option>
+              <option value="Future Bass">Future Bass</option>
+              <option value="Techno">Techno</option>
+              <option value="Acid Techno">Acid Techno</option>
+              <option value="Indie Dance">Indie Dance</option>
             </select>
             <div className="invalid-feedback">You must select a genre.</div>
           </div>
           <div className="form-group col-md-12">
-            <label htmlFor="city" className="inputLabel">City*</label>
+            <label htmlFor="city" id="inputLabel" className="inputLabel">
+              City
+            </label>
             <input
               type="text"
               className="form-control inputClass"
@@ -151,8 +186,12 @@ const SignupForm = (props) => {
             <button type="submit" className="btn btn-secondary" id="signupBtn">
               Sign Up
             </button>
-            <button type="button" className="btn btn-secondary" id="closeBtn" onClick={clickHandler}>
-              {/* <Redirect to="/">Cancel</Redirect> */}
+            <button
+              type="button"
+              className="btn btn-secondary"
+              id="closeBtn"
+              onClick={clickHandler}
+            >
               Cancel
             </button>
           </div>

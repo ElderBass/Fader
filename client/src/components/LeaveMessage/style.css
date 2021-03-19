@@ -10,6 +10,11 @@
     color: #f7ba00;
 }
 
+
+#customModal {
+    box-shadow: 0 4px 8px #f7ba00;
+}
+
 #leaveMessage {
     background-color: #3A3A3A;
     color: #fff;
