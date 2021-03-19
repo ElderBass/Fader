@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useUserContext } from "../../../../utils/UserState.js";
-import { GET_ARTIST, UPDATE_USER } from "../../../../utils/action";
+import { UPDATE_USER } from "../../../../utils/action";
 import { Link } from "react-router-dom";
 import Follow from "./Follow/index";
-import artistcardknob from "../../../../assets/images/artistcardknob.png";
+
 
 import API from "../../../../utils/API";
 //import { generatePath } from "react-router-dom";

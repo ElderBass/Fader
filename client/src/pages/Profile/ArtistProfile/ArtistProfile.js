@@ -109,6 +109,7 @@ const ArtistProfile = (props) => {
                           src={con.image}
                           width="40"
                           height="40"
+                          style={{ borderRadius: "50%" }}
                         />
                       </Link>
                     );
@@ -191,15 +192,15 @@ const ArtistProfile = (props) => {
                 {artist.messages.length > 0 ? (
                   artist.messages.map((mess) => {
                     return (
-                      <div id="messageBox" style={{display: "inline-block"}}>
-                          <img
-                            id="messageBox"
-                            src={mess.image}
-                            width="25"
-                            height="25"
-                            alt={mess.user}
-                            style={{borderRadius: "50%", float: "left"}}
-                          />
+                      <div id="messageBox" style={{ display: "inline-block" }}>
+                        <img
+                          id="messageBox"
+                          src={mess.image}
+                          width="25"
+                          height="25"
+                          alt={mess.user}
+                          style={{ borderRadius: "50%", float: "left" }}
+                        />
                         <p id="messageBox" style={{ fontSize: "10px" }}>
                           {mess.message}
                         </p>
@@ -228,10 +229,12 @@ const ArtistProfile = (props) => {
       </div>
       <div className="row browse">
         <Link to="/artists" id="routerLink">
-          <i className="fas fa-search" style={{ color: "#c12a75" }}>
-            {" "}
-          </i>
-          <p className="browseArtistsLink">Browse More Artists</p>
+          <p className="browseArtistsLink">
+            <i className="fas fa-search" style={{ color: "#F7BA00" }}>
+              {" "}
+            </i>{" "}
+            Browse More Artists
+          </p>
         </Link>
       </div>
       <TestSequencer />
