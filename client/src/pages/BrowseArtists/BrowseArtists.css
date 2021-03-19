@@ -1,6 +1,15 @@
 .searchForm {
     margin-bottom: 40px;
     align-items: center;
+    width: fit-content;
+}
+
+.selectClass {
+  cursor: pointer;
+}
+
+.selectClass:hover {
+  border: 2px solid #C12A75;
 }
 
 #searchHeader {
@@ -13,6 +22,10 @@
 .btn-secondary {
   background-color: #C12A75;
   border-color: #6C757D;
+}
+
+#resetSearchBtn {
+  width:fit-content;
 }
 
 #resetSearchBtn:hover {

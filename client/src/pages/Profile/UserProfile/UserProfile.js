@@ -263,13 +263,15 @@ const UserProfile = (props) => {
                   userState.messages.map((mess) => {
                     return (
                       <div id="messagesBox">
-                        <img
-                          src={mess.image}
-                          width="35"
-                          height="35"
-                          alt={mess.user}
-                        />
-                        <p style={{ fontSize: "10px" }}>{mess.message}</p>
+                        <p style={{ fontSize: "10px" }}>
+                          <img
+                            src={mess.image}
+                            width="35"
+                            height="35"
+                            alt={mess.user}
+                          />
+                          {mess.message}
+                        </p>
                       </div>
                     );
                   })

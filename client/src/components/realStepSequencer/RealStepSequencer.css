@@ -1,6 +1,8 @@
 #bpmValue {
  color: #f7ba00;
  margin-left: 5px;
+ outline: none;
+ border: none;
 }
 
 #checkboxCSS {
