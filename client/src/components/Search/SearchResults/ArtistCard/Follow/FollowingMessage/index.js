@@ -4,7 +4,7 @@ import "./style.css";
 
 const FollowingMessage = (props) => {
   return (
-    <p className="followMsg">
+    <p className="followMsg" id="followingText">
       Following &#10004;
     </p>
   );
