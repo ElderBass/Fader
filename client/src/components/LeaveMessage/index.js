@@ -29,13 +29,9 @@ const LeaveMessage = (props) => {
               />
             </div>
             <Modal.Footer>
-              <button className="btn btn-secondary" onClick={props.handleClose}>
-                Close
-              </button>
               <button
-                className="btn btn-primary"
+                id="submitButton" className="btn btn-default"
                 type="submit"
-                // onClick={props.handleLeaveMessage}
               >
                 Post Message
               </button>

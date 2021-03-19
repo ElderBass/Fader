@@ -109,6 +109,7 @@ const ArtistProfile = (props) => {
                           src={con.image}
                           width="40"
                           height="40"
+                          style={{borderRadius: "50%"}}
                         />
                       </Link>
                     );
@@ -228,10 +229,8 @@ const ArtistProfile = (props) => {
       </div>
       <div className="row browse">
         <Link to="/artists" id="routerLink">
-          <i className="fas fa-search" style={{ color: "#c12a75" }}>
-            {" "}
-          </i>
-          <p className="browseArtistsLink">Browse More Artists</p>
+          
+          <p className="browseArtistsLink"><i className="fas fa-search" style={{ color: "#F7BA00" }}>{" "}</i>   Browse More Artists</p>
         </Link>
       </div>
       <TestSequencer />
