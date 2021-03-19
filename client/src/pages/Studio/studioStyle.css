@@ -1,0 +1,8 @@
+#signupSpan {
+    color: #F7BA00;
+}
+
+#signupSpan:hover {
+    color: #1EB100;
+    text-decoration: bold;
+}

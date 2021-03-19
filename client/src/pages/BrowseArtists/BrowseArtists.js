@@ -175,7 +175,7 @@ const BrowseArtists = (props) => {
             <option value="Stage Name">Stage Name</option>
             <option value="Last Name">Last Name</option>
           </select>
-          <form className="input-group mb-3 searchForm">
+          <form id="searchForm" className="input-group mb-3">
             <input
               type="text"
               name="search"

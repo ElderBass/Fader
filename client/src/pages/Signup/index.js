@@ -33,13 +33,13 @@ const Signup = (props) => {
   };
 
   return (
-    <>
+    <div id="signupPage">
       {!state.isSignedUp ? (
         <SignupForm signup={handleFormSubmit} />
       ) : (
         <SignupMessage />
       )}
-    </>
+    </div>
   );
 };
 

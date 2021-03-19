@@ -448,7 +448,8 @@ const TestSequencer = (props) => {
           value={drumState.bpm}
           onChange={handleBPMChange}
         />
-        </div>
+      </div>
+      <br/>
       </form>
       <table align="center">
         <tbody>
