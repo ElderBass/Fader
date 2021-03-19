@@ -148,6 +148,7 @@ const UserProfile = (props) => {
                           src={con.image}
                           width="40"
                           height="40"
+                          style={{borderRadius: "50%"}}
                         />
                       </Link>
                     );
