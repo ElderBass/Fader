@@ -5,12 +5,10 @@ import "./style.css";
 const FollowButton = (props) => {
 
   return (
-    <button
-      className="btn-default"
-      onClick={props.follow}
-    >
+    <p className="followMsg" id="followText"  onClick={props.follow}
+>
       Follow
-    </button>
+    </p>
   );
 };
 
