@@ -420,6 +420,7 @@ const TestSequencer = (props) => {
           type: CURRENT_MIX,
           mix: currentMix
       })
+      stopLoop();
   }
 
   return (
