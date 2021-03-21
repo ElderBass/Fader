@@ -18,17 +18,15 @@ import clap1 from '../../assets/images/seqencer-icons/clap2.png';
 import ride from '../../assets/images/seqencer-icons/ride1.png';
 import shaker1 from '../../assets/images/seqencer-icons/shaker1.png';
 
-
-
-
-
 const TestSequencer = (props) => {
   const [state, dispatch] = useUserContext();
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+  const handleShow = () => {
+    stopLoop();
+    setShow(true);
+  }
   const [drumState, setDrumState] = useState({
     kick1: 0,
     kick2: 8,
