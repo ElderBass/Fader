@@ -41,6 +41,7 @@ const UserProfile = (props) => {
 
   useEffect(() => {
     API.getOneArtist(state.user._id).then((user) => {
+      console.log("useEffect inside getOneArtists = ", user.data)
       setUserState({
         _id: user.data._id,
         stageName: user.data.stageName,
@@ -91,8 +92,13 @@ const UserProfile = (props) => {
     let data = {
       id: state.user._id,
       about: e.target.about.value,
+      stageName: e.target.stageName.value,
     };
+  
+
     API.addAbout(data).then((result) => {
+
+      console.log("result inside add about = ", result.data)
       dispatch({
         type: UPDATE_USER,
         user: result.data,
@@ -179,7 +185,7 @@ const UserProfile = (props) => {
                   src={userState.image}
                   width="50"
                   height="50"
-                  alt={userState.stagename}
+                  alt={userState.stageName}
                   onClick={handleShowPic}
                 />
                 <ProfilePictureForm
@@ -198,7 +204,7 @@ const UserProfile = (props) => {
                 <p className="aboutInfo">{userState.about}</p>
               </div>
               <div className="col-md-1 col-lg-1 col-sm-12" id="stage">
-                {userState.about ? (
+                {userState.about !== "" ? (
                   <>
                     <EditAbout
                       edit={handleEditAbout}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useUserContext } from "../../../utils/UserState";
 import "./style.css";
@@ -7,17 +7,34 @@ import cog from "../../../assets/images/cog.png";
 const EditAbout = (props) => {
   const [state, dispatch] = useUserContext();
 
-  const [about, editAboutState] = useState({
+  const [userInfo, editUserState] = useState({
     about: state.user.about,
+    stageName: state.user.stageName
   });
 
-  const handleEditChange = (e) => {
+  useEffect(() => {
+    editUserState({
+      about: state.user.about,
+      stageName: state.user.stageName
+    })
+  }, [state.user])
+
+  const handleEditAboutInfo = (e) => {
     e.preventDefault();
 
-    editAboutState({
+    editUserState({
+      ...userInfo,
       about: e.target.value,
     });
   };
+
+  const handleEditStageName = (e) => {
+    e.preventDefault();
+    editUserState({
+      ...userInfo,
+      stageName: e.target.value
+    })
+  }
 
   return (
     <>
@@ -30,16 +47,29 @@ const EditAbout = (props) => {
           <Modal.Title id="title">Remix.</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={props.edit}>
+          <form onSubmit={props.edit} className="needs-validation">
             <div className="form-group">
-              <label id="title" htmlFor="about">Not Feeling That Vibe?</label>
+              <label id="title" htmlFor="about">You've Changed.</label>
               <input
                 placeholder={state.user.about}
-                onChange={handleEditChange}
+                onChange={handleEditAboutInfo}
                 type="text"
                 className="form-control"
-                id="editAbout"
+                id="editInput"
                 name="about"
+                required
+              />
+              <br/>
+              <label id="title" htmlFor="about">Alter Ego...?</label>
+              <input 
+              placeholder={state.user.stageName}
+              // value={state.user.stageName}
+              onChange={handleEditStageName}
+              type="text"
+              className="form-control"
+              id="editInput"
+              name="stageName" 
+              required
               />
             </div>
             <Modal.Footer>

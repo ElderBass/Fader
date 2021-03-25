@@ -118,10 +118,11 @@ module.exports = {
   addAbout: function (req, res) {
     db.Artist.findOneAndUpdate(
       { _id: req.body.id },
-      { about: req.body.about },
+      { about: req.body.about, stageName: req.body.stageName },
       { new: true }
     )
       .then((result) => {
+        console.log("result inside add/edit about = ", result);
         res.json(result);
       })
       .catch((err) => res.status(422).json(err));
